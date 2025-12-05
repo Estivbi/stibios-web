@@ -1,0 +1,89 @@
+---
+import { ArrowUpRight, Map, ShoppingBag, Server } from 'lucide-react';
+import TrendLogic from './TrendLogic';
+---
+
+<section class="py-24 px-4 max-w-6xl mx-auto">
+  
+  <div class="mb-12 flex items-end gap-4 border-b border-stibios-border pb-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-stibios-text tracking-tighter">
+      / LABS_&_PROJECTS
+    </h2>
+    <span class="text-stibios-accent animate-cursor-blink mb-1">_</span>
+    <span class="ml-auto text-xs font-mono text-stibios-dim hidden md:block">
+      DEPLOYED_MODULES: 3
+    </span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-auto md:h-[500px]">
+
+    <article class="group relative md:col-span-2 md:row-span-1 bg-stibios-surface border border-stibios-border overflow-hidden rounded-sm hover:border-stibios-accent/50 transition-colors">
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+      
+      <div class="p-6 h-full flex flex-col md:flex-row gap-6 relative z-10">
+        <div class="flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-stibios-accent/10 text-stibios-accent border border-stibios-accent/20">AI & DATA</span>
+            </div>
+            <h3 class="text-2xl font-bold text-stibios-text mb-1 group-hover:text-stibios-accent transition-colors">TrendSaaS</h3>
+            <p class="text-stibios-dim text-sm leading-relaxed max-w-md">
+              Motor de detección de tendencias virales. Arquitectura basada en n8n y LLMs para análisis de sentimiento en tiempo real.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex-1 bg-black/50 rounded border border-stibios-border p-4 shadow-inner min-h-[120px]">
+            <TrendLogic client:visible />
+        </div>
+      </div>
+    </article>
+
+    <article class="group relative md:col-span-1 md:row-span-2 bg-stibios-surface border border-stibios-border overflow-hidden rounded-sm hover:border-blue-500/50 transition-colors">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
+
+      <div class="p-6 h-full flex flex-col relative z-10">
+        <div class="mb-auto">
+            <div class="w-10 h-10 bg-blue-500/10 rounded flex items-center justify-center text-blue-400 mb-4 border border-blue-500/20">
+                <Map size={20} />
+            </div>
+            <h3 class="text-xl font-bold text-stibios-text mb-1">Camp'in Management</h3>
+            <p class="text-stibios-dim text-xs font-mono mb-4">VERTICAL SaaS / PWA</p>
+            <p class="text-stibios-dim text-sm leading-relaxed">
+              Plataforma integral de gestión y conserjería digital para campings. Reservas, mapas y check-in offline.
+            </p>
+        </div>
+        
+        <div class="mt-4 border-t border-stibios-border pt-4">
+             <div class="flex justify-between text-xs font-mono text-blue-400/80">
+                <span>LAT: 41.38</span>
+                <span>LON: 2.17</span>
+             </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="group relative md:col-span-2 md:row-span-1 bg-stibios-surface border border-stibios-border overflow-hidden rounded-sm hover:border-purple-500/50 transition-colors flex flex-col justify-center">
+      <div class="absolute right-0 top-0 p-32 bg-purple-500/5 blur-[80px] rounded-full pointer-events-none"></div>
+      
+      <div class="p-6 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+        <div>
+            <h3 class="text-xl font-bold text-stibios-text mb-1 flex items-center gap-2">
+                Client Solutions
+                <Server size={16} className="text-purple-400" />
+            </h3>
+            <p class="text-stibios-dim text-sm max-w-lg">
+              Desarrollo de alto rendimiento. Especialistas en <span class="text-stibios-text">Shopify Headless</span> y <span class="text-stibios-text">Astro Corporativo</span>.
+            </p>
+        </div>
+        
+        <a href="#contacto" class="flex items-center gap-2 px-5 py-2 bg-stibios-text text-stibios-bg font-bold text-sm hover:bg-white transition-colors">
+            TRABAJA CON NOSOTROS
+            <ArrowUpRight size={16} />
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>

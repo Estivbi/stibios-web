@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  /* Tipografía */
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: "JetBrains Mono", ui-sans-serif, system-ui, sans-serif; /* Forzamos Mono como Sans */
+
+  /* Paleta STIBIOS */
+  --color-stibios-bg: #050505;
+  --color-stibios-surface: #0F0F0F;
+  --color-stibios-border: #27272a;
+  --color-stibios-text: #e4e4e7;
+  --color-stibios-dim: #a1a1aa;
+  --color-stibios-accent: #00FF94;
+
+  /* Animaciones */
+  --animate-cursor-blink: blink 1s step-end infinite;
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  --animate-scroll: scroll 20s linear infinite;
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+}
+
+/* Estilos globales base */
+@layer base {
+  body {
+    @apply bg-stibios-bg text-stibios-text;
+  }
+}

@@ -1,0 +1,51 @@
+---
+import { ArrowRight, Mail, Github, Linkedin } from 'lucide-react';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-stibios-border bg-stibios-surface pt-20 pb-10">
+  <div class="max-w-6xl mx-auto px-4">
+    
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-20">
+      <div class="max-w-xl">
+        <h2 class="text-4xl md:text-5xl font-bold text-stibios-text mb-4 tracking-tight">
+          ¿TIENES UN PROYECTO?
+        </h2>
+        <p class="text-stibios-dim text-lg">
+          Transformamos ideas complejas en código eficiente. Hablemos de tu próxima gran cosa.
+        </p>
+      </div>
+
+      <a href="mailto:hola@stibios.com" class="group flex items-center gap-4 px-8 py-4 bg-stibios-accent text-stibios-bg font-bold text-xl rounded-sm hover:bg-white transition-all hover:scale-105">
+        INICIAR PROTOCOLO
+        <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+      </a>
+    </div>
+
+    <div class="h-px w-full bg-stibios-border mb-10"></div>
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-stibios-dim font-mono">
+      
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 bg-stibios-accent rounded-full animate-pulse"></div>
+        <span>SYSTEM_STATUS: ONLINE</span>
+      </div>
+
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-stibios-accent transition-colors flex items-center gap-2">
+            <Github size={16} /> GITHUB
+        </a>
+        <a href="#" class="hover:text-stibios-accent transition-colors flex items-center gap-2">
+            <Linkedin size={16} /> LINKEDIN
+        </a>
+        <a href="#" class="hover:text-stibios-accent transition-colors flex items-center gap-2">
+            <Mail size={16} /> EMAIL
+        </a>
+      </div>
+
+      <p>© {currentYear} STIBIOS LABS.</p>
+    </div>
+
+  </div>
+</footer>
