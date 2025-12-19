@@ -1,0 +1,84 @@
+---
+import { Send, Terminal } from 'lucide-react';
+---
+
+<section id="contacto" class="py-24 px-4 max-w-4xl mx-auto">
+  
+  <div class="bg-stibios-surface border border-stibios-border rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+    
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+
+    <div class="relative z-10 flex flex-col md:flex-row gap-12">
+      
+      <div class="flex-1">
+        <div class="inline-flex items-center gap-2 text-stibios-accent text-xs font-mono mb-6 border border-stibios-accent/20 px-3 py-1 rounded-full bg-stibios-accent/5">
+          <div class="w-2 h-2 rounded-full bg-stibios-accent animate-pulse"></div>
+          OPEN FOR WORK
+        </div>
+        
+        <h2 class="text-3xl md:text-4xl font-bold text-stibios-text mb-4">
+          Inicia el <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-stibios-text to-stibios-dim">Protocolo de Proyecto</span>
+        </h2>
+        
+        <p class="text-stibios-dim leading-relaxed mb-8">
+          Cuéntame qué estás construyendo. Ya sea un SaaS complejo, una web corporativa o una idea loca. Analizaré la viabilidad técnica y te responderé en 24h.
+        </p>
+
+        <div class="font-mono text-xs text-stibios-dim/50">
+            <p>LOCATION: REMOTE / WORLDWIDE</p>
+            <p>LATENCY: &lt; 24H RESPONSE</p>
+        </div>
+      </div>
+
+      <div class="flex-1">
+        <form class="space-y-4">
+          
+          <div class="space-y-1">
+            <label for="name" class="text-xs font-mono text-stibios-dim ml-1">VAR: CLIENT_NAME</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              placeholder="Tu nombre o Empresa"
+              class="w-full bg-stibios-bg border border-stibios-border rounded p-3 text-stibios-text focus:border-stibios-accent focus:ring-1 focus:ring-stibios-accent outline-none transition-all placeholder:text-stibios-border"
+              required
+            />
+          </div>
+
+          <div class="space-y-1">
+            <label for="email" class="text-xs font-mono text-stibios-dim ml-1">VAR: EMAIL_ADDRESS</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="hola@empresa.com"
+              class="w-full bg-stibios-bg border border-stibios-border rounded p-3 text-stibios-text focus:border-stibios-accent focus:ring-1 focus:ring-stibios-accent outline-none transition-all placeholder:text-stibios-border"
+              required
+            />
+          </div>
+
+          <div class="space-y-1">
+            <label for="message" class="text-xs font-mono text-stibios-dim ml-1">FUNC: PROJECT_DETAILS()</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="4" 
+              placeholder="Describe tu proyecto..."
+              class="w-full bg-stibios-bg border border-stibios-border rounded p-3 text-stibios-text focus:border-stibios-accent focus:ring-1 focus:ring-stibios-accent outline-none transition-all placeholder:text-stibios-border resize-none"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-stibios-text text-stibios-bg font-bold py-3 rounded hover:bg-white transition-all flex items-center justify-center gap-2 group">
+            <Terminal size={18} />
+            <span>EJECUTAR ENVÍO</span>
+            <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform opacity-60" />
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
