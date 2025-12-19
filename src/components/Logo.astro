@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<a href="/" class={`group flex items-center gap-2 font-mono font-bold tracking-tighter ${className}`} aria-label="STIBIOS Home">
+  <div class="relative flex items-center justify-center w-8 h-8 rounded bg-stibios-surface border border-stibios-border group-hover:border-stibios-accent/50 transition-colors">
+    <span class="text-stibios-accent text-lg leading-none mt-[-2px]">&gt;_</span>
+  </div>
+  
+  <span class="text-xl text-stibios-text group-hover:text-white transition-colors">
+    STIBIOS
+    <span class="text-stibios-accent animate-pulse">.</span>
+  </span>
+</a>
