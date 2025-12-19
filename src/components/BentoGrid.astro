@@ -1,9 +1,9 @@
 ---
-import { ArrowUpRight, Map, ShoppingBag, Server } from 'lucide-react';
+import { ArrowUpRight, Map, Server, Activity } from 'lucide-react';
 import TrendLogic from './TrendLogic';
 ---
 
-<section class="py-24 px-4 max-w-6xl mx-auto">
+<section id="proyectos" class="py-24 px-4 max-w-6xl mx-auto">
   
   <div class="mb-12 flex items-end gap-4 border-b border-stibios-border pb-4">
     <h2 class="text-3xl md:text-4xl font-bold text-stibios-text tracking-tighter">
@@ -17,46 +17,54 @@ import TrendLogic from './TrendLogic';
 
   <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-auto md:h-[500px]">
 
-    <article class="group relative md:col-span-2 md:row-span-1 bg-stibios-surface border border-stibios-border overflow-hidden rounded-sm hover:border-stibios-accent/50 transition-colors">
-      <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+    <article class="group relative md:col-span-2 md:row-span-1 bg-stibios-surface border border-stibios-border overflow-hidden rounded-xl transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_30px_rgba(94,106,210,0.15)]">
+      
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-stibios-accent)_0%,transparent_100%)] opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none mix-blend-soft-light"></div>
+      
+      <div class="absolute inset-0 bg-stibios-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
       
       <div class="p-6 h-full flex flex-col md:flex-row gap-6 relative z-10">
         <div class="flex-1 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-2">
-                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-stibios-accent/10 text-stibios-accent border border-stibios-accent/20">AI & DATA</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-stibios-accent/10 text-stibios-accent border border-stibios-accent/20 group-hover:bg-stibios-accent group-hover:text-white transition-colors">AI & DATA</span>
             </div>
-            <h3 class="text-2xl font-bold text-stibios-text mb-1 group-hover:text-stibios-accent transition-colors">TrendSaaS</h3>
-            <p class="text-stibios-dim text-sm leading-relaxed max-w-md">
-              Motor de detección de tendencias virales. Arquitectura basada en n8n y LLMs para análisis de sentimiento en tiempo real.
+            <h3 class="text-2xl font-bold text-stibios-text mb-1 group-hover:text-white transition-colors">TrendSaaS</h3>
+            <p class="text-stibios-dim text-sm leading-relaxed max-w-md group-hover:text-stibios-text/90 transition-colors">
+              Motor de detección de tendencias virales. Arquitectura basada en n8n y LLMs para análisis de sentimiento.
             </p>
           </div>
         </div>
 
-        <div class="flex-1 bg-black/50 rounded border border-stibios-border p-4 shadow-inner min-h-[120px]">
+        <div class="flex-1 bg-black/40 rounded border border-stibios-border/50 p-4 shadow-inner min-h-[120px] backdrop-blur-sm group-hover:border-stibios-accent/30 transition-colors">
             <TrendLogic client:visible />
         </div>
       </div>
     </article>
 
-    <article class="group relative md:col-span-1 md:row-span-2 bg-stibios-surface border border-stibios-border overflow-hidden rounded-sm hover:border-blue-500/50 transition-colors">
-      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
+    <article class="group relative md:col-span-1 md:row-span-2 bg-stibios-surface border border-stibios-border overflow-hidden rounded-xl transition-all duration-500 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]">
+      
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#3b82f6_0%,transparent_70%)] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"></div>
+      
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-blue-900/20 to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
 
       <div class="p-6 h-full flex flex-col relative z-10">
         <div class="mb-auto">
-            <div class="w-10 h-10 bg-blue-500/10 rounded flex items-center justify-center text-blue-400 mb-4 border border-blue-500/20">
+            <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-400 mb-4 border border-blue-500/20 group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
                 <Map size={20} />
             </div>
-            <h3 class="text-xl font-bold text-stibios-text mb-1">Camp'in Management</h3>
-            <p class="text-stibios-dim text-xs font-mono mb-4">VERTICAL SaaS / PWA</p>
-            <p class="text-stibios-dim text-sm leading-relaxed">
-              Plataforma integral de gestión y conserjería digital para campings. Reservas, mapas y check-in offline.
+            <h3 class="text-xl font-bold text-stibios-text mb-1 group-hover:text-white">Camp'in App</h3>
+            <p class="text-stibios-dim text-xs font-mono mb-4 group-hover:text-blue-200">VERTICAL SaaS / PWA</p>
+            <p class="text-stibios-dim text-sm leading-relaxed group-hover:text-stibios-text/90">
+              Gestión integral para campings. Reservas, mapas interactivos y check-in offline.
             </p>
         </div>
         
-        <div class="mt-4 border-t border-stibios-border pt-4">
-             <div class="flex justify-between text-xs font-mono text-blue-400/80">
+        <div class="mt-4 border-t border-stibios-border/50 pt-4 group-hover:border-blue-500/30 transition-colors">
+             <div class="flex justify-between text-xs font-mono text-blue-400/80 group-hover:text-blue-300">
                 <span>LAT: 41.38</span>
                 <span>LON: 2.17</span>
              </div>
@@ -64,21 +72,24 @@ import TrendLogic from './TrendLogic';
       </div>
     </article>
 
-    <article class="group relative md:col-span-2 md:row-span-1 bg-stibios-surface border border-stibios-border overflow-hidden rounded-sm hover:border-purple-500/50 transition-colors flex flex-col justify-center">
-      <div class="absolute right-0 top-0 p-32 bg-purple-500/5 blur-[80px] rounded-full pointer-events-none"></div>
+    <article class="group relative md:col-span-2 md:row-span-1 bg-stibios-surface border border-stibios-border overflow-hidden rounded-xl transition-all duration-500 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] flex flex-col justify-center">
+      
+      <div class="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+      
+      <div class="absolute right-0 top-0 p-32 bg-purple-500/5 blur-[80px] rounded-full pointer-events-none group-hover:bg-purple-500/10 transition-colors duration-500"></div>
       
       <div class="p-6 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
         <div>
-            <h3 class="text-xl font-bold text-stibios-text mb-1 flex items-center gap-2">
+            <h3 class="text-xl font-bold text-stibios-text mb-1 flex items-center gap-2 group-hover:text-white">
                 Client Solutions
-                <Server size={16} className="text-purple-400" />
+                <Server size={16} className="text-purple-400 group-hover:text-purple-300" />
             </h3>
-            <p class="text-stibios-dim text-sm max-w-lg">
-              Desarrollo de alto rendimiento. Especialistas en <span class="text-stibios-text">Shopify Headless</span> y <span class="text-stibios-text">Astro Corporativo</span>.
+            <p class="text-stibios-dim text-sm max-w-lg group-hover:text-stibios-text/90">
+              Desarrollo de alto rendimiento. Especialistas en <span class="text-stibios-text group-hover:text-white font-bold">Shopify Headless</span> y <span class="text-stibios-text group-hover:text-white font-bold">Astro Corporativo</span>.
             </p>
         </div>
         
-        <a href="#contacto" class="flex items-center gap-2 px-5 py-2 bg-stibios-text text-stibios-bg font-bold text-sm hover:bg-white transition-colors">
+        <a href="#contacto" class="flex items-center gap-2 px-5 py-2 bg-stibios-text text-stibios-bg font-bold text-sm hover:bg-white hover:scale-105 transition-all rounded shadow-lg">
             TRABAJA CON NOSOTROS
             <ArrowUpRight size={16} />
         </a>

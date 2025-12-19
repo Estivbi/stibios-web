@@ -1,0 +1,66 @@
+---
+import {Home, Layers, Zap, Mail} from 'lucide-react';
+---
+
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md">
+  <div class="flex items-center justify-between px-6 py-3 rounded-full 
+              bg-stibios-surface/70 backdrop-blur-md border border-stibios-border/50 
+              shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+    
+    <a href="#" class="nav-item group" aria-label="Inicio">
+      <Home size={20} className="text-stibios-dim group-hover:text-stibios-text transition-colors" />
+      <span class="sr-only">Inicio</span>
+      <span class="tooltip">/home</span>
+    </a>
+
+    <a href="#proyectos" class="nav-item group" aria-label="Proyectos">
+      <Layers size={20} className="text-stibios-dim group-hover:text-stibios-text transition-colors" />
+      <span class="sr-only">Proyectos</span>
+      <span class="tooltip">/projects</span>
+    </a>
+
+    <a href="#metodo" class="nav-item group" aria-label="Metodología">
+      <Zap size={20} className="text-stibios-dim group-hover:text-stibios-text transition-colors" />
+      <span class="sr-only">Metodología</span>
+      <span class="tooltip">/method</span>
+    </a>
+
+    <div class="w-px h-4 bg-stibios-border"></div>
+
+    <a href="#contacto" class="flex items-center gap-2 text-xs font-bold text-stibios-accent hover:text-white transition-colors">
+      <Mail size={16} />
+      <span>CONTACT</span>
+    </a>
+
+  </div>
+</nav>
+
+<style>
+  /* Estilos para el tooltip que aparece al pasar el ratón */
+  .nav-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .tooltip {
+    position: absolute;
+    top: 150%;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    background: var(--color-stibios-bg);
+    border: 1px solid var(--color-stibios-border);
+    padding: 2px 6px;
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .nav-item:hover .tooltip {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

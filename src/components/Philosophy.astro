@@ -1,0 +1,43 @@
+---
+import { Cpu, Palette, GitBranch } from 'lucide-react';
+
+const features = [
+  {
+    icon: Cpu,
+    title: "High Performance",
+    desc: "Sitios estáticos ultra-rápidos. Sin tiempos de carga, sin JavaScript innecesario. Core Web Vitals en verde siempre."
+  },
+  {
+    icon: Palette,
+    title: "Pixel Perfect",
+    desc: "Atención obsesiva al detalle. Animaciones fluidas, tipografía ajustada y diseño adaptativo que respira."
+  },
+  {
+    icon: GitBranch,
+    title: "Scalable Architecture",
+    desc: "Código modular y limpio. Construimos sistemas pensados para crecer, no parches temporales."
+  }
+];
+---
+
+<section id="metodo" class="py-24 px-4 max-w-6xl mx-auto border-t border-stibios-border/30">
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+    {features.map(f => (
+      <div class="group">
+        <div class="w-12 h-12 bg-stibios-surface border border-stibios-border rounded-lg flex items-center justify-center mb-6 group-hover:border-stibios-accent/50 group-hover:bg-stibios-accent/5 transition-all duration-500">
+          <f.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={24} />
+        </div>
+        
+        <h3 class="text-xl font-bold text-stibios-text mb-3">
+          {f.title}
+        </h3>
+        
+        <p class="text-sm text-stibios-dim leading-relaxed">
+          {f.desc}
+        </p>
+      </div>
+    ))}
+  </div>
+
+</section>
