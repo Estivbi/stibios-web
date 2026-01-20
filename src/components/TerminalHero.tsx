@@ -3,7 +3,7 @@ import { ArrowRight, Sparkles, Command } from 'lucide-react';
 
 export default function TerminalHero() {
   const [text, setText] = useState('');
-  const fullText = "Building software for the next generation_";
+  const fullText = "Creando software para la próxima generación_";
   
   useEffect(() => {
     let index = 0;
@@ -26,10 +26,10 @@ export default function TerminalHero() {
         </div>
         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-[1.1]">
             <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40">
-                Crafting the
+              Creando el 
             </span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent via-white to-stibios-accent bg-[length:200%_auto] animate-[shimmer_5s_infinite_linear]">
-                Future of Code
+                código del futuro
             </span>
         </h1>
         <div className="h-8 mb-8 font-mono text-stibios-dim text-sm md:text-base">
