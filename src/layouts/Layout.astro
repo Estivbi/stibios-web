@@ -2,22 +2,51 @@
 import '@fontsource/jetbrains-mono';
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
+
 interface Props {
 	title: string;
+	description?: string;
+	image?: string;
 }
 
-const { title } = Astro.props;
+const { 
+	title, 
+	description = "STIBIOS LABS - Estudio de software especializado en soluciones B2B, automatización y desarrollo web de alto rendimiento con Astro.",
+	image = "/logo.png" // Asumiendo que el usuario lo pondrá en public o usaremos una ref
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://stibios.net");
 ---
 
 <!doctype html>
 <html lang="es" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="STIBIOS - Software Studio & Labs" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/x-icon" href="/logo.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title} | STIBIOS</title>
+
+		<!-- SEO Primario -->
+		<title>{title} | STIBIOS LABS</title>
+		<meta name="title" content={`${title} | STIBIOS LABS`} />
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+		<meta name="theme-color" content="#050505" />
 	</head>
 	<body class="bg-stibios-bg text-stibios-text font-mono antialiased selection:bg-stibios-accent selection:text-stibios-bg">
 		<div class="fixed inset-0 z-[-1] opacity-5 pointer-events-none mix-blend-overlay" 
