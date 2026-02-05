@@ -34,7 +34,7 @@ export default function TrendLogic() {
       </div>
       <div className="space-y-1">
         {logs.map((log, i) => (
-          <div key={i} className={`${i === 0 ? 'text-stibios-text font-bold' : 'opacity-50'} transition-all duration-300`}>
+          <div key={i} className={`${i === 0 ? 'text-stibios-text font-bold' : 'opacity-50'} transition-all duration-300 break-all md:break-normal`}>
              {log}
           </div>
         ))}
