@@ -8,14 +8,12 @@ export default function TerminalHero() {
             <span className="block text-white">
               Diseñando tu
             </span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent via-stibios-purple to-stibios-accent bg-[length:200%_auto] animate-shimmer">
+            <span className=" block text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent via-stibios-purple to-stibios-accent bg-[length:200%_auto] animate-shimmer">
                 éxito digital
             </span>
         </h1>
-        <div className="h-12 mb-12 font-sans text-stibios-dim text-base md:text-xl max-w-3xl leading-relaxed">
-        </div>
         
-        <div className="flex flex-col sm:flex-row gap-6 mt-4">
+        <div className="flex flex-col sm:flex-row gap-6 mt-6">
             <a href="#proyectos" className="group relative px-10 py-5 bg-white text-black font-bold rounded-full transition-all hover:scale-[1.05] hover:shadow-[0_0_40px_rgba(0,209,255,0.3)] flex items-center gap-3">
                 <Sparkles size={20} className="text-stibios-purple" />
                 Ver Soluciones
