@@ -4,40 +4,47 @@ import { Cpu, Palette, GitBranch } from 'lucide-react';
 const features = [
   {
     icon: Cpu,
-    title: "Alto Rendimiento",
-    desc: "Sitios estáticos ultra-rápidos. Sin tiempos de carga, sin JavaScript innecesario. Core Web Vitals en verde siempre."
+    title: "Escalabilidad Técnica",
+    desc: "Desarrollamos arquitecturas sólidas que crecen orgánicamente con tu empresa, evitando la deuda técnica y garantizando el futuro del software."
   },
   {
     icon: Palette,
-    title: "Pixel Perfecto",
-    desc: "Atención obsesiva al detalle. Animaciones fluidas, tipografía ajustada y diseño adaptativo que respira."
+    title: "Diseño Estratégico",
+    desc: "Interfaces de alto impacto que no solo proyectan una imagen profesional, sino que están optimizadas para la conversión y la retención del usuario."
   },
   {
     icon: GitBranch,
-    title: "Arquitectura Escalable",
-    desc: "Código modular y limpio. Construimos sistemas pensados para crecer, no parches temporales."
+    title: "Disponibilidad Crítica",
+    desc: "Implementamos sistemas de monitorización y despliegue continuo para asegurar que tus servicios estén operativos el 100% del tiempo."
   }
 ];
 ---
 
-<section id="metodo" class="py-24 px-4 max-w-6xl mx-auto border-t border-stibios-border/30">
+<section id="metodo" class="py-24 px-4 max-w-6xl mx-auto border-t border-stibios-border">
   
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+  <div class="mb-16">
+    <h2 class="text-xs font-mono text-stibios-accent uppercase tracking-[0.3em] mb-4">Metodología de Alto Rendimiento</h2>
+    <p class="text-4xl md:text-5xl font-bold text-white tracking-tighter max-w-3xl leading-tight">
+      Sistemas de nivel profesional <br />
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent to-stibios-purple italic">diseñados para materializar ideas en productos digitales coherentes.</span>
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-balance">
     {features.map(f => (
       <div class="group">
-        <div class="w-12 h-12 bg-stibios-surface border border-stibios-border rounded-lg flex items-center justify-center mb-6 group-hover:border-stibios-accent/50 group-hover:bg-stibios-accent/5 transition-all duration-500">
-          <f.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={24} />
+        <div class="w-14 h-14 bg-stibios-surface border border-stibios-border rounded-xl flex items-center justify-center mb-8 group-hover:border-stibios-accent group-hover:bg-stibios-accent/[0.03] transition-all duration-500 shadow-xl shadow-black/20 group-hover:shadow-stibios-accent/5">
+          <f.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={28} />
         </div>
         
-        <h3 class="text-xl font-bold text-stibios-text mb-3">
+        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-stibios-accent transition-colors">
           {f.title}
         </h3>
         
-        <p class="text-sm text-stibios-dim leading-relaxed">
+        <p class="text-base text-stibios-dim leading-relaxed">
           {f.desc}
         </p>
       </div>
     ))}
   </div>
-
 </section>

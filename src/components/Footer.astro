@@ -3,14 +3,17 @@ const currentYear = new Date().getFullYear();
 import Logo from "./Logo.astro";
 ---
 
-<footer class="border-t border-stibios-border/50 bg-stibios-bg pt-12 pb-12">
-  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
+<footer class="border-t border-stibios-border bg-stibios-bg pt-20 pb-12">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
     
-    <div class="flex flex-col items-center md:items-start gap-4">
+    <div class="flex flex-col gap-6">
       <Logo />
-      <div class="text-stibios-dim text-sm font-mono flex items-center gap-2">
-        <div class="w-1.5 h-1.5 bg-stibios-accent rounded-full animate-pulse"></div>
-        <p>© {currentYear} STIBIOS LABS. Todos los sistemas operativos.</p>
+      <div class="text-stibios-dim text-xs font-mono max-w-sm leading-relaxed">
+        <p>© {currentYear} STIBIOS LABS. <br />Desarrollando sistemas de alto rendimiento y consultoría tecnológica avanzada.</p>
+        <div class="flex items-center gap-2 mt-4">
+          <div class="w-1.5 h-1.5 bg-stibios-accent rounded-full animate-pulse shadow-[0_0_8px_rgba(0,209,255,0.8)]"></div>
+          <span class="text-[10px] tracking-wider uppercase text-stibios-accent">Systems Online</span>
+        </div>
       </div>
     </div>
 

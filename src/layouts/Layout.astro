@@ -2,6 +2,7 @@
 import '@fontsource/jetbrains-mono';
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
+import InfoModal from '../components/InfoModal.astro';
 
 interface Props {
 	title: string;
@@ -48,7 +49,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://stibios.
 
 		<meta name="theme-color" content="#050505" />
 	</head>
-	<body class="bg-stibios-bg text-stibios-text font-mono antialiased selection:bg-stibios-accent selection:text-stibios-bg">
+	<body class="bg-stibios-bg text-stibios-text font-sans antialiased selection:bg-stibios-accent selection:text-stibios-bg">
 		<div class="fixed inset-0 z-[-1] opacity-5 pointer-events-none mix-blend-overlay" 
              style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');">
         </div>
@@ -56,5 +57,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://stibios.
 		<main class="min-h-screen flex flex-col relative overflow-hidden">
 			<slot />
 		</main>
+		<InfoModal />
 	</body>
 </html>

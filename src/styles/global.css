@@ -1,22 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  /* Tipografía: Mantenemos JetBrains pero ajustamos pesos */
+  /* Tipografía: Mix entre Sans profesional y Mono técnica */
+  --font-sans: "Inter", "Geist", "San Francisco", "Helvetica Neue", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   
-  /* Colores Linear Style (Más profundos, menos contraste duro) */
-  --color-stibios-bg: #0B0C10;      /* Negro azulado muy profundo */
-  --color-stibios-surface: #13141C; /* Gris espacial para tarjetas */
-  --color-stibios-border: #2E2E32;  /* Borde sutil */
-  --color-stibios-text: #EEEEF0;    /* Blanco suave */
-  --color-stibios-dim: #8A8F98;     /* Gris medio estilo Linear */
-  --color-stibios-accent: #5E6AD2;  /* Azul/Purpura Linear (reemplazando el verde neón duro) */
-  --color-stibios-glow: #00FF94;    /* Mantenemos el verde solo para pequeños destellos de "código" */
+  /* Colores Base Logo (Azul y Morado Neon) */
+  --color-stibios-bg: #030407;
+  --color-stibios-surface: #0B0D13;
+  --color-stibios-border: #1F222C;
+  --color-stibios-text: #F8FAFC;
+  --color-stibios-dim: #94A3B8;
+  
+  /* Gradiente Logo */
+  --color-stibios-accent: #00D1FF;  /* Azul Cyan del logo */
+  --color-stibios-purple: #AD00FF;  /* Morado del logo */
+  --color-stibios-glow: #00D1FF;    /* Usamos el azul como brillo principal */
 
   /* Animaciones Sutiles */
   --animate-cursor-blink: blink 1s step-end infinite;
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
 
   @keyframes blink {
     0%, 100% { opacity: 1; }
@@ -27,11 +32,16 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
   }
+
+  @keyframes shimmer {
+    from { background-position: 0% 0%; }
+    to { background-position: 200% 0%; }
+  }
 }
 
 /* Estilos base */
 @layer base {
   body {
-    @apply bg-stibios-bg text-stibios-text selection:bg-stibios-accent selection:text-white;
+    @apply bg-stibios-bg text-stibios-text selection:bg-stibios-accent selection:text-white antialiased;
   }
 }

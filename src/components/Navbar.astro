@@ -9,33 +9,34 @@ import Logo from './Logo.astro';
     <Logo />
   </div>
 
-  <nav class="pointer-events-auto w-full max-w-2xl"> <div class="flex items-center justify-between px-10 py-4 rounded-full 
-                bg-stibios-surface/80 backdrop-blur-xl border border-stibios-border/50 
-                shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all hover:border-stibios-accent/30">
+  <nav class="pointer-events-auto w-full max-w-2xl group/nav"> 
+    <div class="flex items-center justify-between px-10 py-4 rounded-full 
+                bg-stibios-surface backdrop-blur-2xl border border-stibios-border
+                shadow-[0_8px_32px_rgba(0,0,0,0.8)] transition-all hover:border-stibios-accent/50">
       
-      <a href="/" class="xl:hidden mr-4 text-stibios-accent font-bold font-mono text-lg">&gt;_</a>
+      <a href="/" class="xl:hidden mr-4 text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent to-stibios-purple font-black font-sans text-xl hover:scale-110 transition-transform">S</a>
 
-      <div class="flex items-center gap-8 md:gap-12 mx-auto"> <a href="#" class="nav-item group" aria-label="Inicio">
-          <Home size={22} className="text-stibios-dim group-hover:text-stibios-text transition-colors" />
+      <div class="flex items-center gap-8 md:gap-14 mx-auto"> 
+        <a href="#" class="nav-item group" aria-label="Inicio">
+          <Home size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all" />
           <span class="tooltip">/inicio</span>
         </a>
 
         <a href="#metodo" class="nav-item group" aria-label="Metodología">
-          <Zap size={22} className="text-stibios-dim group-hover:text-stibios-text transition-colors" />
+          <Zap size={22} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all" />
           <span class="tooltip">/metodología</span>
         </a>
 
         <a href="#proyectos" class="nav-item group" aria-label="Proyectos">
-          <Layers size={22} className="text-stibios-dim group-hover:text-stibios-text transition-colors" />
+          <Layers size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all" />
           <span class="tooltip">/proyectos</span>
         </a>
-
       </div>
 
-      <div class="flex items-center pl-6 border-l border-stibios-border/50 ml-6">
-        <a href="#contacto" class="flex items-center gap-3 text-xs font-bold text-stibios-accent hover:text-white transition-colors tracking-wide">
+      <div class="flex items-center pl-6 border-l border-stibios-border ml-6">
+        <a href="#contacto" class="flex items-center gap-3 text-[11px] font-black text-stibios-accent hover:text-white transition-all tracking-widest uppercase">
           <Mail size={18} />
-          <span class="hidden sm:inline">CONTACTO</span>
+          <span class="hidden sm:inline">Hablemos</span>
         </a>
       </div>
 
