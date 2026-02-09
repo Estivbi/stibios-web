@@ -1,0 +1,80 @@
+---
+import { Server, ExternalLink } from "lucide-react";
+
+const projects = [
+  {
+    name: "CUSTODIO JOSÉ PÉREZ",
+    url: "https://www.custodiojoseperez.com/",
+    desc: "Plataforma profesional con enfoque en marca personal y servicios legales."
+  },
+  {
+    name: "PATRICIA MORENO",
+    url: "https://patriciamoreno.vercel.app/",
+    desc: "Portfolio de alto rendimiento con diseño minimalista y optimización SEO."
+  },
+  {
+    name: "RENTAS MEASESORAN",
+    url: "https://rentas.measesoran.eu/login",
+    desc: "Sistema B2B de gestión tributaria y área de cliente privada."
+  },
+  {
+    name: "VICTORIA REVISTA",
+    url: "https://www.victoriarevista.com/",
+    desc: "Magacín digital de alta calidad visual con gestión de contenidos dinámica."
+  }
+];
+---
+
+<section id="proyectos-realizados" class="py-32 px-4 relative overflow-hidden bg-stibios-bg">
+  {/* Fondo con gradiente sutil heredado de la card anterior */}
+  <div class="absolute inset-0 bg-gradient-to-b from-purple-500/[0.03] to-transparent pointer-events-none"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent"></div>
+
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="flex flex-col mb-16">
+      <div class="flex items-center gap-3 mb-4">
+        <Server size={32} className="text-purple-500" />
+        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter">
+          Desarrollo a Medida
+        </h2>
+      </div>
+      <p class="text-stibios-dim text-lg max-w-2xl leading-relaxed">
+        Estrategias digitales personalizadas con enfoque en 
+        <span class="text-white font-bold italic"> escalabilidad y rendimiento excepcional.</span> 
+        Transformamos necesidades de negocio en infraestructura robusta.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {projects.map((p) => (
+        <a
+          href={p.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative bg-stibios-surface border border-stibios-border p-8 rounded-2xl transition-all duration-500 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.1)] flex flex-col justify-between"
+        >
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+          
+          <div>
+            <div class="flex justify-between items-start mb-6">
+              <div class="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+              <ExternalLink size={18} className="text-stibios-dim group-hover:text-purple-400 transition-colors" />
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors uppercase tracking-tight">
+              {p.name}
+            </h3>
+            <p class="text-stibios-dim text-sm leading-relaxed mb-6">
+              {p.desc}
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-stibios-border/50">
+            <span class="text-[10px] font-mono text-stibios-dim group-hover:text-purple-300 transition-colors">
+              // LIVE_PROJECT_STIBIOS_OS
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
