@@ -6,10 +6,10 @@ export default function TerminalHero() {
     <div className="w-full max-w-5xl mx-auto px-4 text-center flex flex-col items-center pt-24">
         <h1 className="text-5xl md:text-8xl font-bold mb-8 tracking-tighter leading-[1] md:leading-[0.9]">
             <span className="block text-white">
-              Creando el 
+              Diseñando tu
             </span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent via-stibios-purple to-stibios-accent bg-[length:200%_auto] animate-shimmer">
-                código del futuro
+                éxito digital
             </span>
         </h1>
         <div className="h-12 mb-12 font-sans text-stibios-dim text-base md:text-xl max-w-3xl leading-relaxed">
