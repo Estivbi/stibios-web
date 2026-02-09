@@ -12,7 +12,7 @@ export default {
             // ... resto de tu configuración de colores y animaciones ...
 			colors: {
 				stibios: {
-					bg: "#050505",
+					bg: "#08090a",
 					surface: "#0F0F0F",
 					border: "#27272a",
 					text: "#e4e4e7",
