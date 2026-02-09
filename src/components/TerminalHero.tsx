@@ -4,11 +4,11 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 export default function TerminalHero() {
   return (
     <div className="w-full max-w-5xl mx-auto px-4 text-center flex flex-col items-center pt-24">
-        <h1 className="text-5xl md:text-8xl font-bold mb-8 tracking-tighter leading-[1] md:leading-[0.9]">
+        <h1 className="text-5xl md:text-8xl font-bold mb-8 tracking-tighter leading-[1.1] md:leading-[1.1]">
             <span className="block text-white">
               Diseñando tu
             </span>
-            <span className=" block text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent via-stibios-purple to-stibios-accent bg-[length:200%_auto] animate-shimmer">
+            <span className=" block text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent via-stibios-purple to-stibios-accent bg-[length:200%_auto] animate-shimmer pb-2">
                 éxito digital
             </span>
         </h1>
