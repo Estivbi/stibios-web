@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
+import tecladoImg from "../assets/teclado.jpg";
 
 export default function TerminalHero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -30,6 +31,29 @@ export default function TerminalHero() {
         Sistemas de nivel profesional diseñados para materializar ideas en
         productos digitales escalables y precisos.{" "}
       </p>
+
+      <div className="[perspective:3000px] w-full max-w-[1200px] mb-32 px-4 relative">
+        {/* Resplandor de fondo para integración */}
+        <div className="absolute inset-0 bg-stibios-accent/10 blur-[120px] rounded-full scale-75 opacity-50 pointer-events-none"></div>
+
+        <div 
+          className="relative overflow-hidden [transform:rotateX(52deg)_rotateY(12deg)_rotateZ(-4deg)] mt-[-100px]"
+          style={{
+            maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 95%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 95%)'
+          }}
+        >
+          <img
+            src={tecladoImg.src}
+            alt="Teclado Profesional"
+            className="w-full h-auto object-cover opacity-90 scale-[1.1]"
+          />
+          
+          {/* Sombreado interno para fundir con el negro */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#020406] via-transparent to-transparent opacity-40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020406] opacity-80"></div>
+        </div>
+      </div>
 
       <div className="flex flex-col sm:flex-row gap-6">
         {/* Botón Primario Estilo Linear */}
