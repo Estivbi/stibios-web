@@ -33,11 +33,8 @@ export default function TerminalHero() {
       </p>
 
       <div className="[perspective:3000px] w-full max-w-[1200px] mb-32 px-4 relative">
-        {/* Resplandor de fondo para integración */}
-        <div className="absolute inset-0 bg-stibios-accent/10 blur-[120px] rounded-full scale-75 opacity-50 pointer-events-none"></div>
-
         <div 
-          className="relative overflow-hidden [transform:rotateX(52deg)_rotateY(12deg)_rotateZ(-4deg)] mt-[-100px]"
+          className="relative overflow-hidden [transform:rotateX(52deg)_rotateY(12deg)_rotateZ(-4deg)] mt-8 md:mt-[-100px]"
           style={{
             maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 95%)',
             WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 95%)'
