@@ -3,6 +3,7 @@ import '@fontsource/jetbrains-mono';
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import InfoModal from '../components/InfoModal.astro';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
 	title: string;
@@ -62,5 +63,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://stibios.
 			<slot />
 		</main>
 		<InfoModal />
+		<Analytics />
 	</body>
 </html>
