@@ -9,11 +9,14 @@ import CustomDevelopment from '../components/CustomDevelopment.astro';
 import Contact from '../components/Contact.astro';
 ---
 
-<Layout title="Inicio">
+<Layout 
+    title="Desarrollo de Software de Alto Rendimiento" 
+    description="STIBIOS LABS - Especialistas en desarrollo web profesional, automatización B2B y productos digitales escalables con tecnología de vanguardia."
+>
     
     <StarsBackground />
 
-    <section class="min-h-[80vh] flex flex-col justify-center relative">
+    <section class="min-h-[80vh] flex flex-col justify-center relative" aria-label="Hero">
 		<TerminalHero client:load />
 	</section>
 	<Philosophy />

@@ -45,8 +45,9 @@ export default function TerminalHero() {
         >
           <img
             src={tecladoImg.src}
-            alt="Teclado Profesional"
+            alt="Desarrollo de software profesional - Stibios Labs"
             className="w-full h-auto object-cover opacity-90 scale-[1.1]"
+            loading="eager"
           />
           
           {/* Sombreado interno para fundir con el negro */}
