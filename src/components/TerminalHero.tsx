@@ -32,7 +32,7 @@ export default function TerminalHero() {
         productos digitales escalables y precisos.{" "}
       </p>
 
-      <div className="[perspective:3000px] w-full max-w-[1200px] mb-32 px-4 relative">
+      <div className="[perspective:3000px] w-full max-w-[1200px] mb-12 px-4 relative">
         <div 
           className="relative overflow-hidden [transform:rotateX(52deg)_rotateY(12deg)_rotateZ(-4deg)] mt-8 md:mt-[-100px]"
           style={{
