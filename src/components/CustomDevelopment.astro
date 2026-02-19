@@ -31,50 +31,89 @@ const projects = [
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gray-500/20 to-transparent"></div>
 
   <div class="max-w-6xl mx-auto relative z-10">
-    <div class="flex flex-col mb-16">
+    <div class="flex flex-col items-center text-center mb-16">
       <div class="flex items-center gap-3 mb-4">
         <Server size={32} className="text-purple-500" />
-        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter">
+        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter mx-auto">
           Desarrollo a Medida
         </h2>
       </div>
-      <p class="text-stibios-dim text-lg max-w-2xl leading-relaxed">
+      <p class="text-stibios-dim text-lg max-w-2xl leading-relaxed text-left">
         Estrategias digitales personalizadas con enfoque en 
         <span class="text-white font-bold italic"> escalabilidad y rendimiento excepcional.</span> 
         Transformamos necesidades de negocio en infraestructura robusta.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      {projects.map((p) => (
-        <a
-          href={p.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group relative bg-stibios-surface border border-stibios-border p-8 rounded-2xl transition-all duration-500 hover:border-gray-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.1)] flex flex-col justify-between"
-        >
-          <div class="absolute inset-0 bg-gradient-to-br from-gray-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-          
-          <div>
-            <div class="flex justify-between items-start mb-6">
-              <div class="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
-              <ExternalLink size={18} className="text-stibios-dim group-hover:text-purple-400 transition-colors" />
+    <!-- Carrusel de Proyectos -->
+    <div class="relative group/carousel">
+      <div id="carousel-container" class="flex overflow-x-auto snap-x snap-mandatory gap-6 no-scrollbar pb-8 scroll-smooth">
+        {projects.map((p) => (
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="min-w-[85vw] md:min-w-[450px] snap-center group relative bg-stibios-surface border border-stibios-border p-6 rounded-2xl transition-all duration-500 hover:border-gray-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.1)] flex flex-col"
+          >
+            <div class="absolute inset-0 bg-gradient-to-br from-gray-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+            
+            <!-- Imagen de previsualización (Placeholder) -->
+            <div class="w-full h-48 bg-stibios-border/50 rounded-xl mb-6 overflow-hidden relative">
+              <div class="absolute inset-0 flex items-center justify-center text-stibios-dim/20 font-mono text-xs uppercase tracking-widest">
+                Preview Stibios_OS
+              </div>
+              <div class="w-full h-full bg-gradient-to-t from-stibios-surface to-transparent absolute inset-0 opacity-40"></div>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-gray-300 transition-colors uppercase tracking-tight">
-              {p.name}
-            </h3>
-            <p class="text-stibios-dim text-sm leading-relaxed mb-6">
-              {p.desc}
-            </p>
-          </div>
 
-          <div class="pt-4 border-t border-stibios-border/50">
-            <span class="text-[10px] font-mono text-stibios-dim group-hover:text-gray-300 transition-colors">
-              // LIVE_PROJECT_STIBIOS_OS
-            </span>
-          </div>
-        </a>
-      ))}
+            <div class="flex-grow">
+              <div class="flex justify-between items-start mb-4">
+                <div class="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                <ExternalLink size={18} className="text-stibios-dim group-hover:text-purple-400 transition-colors" />
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-gray-300 transition-colors uppercase tracking-tight">
+                {p.name}
+              </h3>
+              <p class="text-stibios-dim text-sm leading-relaxed mb-6 text-left">
+                {p.desc}
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-stibios-border/50">
+              <span class="text-[10px] font-mono text-stibios-dim group-hover:text-gray-300 transition-colors">
+                // LIVE_PROJECT_STIBIOS_OS
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Flechas de navegación (PC) -->
+      <button id="prev" class="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full border border-stibios-border bg-stibios-surface/50 text-white hover:bg-stibios-accent hover:border-stibios-accent transition-all opacity-0 group-hover/carousel:opacity-100">
+        &larr;
+      </button>
+      <button id="next" class="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full border border-stibios-border bg-stibios-surface/50 text-white hover:bg-stibios-accent hover:border-stibios-accent transition-all opacity-0 group-hover/carousel:opacity-100">
+        &rarr;
+      </button>
     </div>
   </div>
 </section>
+
+<script>
+  const container = document.getElementById('carousel-container');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+
+  if (container && prev && next) {
+    prev.addEventListener('click', () => {
+      container.scrollBy({ left: -400, behavior: 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      container.scrollBy({ left: 400, behavior: 'smooth' });
+    });
+  }
+</script>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>

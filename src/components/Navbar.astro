@@ -17,24 +17,24 @@ import Logo from './Logo.astro';
       <a href="/" class="xl:hidden mr-4 text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent to-stibios-purple font-black font-sans text-xl hover:scale-110 transition-transform">S</a>
 
       <div class="flex items-center gap-8 md:gap-14 mx-auto"> 
-        <a href="#" class="nav-item group" aria-label="Inicio">
-          <Home size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all" />
+        <a href="#inicio" class="nav-item group" aria-label="Inicio">
+          <Home size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/inicio</span>
         </a>
 
         <a href="#metodo" class="nav-item group" aria-label="Metodología">
-          <Zap size={22} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all" />
+          <Zap size={22} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/metodología</span>
         </a>
 
         <a href="#proyectos-realizados" class="nav-item group" aria-label="Proyectos">
-          <Layers size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all" />
+          <Layers size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/proyectos</span>
         </a>
       </div>
 
       <div class="flex items-center pl-6 border-l border-stibios-border ml-6">
-        <a href="#contacto" class="flex items-center gap-3 text-[11px] font-black text-stibios-accent hover:text-white transition-all tracking-widest uppercase">
+        <a href="#contacto" class="flex items-center gap-3 text-[11px] font-black text-stibios-accent hover:text-white transition-all tracking-widest uppercase nav-item-contact">
           <Mail size={18} />
           <span class="hidden sm:inline">Hablemos</span>
         </a>
@@ -45,8 +45,32 @@ import Logo from './Logo.astro';
 
 </header>
 
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach((section) => {
+      const sectionTop = (section as HTMLElement).offsetTop;
+      if (window.scrollY >= sectionTop - 150) {
+        current = section.getAttribute('id') || '';
+      }
+    });
+
+    navItems.forEach((item) => {
+      item.classList.remove('active-nav');
+      if (item.getAttribute('href') === `#${current}`) {
+        item.classList.add('active-nav');
+      }
+    });
+  });
+</script>
+
 <style>
-  .nav-item { position: relative; display: flex; justify-content: center; }
+  .nav-item { position: relative; display: flex; justify-content: center; opacity: 0.7; transition: opacity 0.3s; }
+  .nav-item.active-nav { opacity: 1; }
+  .nav-item.active-nav .nav-icon { color: white !important; filter: drop-shadow(0 0 8px rgba(0, 209, 255, 0.5)); }
   .tooltip {
     position: absolute; top: 160%;
     font-family: var(--font-mono); font-size: 11px;
