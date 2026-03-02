@@ -1,12 +1,15 @@
 ---
-import { Code2, BarChart2, Lightbulb, Layers, Globe, Cog } from 'lucide-react';
+import { Code2, BarChart2, Cloud, Layers, Globe, Cog } from 'lucide-react';
 
-const services = [
+const servicesTop = [
   {
-    icon: Lightbulb,
-    title: "Consultoría Tecnológica",
-    desc: "Analizamos tu situación actual y diseñamos una hoja de ruta tecnológica alineada con tus objetivos de negocio, maximizando el retorno de inversión."
-  },
+    icon: Cloud,
+    title: "Soluciones Cloud & DevOps",
+    desc: "Diseñamos e implementamos infraestructuras cloud escalables y pipelines CI/CD que aceleran el ciclo de entrega y maximizan la disponibilidad de tus sistemas."
+  }
+];
+
+const servicesMiddle = [
   {
     icon: Code2,
     title: "Desarrollo a Medida",
@@ -21,7 +24,10 @@ const services = [
     icon: Globe,
     title: "Presencia Web Profesional",
     desc: "Creamos sitios y plataformas que proyectan credibilidad, generan confianza y convierten visitantes en clientes con diseño de alto impacto."
-  },
+  }
+];
+
+const servicesBottom = [
   {
     icon: Layers,
     title: "Automatización B2B",
@@ -51,9 +57,12 @@ const services = [
     <div class="w-12 h-1 bg-stibios-accent/30 rounded-full mt-4"></div>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {services.map((s) => (
-      <div class="group bg-stibios-surface border border-stibios-border rounded-xl p-8 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)]">
+  <!-- Bento grid: asymmetric layout with images breaking the card grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
+
+    <!-- Row 1: Cloud card (1 col) + datacenter image (2 cols wide) -->
+    {servicesTop.map((s) => (
+      <div class="group bg-stibios-surface border border-stibios-border rounded-2xl p-8 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)] flex flex-col justify-between min-h-[220px]">
         <div class="w-14 h-14 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-6 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
           <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={28} />
         </div>
@@ -65,6 +74,54 @@ const services = [
         </p>
       </div>
     ))}
+
+    <!-- Datacenter image: spans 2 columns -->
+    <div class="md:col-span-2 overflow-hidden rounded-2xl shadow-2xl">
+      <img
+        src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80"
+        alt="Datacenter de alto rendimiento"
+        class="w-full h-full min-h-[220px] object-cover rounded-2xl hover:scale-[1.02] transition-all duration-500"
+      />
+    </div>
+
+    <!-- Row 2: 3 service cards -->
+    {servicesMiddle.map((s) => (
+      <div class="group bg-stibios-surface border border-stibios-border rounded-2xl p-8 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)]">
+        <div class="w-14 h-14 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-6 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
+          <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={28} />
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-stibios-accent transition-colors">
+          {s.title}
+        </h3>
+        <p class="text-stibios-dim text-sm leading-relaxed">
+          {s.desc}
+        </p>
+      </div>
+    ))}
+
+    <!-- Row 3: dev workspace image (1 col) + 2 service cards -->
+    <div class="overflow-hidden rounded-2xl shadow-2xl">
+      <img
+        src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?w=800&auto=format&fit=crop&q=80"
+        alt="Setup de desarrollo minimalista"
+        class="w-full h-full min-h-[200px] object-cover rounded-2xl hover:scale-[1.02] transition-all duration-500"
+      />
+    </div>
+
+    {servicesBottom.map((s) => (
+      <div class="group bg-stibios-surface border border-stibios-border rounded-2xl p-8 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)]">
+        <div class="w-14 h-14 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-6 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
+          <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={28} />
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-stibios-accent transition-colors">
+          {s.title}
+        </h3>
+        <p class="text-stibios-dim text-sm leading-relaxed">
+          {s.desc}
+        </p>
+      </div>
+    ))}
+
   </div>
 
 </section>
