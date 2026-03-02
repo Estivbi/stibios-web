@@ -1,0 +1,70 @@
+---
+import { Code2, BarChart2, Lightbulb, Layers, Globe, Cog } from 'lucide-react';
+
+const services = [
+  {
+    icon: Lightbulb,
+    title: "Consultoría Tecnológica",
+    desc: "Analizamos tu situación actual y diseñamos una hoja de ruta tecnológica alineada con tus objetivos de negocio, maximizando el retorno de inversión."
+  },
+  {
+    icon: Code2,
+    title: "Desarrollo a Medida",
+    desc: "Construimos aplicaciones web y sistemas B2B de alto rendimiento con arquitecturas escalables, priorizando la calidad del código y la velocidad de entrega."
+  },
+  {
+    icon: BarChart2,
+    title: "Estrategia Digital",
+    desc: "Definimos y ejecutamos estrategias digitales que conectan tecnología con resultados medibles: SEO técnico, analítica avanzada y optimización de conversión."
+  },
+  {
+    icon: Globe,
+    title: "Presencia Web Profesional",
+    desc: "Creamos sitios y plataformas que proyectan credibilidad, generan confianza y convierten visitantes en clientes con diseño de alto impacto."
+  },
+  {
+    icon: Layers,
+    title: "Automatización B2B",
+    desc: "Integramos y automatizamos flujos de trabajo críticos entre sistemas, eliminando procesos manuales y reduciendo errores operativos."
+  },
+  {
+    icon: Cog,
+    title: "Mantenimiento & Soporte",
+    desc: "Garantizamos la operatividad continua de tus sistemas con monitorización proactiva, actualizaciones de seguridad y soporte técnico especializado."
+  }
+];
+---
+
+<section id="que-hacemos" class="py-24 px-4 max-w-6xl mx-auto">
+
+  <div class="flex flex-col items-center justify-center gap-3 mb-20 text-center">
+    <div class="inline-flex items-center gap-2 text-stibios-accent text-xs font-mono mb-2 border border-stibios-accent/20 px-3 py-1 rounded-full bg-stibios-accent/5">
+      <div class="w-2 h-2 rounded-full bg-stibios-accent animate-pulse"></div>
+      NUESTROS SERVICIOS
+    </div>
+    <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter mx-auto uppercase">
+      Qué Hacemos
+    </h2>
+    <p class="text-stibios-dim mt-2 text-sm md:text-base font-mono max-w-lg text-center">
+      &gt; Tecnología aplicada a resultados de negocio concretos.
+    </p>
+    <div class="w-12 h-1 bg-stibios-accent/30 rounded-full mt-4"></div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {services.map((s) => (
+      <div class="group bg-stibios-surface border border-stibios-border rounded-xl p-8 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)]">
+        <div class="w-14 h-14 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-6 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
+          <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={28} />
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-stibios-accent transition-colors">
+          {s.title}
+        </h3>
+        <p class="text-stibios-dim text-sm leading-relaxed">
+          {s.desc}
+        </p>
+      </div>
+    ))}
+  </div>
+
+</section>
