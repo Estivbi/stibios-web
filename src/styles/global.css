@@ -45,3 +45,9 @@
     @apply bg-stibios-bg text-stibios-text selection:bg-stibios-accent selection:text-white antialiased;
   }
 }
+
+@media print {
+  .nav, .footer-buttons, .contact-form {
+    display: none;
+  }
+}
