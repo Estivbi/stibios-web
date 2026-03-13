@@ -7,10 +7,10 @@
   
   /* Colores Base Logo (Azul y Morado Neon) */
   --color-stibios-bg: #1D1F27;
-  --color-stibios-surface: #252830;
-  --color-stibios-border: #2E3140;
+  --color-stibios-surface: #2C2F3F;
+  --color-stibios-border: #3A3D52;
   --color-stibios-text: #F8FAFC;
-  --color-stibios-dim: #94A3B8;
+  --color-stibios-dim: #A8B5C5;
   
   /* Gradiente Logo */
   --color-stibios-accent: #00D1FF;  /* Azul Cyan del logo */

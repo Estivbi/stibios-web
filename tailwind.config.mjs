@@ -13,10 +13,10 @@ export default {
 			colors: {
 				stibios: {
 					bg: "#1D1F27",
-					surface: "#252830",
-					border: "#2E3140",
+					surface: "#2C2F3F",
+					border: "#3A3D52",
 					text: "#F8FAFC",
-					dim: "#94A3B8",
+					dim: "#A8B5C5",
 					accent: "#00D1FF",
 				}
 			},
