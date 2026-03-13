@@ -9,6 +9,7 @@ import CustomDevelopment from '../components/CustomDevelopment.astro';
 import Contact from '../components/Contact.astro';
 import QueHacemos from '../components/QueHacemos.astro';
 import Nosotros from '../components/Nosotros.astro';
+import heroBackgroundImage from '../assets/img2.jpg';
 ---
 
 <Layout 
@@ -18,9 +19,27 @@ import Nosotros from '../components/Nosotros.astro';
     
     <StarsBackground />
 
-    <section id="inicio" class="min-h-[80vh] flex flex-col justify-center relative" aria-label="Hero">
-		<TerminalHero client:load />
+    <section
+		id="inicio"
+		class="hero-section min-h-[80vh] flex flex-col justify-center relative"
+		aria-label="Hero"
+	>
+		{/* Dark overlay so text stays readable */}
+		<div class="absolute inset-0 bg-stibios-bg/75 z-0"></div>
+		{/* Gradient fade at the bottom to blend into the next section */}
+		<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-stibios-bg to-transparent z-0"></div>
+		<div class="relative z-10">
+			<TerminalHero client:load />
+		</div>
 	</section>
+
+	<style define:vars={{ heroBg: `url('${heroBackgroundImage.src}')` }}>
+		.hero-section {
+			background-image: var(--heroBg);
+			background-size: cover;
+			background-position: center top;
+		}
+	</style>
 	<QueHacemos />
 	<Philosophy />
     <CustomDevelopment />
