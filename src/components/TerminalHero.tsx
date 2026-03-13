@@ -1,6 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
-import imgPortatil from "../assets/img2.jpg";
 
 export default function TerminalHero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -31,27 +30,6 @@ export default function TerminalHero() {
         Sistemas de nivel profesional diseñados para materializar ideas en
         productos digitales escalables y precisos.{" "}
       </p>
-
-      {/* Imagen Estilo Dashboard Linear */}
-      <div className="[perspective:2000px] w-full max-w-4xl mb-12 px-4 relative group">
-        {/* Glow de fondo para profundidad */}
-        <div className="absolute -inset-4 bg-stibios-accent/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-        
-        <div 
-          className="relative overflow-hidden rounded-2xl border border-white/10 bg-stibios-bg/50 [transform:rotateX(10deg)_scale(0.98)] transition-all duration-700 hover:[transform:rotateX(5deg)_scale(1)] shadow-2xl"
-        >
-          <img
-            src={imgPortatil.src}
-            alt="Desarrollo de software profesional - Stibios Labs"
-            className="w-full h-auto object-cover opacity-80"
-            loading="eager"
-          />
-          
-          {/* Fading refinado para fundir con el fondo */}
-          <div className="absolute inset-0 bg-gradient-to-t from-stibios-bg via-transparent to-transparent opacity-90"></div>
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-stibios-bg to-transparent"></div>
-        </div>
-      </div>
 
       <div className="flex flex-row justify-center gap-6 mt-6 mb-12">
         {/* Botón Primario */}
