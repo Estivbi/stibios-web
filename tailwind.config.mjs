@@ -12,12 +12,12 @@ export default {
             // ... resto de tu configuración de colores y animaciones ...
 			colors: {
 				stibios: {
-					bg: "#1d1f27",
+					bg: "#1D1F27",
 					surface: "#252830",
-					border: "#2e3140",
-					text: "#e4e4e7",
-					dim: "#a1a1aa",
-					accent: "#00FF94",
+					border: "#2E3140",
+					text: "#F8FAFC",
+					dim: "#94A3B8",
+					accent: "#00D1FF",
 				}
 			},
 			animation: {
