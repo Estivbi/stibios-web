@@ -1,26 +1,34 @@
 ---
 import { Server, ExternalLink } from "lucide-react";
+import custodioPreview from "../assets/capt-custodio.png";
+import patriciaPreview from "../assets/capt.porfolio.png";
+import rentasPreview from "../assets/capt-rentas.png";
+import revistaPreview from "../assets/capt-revista.png";
 
 const projects = [
   {
     name: "CUSTODIO JOSÉ PÉREZ",
     url: "https://www.custodiojoseperez.com/",
-    desc: "Plataforma profesional con enfoque en marca personal y servicios legales."
+    desc: "Plataforma profesional con enfoque en marca personal y servicios legales.",
+    preview: custodioPreview,
   },
   {
     name: "PATRICIA MORENO",
     url: "https://patriciamoreno.vercel.app/",
-    desc: "Portfolio de alto rendimiento con diseño minimalista y optimización SEO."
+    desc: "Portfolio de alto rendimiento con diseño minimalista y optimización SEO.",
+    preview: patriciaPreview,
   },
   {
     name: "RENTAS MEASESORAN",
     url: "https://rentas.measesoran.eu/login",
-    desc: "Sistema B2B de gestión tributaria y área de cliente privada."
+    desc: "Sistema B2B de gestión tributaria y área de cliente privada.",
+    preview: rentasPreview,
   },
   {
     name: "VICTORIA REVISTA",
     url: "https://www.victoriarevista.com/",
-    desc: "Magacín digital de alta calidad visual con gestión de contenidos dinámica."
+    desc: "Magacín digital de alta calidad visual con gestión de contenidos dinámica.",
+    preview: revistaPreview,
   }
 ];
 ---
@@ -57,12 +65,18 @@ const projects = [
           >
             <div class="absolute inset-0 bg-gradient-to-br from-gray-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
             
-            <!-- Imagen de previsualización (Placeholder) -->
-            <div class="w-full h-48 bg-stibios-border/50 rounded-xl mb-6 overflow-hidden relative">
-              <div class="absolute inset-0 flex items-center justify-center text-stibios-dim/20 font-mono text-xs uppercase tracking-widest">
-                Preview Stibios_OS
+            <div class="w-full h-48 rounded-xl mb-6 overflow-hidden relative border border-white/5 bg-black/30">
+              <img
+                src={p.preview.src}
+                alt={`Captura de ${p.name}`}
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-stibios-surface/80 via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3 px-2 py-1 rounded-full bg-black/50 border border-white/10 text-[10px] font-mono tracking-[0.25em] text-white/80 uppercase backdrop-blur-sm">
+                Preview
               </div>
-              <div class="w-full h-full bg-gradient-to-t from-stibios-surface to-transparent absolute inset-0 opacity-40"></div>
             </div>
 
             <div class="flex-grow">
