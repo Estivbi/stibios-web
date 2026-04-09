@@ -1,37 +1,30 @@
 ---
-import { Users, Target, Rocket, Shield } from 'lucide-react';
-
-const values = [
-  {
-    icon: Target,
-    title: "Enfoque en Resultados",
-    desc: "Cada línea de código que escribimos tiene un propósito de negocio claro. Medimos el éxito por el impacto que generamos, no por las horas invertidas."
-  },
-  {
-    icon: Rocket,
-    title: "Velocidad con Calidad",
-    desc: "Combinamos metodologías ágiles con estándares de ingeniería rigurosos para entregar productos rápidamente sin comprometer la arquitectura a largo plazo."
-  },
-  {
-    icon: Shield,
-    title: "Confianza y Transparencia",
-    desc: "Construimos relaciones a largo plazo basadas en la comunicación honesta, el cumplimiento de compromisos y la visibilidad total del proceso de desarrollo."
-  }
-];
+import { Users, Target, Rocket, Shield } from "lucide-react";
 ---
 
 <section id="nosotros" class="py-24 px-4 relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-stibios-accent/[0.02] to-transparent pointer-events-none"></div>
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-stibios-border to-transparent"></div>
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-transparent via-stibios-accent/[0.02] to-transparent pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-stibios-border to-transparent"
+  >
+  </div>
 
   <div class="max-w-6xl mx-auto relative z-10">
-
-    <div class="flex flex-col items-center justify-center gap-3 mb-20 text-center">
-      <div class="inline-flex items-center gap-2 text-stibios-purple text-xs font-mono mb-2 border border-stibios-purple/20 px-3 py-1 rounded-full bg-stibios-purple/5">
+    <div
+      class="flex flex-col items-center justify-center gap-3 mb-20 text-center"
+    >
+      <div
+        class="inline-flex items-center gap-2 text-stibios-purple text-xs font-mono mb-2 border border-stibios-purple/20 px-3 py-1 rounded-full bg-stibios-purple/5"
+      >
         <Users size={12} className="text-stibios-purple" />
         QUIÉNES SOMOS
       </div>
-      <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter mx-auto uppercase">
+      <h2
+        class="text-3xl md:text-5xl font-bold text-white tracking-tighter mx-auto uppercase"
+      >
         Nosotros
       </h2>
       <div class="w-12 h-1 bg-stibios-purple/30 rounded-full mt-4"></div>
@@ -40,15 +33,25 @@ const values = [
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
       <div class="flex flex-col gap-6">
         <p class="text-stibios-dim text-lg leading-relaxed">
-          Somos <span class="text-white font-bold">STIBIOS LABS</span>, un equipo de ingenieros y estrategas digitales con pasión por construir tecnología que genera impacto real.
+          Somos <span class="text-white font-bold">STIBIOS LABS</span>, un
+          equipo de ingenieros y estrategas digitales con pasión por construir
+          tecnología que genera impacto real.
         </p>
         <p class="text-stibios-dim text-base leading-relaxed">
-          Nacimos de la convicción de que las pequeñas y medianas empresas merecen acceso a la misma calidad de ingeniería que las grandes corporaciones. Por eso combinamos experiencia técnica avanzada con una comprensión profunda de los desafíos del negocio.
+          Nacimos de la convicción de que las pequeñas y medianas empresas
+          merecen acceso a la misma calidad de ingeniería que las grandes
+          corporaciones. Por eso combinamos experiencia técnica avanzada con una
+          comprensión profunda de los desafíos del negocio.
         </p>
         <p class="text-stibios-dim text-base leading-relaxed">
-          Trabajamos de forma <span class="text-stibios-accent font-mono">100% remota</span>, lo que nos permite colaborar con empresas de cualquier parte del mundo sin perder la cercanía y la agilidad que nos caracteriza.
+          Trabajamos de forma <span class="text-stibios-accent font-mono"
+            >100% remota</span
+          >, lo que nos permite colaborar con empresas de cualquier parte del
+          mundo sin perder la cercanía y la agilidad que nos caracteriza.
         </p>
-        <div class="flex flex-wrap gap-6 mt-4 font-mono text-xs text-stibios-dim/60 border-t border-stibios-border pt-6">
+        <div
+          class="flex flex-wrap gap-6 mt-4 font-mono text-xs text-stibios-dim/60 border-t border-stibios-border pt-6"
+        >
           <div class="flex flex-col gap-1">
             <span class="text-white text-2xl font-bold">+20</span>
             <span>proyectos entregados</span>
@@ -65,29 +68,23 @@ const values = [
       </div>
 
       <div class="flex flex-col gap-4">
-        <!-- Image 1: dark workspace above terminal -->
-        <div class="overflow-hidden rounded-2xl shadow-2xl">
-          <img
-            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop&q=80"
-            alt="Arquitectura tecnológica moderna"
-            class="w-full h-28 object-cover rounded-2xl hover:scale-[1.02] transition-all duration-500"
-          />
-        </div>
-
         <!-- Terminal (core element — unchanged) -->
         <div class="relative">
-        <div class="bg-stibios-surface border border-stibios-border rounded-2xl p-8 font-mono text-xs leading-relaxed text-stibios-dim">
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
-            <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
-            <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
-            <span class="ml-2 text-stibios-dim/50">stibios.config.ts</span>
-          </div>
-          <pre class="text-left overflow-x-auto"><code><span class="text-stibios-purple">const</span> <span class="text-stibios-accent">stibios</span> = &#123;
-  <span class="text-stibios-text">nombre</span>: <span class="text-emerald-400">"STIBIOS LABS"</span>,
-  <span class="text-stibios-text">misión</span>: <span class="text-emerald-400">"Tecnología de alto impacto"</span>,
-  <span class="text-stibios-text">ubicación</span>: <span class="text-emerald-400">"Remoto / Mundial"</span>,
-  <span class="text-stibios-text">especialidades</span>: [
+          <div
+            class="bg-stibios-surface border border-stibios-border rounded-2xl p-8 font-mono text-xs leading-relaxed text-stibios-dim"
+          >
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+              <span class="ml-2 text-stibios-dim/50">stibios.config.ts</span>
+            </div>
+            <pre
+              class="text-left overflow-x-auto"><code><span class="text-stibios-purple">const</span> <span class="text-stibios-accent">stibios</span> = &#123;
+    <span class="text-stibios-text">nombre</span>: <span class="text-emerald-400">"STIBIOS LABS"</span>,
+    <span class="text-stibios-text">misión</span>: <span class="text-emerald-400">"Tecnología de alto impacto"</span>,
+    <span class="text-stibios-text">ubicación</span>: <span class="text-emerald-400">"Remoto / Mundial"</span>,
+    <span class="text-stibios-text">especialidades</span>: [
     <span class="text-emerald-400">"Desarrollo Web"</span>,
     <span class="text-emerald-400">"Arquitectura de Sistemas"</span>,
     <span class="text-emerald-400">"Consultoría B2B"</span>,
@@ -96,36 +93,17 @@ const values = [
   <span class="text-stibios-text">valores</span>: [<span class="text-emerald-400">"calidad"</span>, <span class="text-emerald-400">"velocidad"</span>, <span class="text-emerald-400">"confianza"</span>],
   <span class="text-stibios-text">disponible</span>: <span class="text-stibios-accent">true</span>,
 &#125;;</code></pre>
-        </div>
-        <div class="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-stibios-accent/30 rounded-tr-xl"></div>
-        <div class="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-stibios-purple/30 rounded-bl-xl"></div>
-        </div>
-
-        <!-- Image 2: code/matrix dark below terminal -->
-        <div class="overflow-hidden rounded-2xl shadow-2xl">
-          <img
-            src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80"
-            alt="Infraestructura digital escalable"
-            class="w-full h-24 object-cover rounded-2xl hover:scale-[1.02] transition-all duration-500"
-          />
+          </div>
+          <div
+            class="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-stibios-accent/30 rounded-tr-xl"
+          >
+          </div>
+          <div
+            class="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-stibios-purple/30 rounded-bl-xl"
+          >
+          </div>
         </div>
       </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {values.map((v) => (
-        <div class="group bg-stibios-surface border border-stibios-border rounded-xl p-8 transition-all duration-500 hover:border-stibios-purple/50 hover:shadow-[0_0_40px_rgba(173,0,255,0.08)]">
-          <div class="w-14 h-14 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-6 group-hover:border-stibios-purple/40 group-hover:bg-stibios-purple/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
-            <v.icon className="text-stibios-dim group-hover:text-stibios-purple transition-colors" size={28} />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3 group-hover:text-stibios-purple transition-colors">
-            {v.title}
-          </h3>
-          <p class="text-stibios-dim text-sm leading-relaxed">
-            {v.desc}
-          </p>
-        </div>
-      ))}
     </div>
-
   </div>
 </section>
