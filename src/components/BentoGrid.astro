@@ -1,12 +1,5 @@
 ---
-import {
-  ArrowUpRight,
-  Map,
-  Server,
-  Activity,
-  ShoppingBag,
-  Globe,
-} from "lucide-react";
+import { Video, Bot, Trophy } from "lucide-react";
 ---
 
 <section id="proyectos" class="py-24 px-4 max-w-6xl mx-auto">
@@ -18,142 +11,136 @@ import {
         Próximas Soluciones
       </h2>
       <p class="text-stibios-dim mt-4 text-sm md:text-base font-mono max-w-lg text-center">
-        &gt; Ingeniería de software aplicada a objetivos de negocio.
+        &gt; Productos in-house en los que está trabajando Stibios Labs.
       </p>
       <div class="w-12 h-1 bg-stibios-accent/30 rounded-full mt-6"></div>
     </div>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
-    <!-- TrendSaaS -> Inteligencia Predictiva -->
-    <button
-      onclick="window.openModal('predictiva')"
-      class="group relative md:col-span-2 bg-stibios-surface border border-stibios-border overflow-hidden rounded-xl transition-all duration-500 hover:border-stibios-accent hover:shadow-[0_0_50px_rgba(94,106,210,0.2)] text-left"
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+    <!-- Tarjeta 1: Identica -->
+    <article
+      class="group relative bg-stibios-surface border border-stibios-border overflow-hidden rounded-xl transition-all duration-500 hover:border-stibios-accent hover:shadow-[0_0_50px_rgba(0,209,255,0.15)]"
     >
       <div
         class="absolute inset-0 bg-stibios-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-      >
-      </div>
+      ></div>
 
-      <div class="p-8 h-full flex flex-col md:flex-row gap-8 relative z-10">
-        <div class="flex-1 flex flex-col justify-between">
-          <div>
-            <div class="flex flex-wrap items-center gap-3 mb-4">
-              <span
-                class="px-2 py-0.5 rounded text-[10px] font-mono bg-stibios-glow/10 text-stibios-glow border border-stibios-glow/20 uppercase tracking-widest"
-                >Próximamente</span
-              >
-              <span class="text-[10px] font-mono text-stibios-dim"
-                >● INTERNAL_DEV</span
-              >
-            </div>
-            <h3
-              class="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-stibios-accent transition-colors"
-            >
-              Inteligencia Predictiva
-            </h3>
-            <p
-              class="text-stibios-dim text-sm md:text-base leading-relaxed max-w-md"
-            >
-              Motor de análisis masivo para detectar oportunidades de mercado antes que la competencia. 
-              Arquitectura escalable basada en modelos de lenguaje avanzados.
-            </p>
-          </div>
-          <div
-            class="mt-6 flex items-center gap-4 text-xs font-mono text-stibios-dim"
-          >
-            <span class="flex items-center gap-1"
-              ><ArrowUpRight size={14} /> AI ENGINE</span
-            >
-            <span class="flex items-center gap-1"
-              ><ArrowUpRight size={14} /> BIG DATA</span
-            >
-          </div>
-        </div>
-      </div>
-    </button>
-
-    <!-- Booking Engine -> Sistemas de Reserva -->
-    <button
-      onclick="window.openModal('reservas')"
-      class="group relative md:col-span-1 bg-stibios-surface border border-stibios-border overflow-hidden rounded-xl transition-all duration-500 hover:border-blue-500 hover:shadow-[0_0_50px_rgba(59,130,246,0.2)] text-left"
-    >
-      <div
-        class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#3b82f6_0%,transparent_70%)] opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
-      >
+      <!-- Badge "En Desarrollo" -->
+      <div class="absolute top-4 right-4 z-20">
+        <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-stibios-accent/20 text-stibios-accent border border-stibios-accent/30 uppercase tracking-widest">
+          En Desarrollo
+        </span>
       </div>
 
       <div class="p-8 h-full flex flex-col relative z-10">
-        <div class="mb-auto">
-          <div class="flex justify-between items-start mb-6">
-            <div
-              class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 border border-blue-500/20 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300"
-            >
-              <Map size={24} />
-            </div>
-            <span
-              class="px-2 py-0.5 rounded-full border border-stibios-border bg-black/20 text-[10px] font-mono text-stibios-dim"
-              >PRÓXIMAMENTE</span
-            >
-          </div>
-          <h3
-            class="text-2xl font-bold text-white mb-2 group-hover:text-blue-400"
-          >
-            Sistemas de Reserva
-          </h3>
-          <p class="text-stibios-dim text-sm leading-relaxed mb-6">
-            Motores de reserva optimizados para hospitality y servicios. 
-            Sincronización en tiempo real y arquitectura de baja latencia.
-          </p>
-        </div>
-      </div>
-    </button>
-
-    <!-- Marketplace -> Inside Grid -->
-    <article
-      class="group relative md:col-span-3 bg-stibios-surface border border-stibios-border overflow-hidden rounded-xl transition-all duration-500 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)]"
-    >
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-      >
-      </div>
-
-      <div
-        class="p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10"
-      >
-        <div class="flex items-center gap-4">
+        <div class="mb-6">
           <div
-            class="w-12 h-12 bg-emerald-500/10 rounded-full flex items-center justify-center text-emerald-400 border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-white transition-all shrink-0"
+            class="w-12 h-12 bg-stibios-accent/10 rounded-xl flex items-center justify-center text-stibios-accent border border-stibios-accent/20 group-hover:bg-stibios-accent group-hover:text-stibios-bg transition-all duration-300"
           >
-            <ShoppingBag size={24} />
-          </div>
-          <div>
-            <h3
-              class="text-lg md:text-xl font-bold text-stibios-text group-hover:text-white transition-colors"
-            >
-              Templates Premium
-            </h3>
-            <p
-              class="text-stibios-dim text-sm group-hover:text-stibios-text/90 transition-colors"
-            >
-              Sistemas pre-configurados optimizados para alta conversión.
-            </p>
+            <Video size={24} />
           </div>
         </div>
-
-        <div class="flex flex-wrap gap-2">
-          <div
-            class="px-3 py-1 rounded-full border border-stibios-border bg-black/20 text-[10px] font-mono text-stibios-dim group-hover:border-emerald-500/30 group-hover:text-emerald-300 transition-colors"
-          >
-            COMING_SOON
-          </div>
-          <div
-            class="px-3 py-1 rounded-full border border-stibios-border bg-black/20 text-[10px] font-mono text-stibios-dim group-hover:border-emerald-500/30 group-hover:text-emerald-300 transition-colors"
-          >
-            DESIGN_SYSTEM
-          </div>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-stibios-glow/10 text-stibios-glow border border-stibios-glow/20 uppercase tracking-widest">
+            Clonación IA
+          </span>
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-stibios-glow/10 text-stibios-glow border border-stibios-glow/20 uppercase tracking-widest">
+            Contenido
+          </span>
         </div>
+        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-stibios-accent transition-colors">
+          Identica
+        </h3>
+        <p class="text-[11px] font-mono text-stibios-dim mb-4">Powered by Influ-ia</p>
+        <p class="text-stibios-dim text-sm leading-relaxed flex-1">
+          Plataforma de clonación digital con Inteligencia Artificial. Automatiza la creación de vídeos para creadores de contenido y marcas, permitiendo escalar la producción audiovisual sin depender de horas de grabación.
+        </p>
       </div>
     </article>
+
+    <!-- Tarjeta 2: Trend Agent -->
+    <article
+      class="group relative bg-stibios-surface border border-stibios-border overflow-hidden rounded-xl transition-all duration-500 hover:border-stibios-purple hover:shadow-[0_0_50px_rgba(173,0,255,0.15)]"
+    >
+      <div
+        class="absolute inset-0 bg-stibios-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+      ></div>
+
+      <!-- Badge "En Desarrollo" -->
+      <div class="absolute top-4 right-4 z-20">
+        <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-stibios-accent/20 text-stibios-accent border border-stibios-accent/30 uppercase tracking-widest">
+          En Desarrollo
+        </span>
+      </div>
+
+      <div class="p-8 h-full flex flex-col relative z-10">
+        <div class="mb-6">
+          <div
+            class="w-12 h-12 bg-stibios-purple/10 rounded-xl flex items-center justify-center text-stibios-purple border border-stibios-purple/20 group-hover:bg-stibios-purple group-hover:text-white transition-all duration-300"
+          >
+            <Bot size={24} />
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-stibios-purple/10 text-stibios-purple border border-stibios-purple/20 uppercase tracking-widest">
+            Agente Autónomo
+          </span>
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-stibios-purple/10 text-stibios-purple border border-stibios-purple/20 uppercase tracking-widest">
+            Big Data
+          </span>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-stibios-purple transition-colors">
+          Trend Agent
+        </h3>
+        <p class="text-[11px] font-mono text-stibios-dim mb-4">Inteligencia Predictiva</p>
+        <p class="text-stibios-dim text-sm leading-relaxed flex-1">
+          Agente de IA operativo 24/7 que monitoriza redes sociales, blogs y bases de datos en tiempo real. Extrae tendencias emergentes, analiza el sentimiento del mercado y genera reportes automáticos para toma de decisiones estratégicas.
+        </p>
+      </div>
+    </article>
+
+    <!-- Tarjeta 3: Padelmix -->
+    <article
+      class="group relative bg-stibios-surface border border-stibios-border overflow-hidden rounded-xl transition-all duration-500 hover:border-emerald-500 hover:shadow-[0_0_50px_rgba(16,185,129,0.15)]"
+    >
+      <div
+        class="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+      ></div>
+
+      <!-- Badge "En Desarrollo" -->
+      <div class="absolute top-4 right-4 z-20">
+        <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-stibios-accent/20 text-stibios-accent border border-stibios-accent/30 uppercase tracking-widest">
+          En Desarrollo
+        </span>
+      </div>
+
+      <div class="p-8 h-full flex flex-col relative z-10">
+        <div class="mb-6">
+          <div
+            class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
+          >
+            <Trophy size={24} />
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-widest">
+            App Deportiva
+          </span>
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-widest">
+            Comunidad
+          </span>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-emerald-400 transition-colors">
+          Padelmix
+        </h3>
+        <p class="text-[11px] font-mono text-stibios-dim mb-4">App Deportiva / Comunidad</p>
+        <p class="text-stibios-dim text-sm leading-relaxed flex-1">
+          Solución tecnológica integral para la comunidad del pádel. Reservas de pistas, organización de torneos y red social para jugadores, todo en una sola plataforma.
+        </p>
+      </div>
+    </article>
+
   </div>
 </section>
