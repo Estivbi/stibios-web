@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface ShareButtonsProps {
   title: string;
@@ -7,27 +7,46 @@ interface ShareButtonsProps {
 
 export default function ShareButtons({ title, url }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
+  const [canShare, setCanShare] = useState(false);
+
+  useEffect(() => {
+    setCanShare(typeof navigator !== 'undefined' && !!navigator.share);
+  }, []);
 
   const handleShare = async () => {
-    if (navigator.share) {
-      await navigator.share({
-        title,
-        url,
-      });
+    if (typeof navigator === 'undefined' || !navigator.share) return;
+    try {
+      await navigator.share({ title, url });
+    } catch {
+      // User cancelled or share failed — ignore silently
     }
   };
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(url);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopyLink = async () => {
+    try {
+      if (typeof navigator !== 'undefined' && navigator.clipboard) {
+        await navigator.clipboard.writeText(url);
+      } else {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Copy failed — ignore silently
+    }
   };
 
   const shareOnTwitter = () => {
     window.open(
       `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
       '_blank',
-      'width=550,height=420'
+      'noopener,noreferrer,width=550,height=420'
     );
   };
 
@@ -35,7 +54,7 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
     window.open(
       `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
       '_blank',
-      'width=550,height=420'
+      'noopener,noreferrer,width=550,height=420'
     );
   };
 
@@ -43,7 +62,7 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
     <div className="flex items-center gap-2">
       <span className="text-stibios-dim text-sm font-mono">Compartir</span>
       <div className="flex gap-2">
-        {navigator.share && (
+        {canShare && (
           <button
             onClick={handleShare}
             className="p-2 rounded-lg border border-stibios-border hover:border-stibios-accent/50 hover:bg-stibios-accent/10 transition-all"

@@ -22,9 +22,11 @@ const formattedDate = new Date(Date.UTC(year, month - 1, day))
 
 // Tiempo de lectura se calculará dinámicamente
 const readingTime = 5; // Valor por defecto
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://stibios.com').href;
 ---
 
-<Layout title={frontmatter.title} description={frontmatter.description}>
+<Layout title={frontmatter.title} description={frontmatter.description} image={frontmatter.image}>
   <ReadingProgressBar client:load />
   <article class="relative pt-32 pb-24 md:pt-48 md:pb-32 px-6">
     <div class="max-w-3xl mx-auto">
@@ -67,12 +69,12 @@ const readingTime = 5; // Valor por defecto
         <slot />
       </div>
 
-      <div class="mt-12 pt-8 border-t border-stibios-border flex justify-between items-center flex-wrap gap-4">
+      <footer class="mt-12 pt-8 border-t border-stibios-border flex justify-between items-center flex-wrap gap-4">
         <a href="/blog" class="text-stibios-dim hover:text-stibios-accent font-mono text-sm transition-colors">
           ← Volver al blog
         </a>
-        <ShareButtons client:load title={frontmatter.title} url={Astro.url.href} />
-      </div>
+        <ShareButtons client:load title={frontmatter.title} url={canonicalURL} />
+      </footer>
 
     </div>
   </article>
