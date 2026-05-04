@@ -47,7 +47,11 @@ const sortedPosts = posts
                 </span>
               )}
               <span class="text-stibios-dim text-xs font-mono">
-                {new Date(post.frontmatter.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+                {(() => {
+                  const [y, m, d] = post.frontmatter.date.split('-').map(Number);
+                  return new Date(Date.UTC(y, m - 1, d))
+                    .toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+                })()}
               </span>
             </div>
             <h2 class="text-xl font-bold text-stibios-text group-hover:text-stibios-accent transition-colors mb-2">
