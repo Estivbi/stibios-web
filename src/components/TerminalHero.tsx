@@ -22,7 +22,7 @@ export default function TerminalHero() {
       {/* Pill de posicionamiento */}
       <div className="inline-flex items-center gap-2 text-stibios-accent text-xs font-mono mb-8 border border-stibios-accent/20 px-4 py-1.5 rounded-full bg-stibios-accent/5">
         <div className="w-1.5 h-1.5 rounded-full bg-stibios-accent animate-pulse" />
-        Software para negocios reales · Creadores · Pymes
+        Software para negocios reales · Creadores · PYMES
       </div>
 
       <h1 className="text-5xl md:text-8xl font-bold mb-6 tracking-tighter leading-[1.1] md:leading-[1.1]">
