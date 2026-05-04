@@ -1,9 +1,10 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../layouts/BlogPost.astro
 title: "Por qué construí Stibios: software sin intermediarios para negocios reales"
 description: "La historia detrás de Stibios Labs, la brecha entre las grandes agencias y las necesidades reales, y el stack tecnológico que define el futuro de mis proyectos."
 date: "2026-05-04"
 tag: "Stibios"
+image: "/img/stibios-cover.svg"
 draft: false
 ---
 

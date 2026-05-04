@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1d1f27"/>
+  <rect width="1200" height="630" fill="url(#grain)" opacity="0.05"/>
+  <defs>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d1ff;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#1d1f27;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <circle cx="100" cy="100" r="300" fill="#00d1ff" opacity="0.04"/>
+  <text x="80" y="200" font-family="monospace" font-size="14" fill="#00d1ff" opacity="0.6">// stibios.com</text>
+  <text x="80" y="290" font-family="sans-serif" font-size="52" font-weight="bold" fill="#e8eaf0" letter-spacing="-2">Stibios Labs</text>
+  <text x="80" y="360" font-family="sans-serif" font-size="30" fill="#9da3b4">Software sin intermediarios</text>
+  <text x="80" y="410" font-family="sans-serif" font-size="30" fill="#9da3b4">para negocios reales</text>
+  <rect x="80" y="460" width="60" height="4" rx="2" fill="#00d1ff"/>
+</svg>
