@@ -1,5 +1,5 @@
 ---
-import { Home, Layers, Zap, Mail, Monitor, Users } from 'lucide-react';
+import { Home, Layers, Zap, Mail, Monitor, Users, BookOpen } from 'lucide-react';
 import Logo from './Logo.astro';
 ---
 
@@ -40,6 +40,11 @@ import Logo from './Logo.astro';
         <a href="#nosotros" class="nav-item group" aria-label="Nosotros">
           <Users size={22} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/nosotros</span>
+        </a>
+
+        <a href="/blog" class="nav-item group" aria-label="Blog">
+          <BookOpen size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
+          <span class="tooltip">/blog</span>
         </a>
       </div>
 
