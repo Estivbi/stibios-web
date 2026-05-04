@@ -22,6 +22,7 @@ const formattedDate = new Date(Date.UTC(year, month - 1, day))
 
 // Tiempo de lectura se calculará dinámicamente
 const readingTime = 5; // Valor por defecto
+---
 
 <Layout title={frontmatter.title} description={frontmatter.description}>
   <ReadingProgressBar client:load />
