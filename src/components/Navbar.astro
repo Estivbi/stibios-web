@@ -1,5 +1,5 @@
 ---
-import { Home, Layers, Zap, Mail, Monitor, Users } from 'lucide-react';
+import { Home, Layers, Zap, Mail, Monitor, Users, BookOpen } from 'lucide-react';
 import Logo from './Logo.astro';
 ---
 
@@ -17,34 +17,39 @@ import Logo from './Logo.astro';
       <a href="/" class="xl:hidden mr-4 text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent to-stibios-purple font-black font-sans text-xl hover:scale-110 transition-transform">S</a>
 
       <div class="flex items-center gap-6 md:gap-10 mx-auto"> 
-        <a href="#inicio" class="nav-item group" aria-label="Inicio">
+        <a href="/#inicio" class="nav-item group" aria-label="Inicio">
           <Home size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/inicio</span>
         </a>
 
-        <a href="#que-hacemos" class="nav-item group" aria-label="Qué hacemos">
+        <a href="/#que-hacemos" class="nav-item group" aria-label="Qué hacemos">
           <Monitor size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/qué hacemos</span>
         </a>
 
-        <a href="#metodo" class="nav-item group" aria-label="Metodología">
+        <a href="/#metodo" class="nav-item group" aria-label="Metodología">
           <Zap size={22} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/metodología</span>
         </a>
 
-        <a href="#casos-exito" class="nav-item group" aria-label="Casos de Éxito">
+        <a href="/#casos-exito" class="nav-item group" aria-label="Casos de Éxito">
           <Layers size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/casos de éxito</span>
         </a>
 
-        <a href="#nosotros" class="nav-item group" aria-label="Nosotros">
+        <a href="/#nosotros" class="nav-item group" aria-label="Nosotros">
           <Users size={22} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/nosotros</span>
+        </a>
+
+        <a href="/blog" class="nav-item group" aria-label="Blog">
+          <BookOpen size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
+          <span class="tooltip">/blog</span>
         </a>
       </div>
 
       <div class="flex items-center pl-6 border-l border-stibios-border ml-6">
-        <a href="#contacto" class="flex items-center gap-3 text-[11px] font-black text-stibios-accent hover:text-white transition-all tracking-widest uppercase nav-item-contact">
+        <a href="/#contacto" class="flex items-center gap-3 text-[11px] font-black text-stibios-accent hover:text-white transition-all tracking-widest uppercase nav-item-contact">
           <Mail size={18} />
           <span class="hidden sm:inline">Hablemos</span>
         </a>
@@ -59,22 +64,35 @@ import Logo from './Logo.astro';
   const sections = document.querySelectorAll('section[id]');
   const navItems = document.querySelectorAll('.nav-item');
 
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach((section) => {
-      const sectionTop = (section as HTMLElement).offsetTop;
-      if (window.scrollY >= sectionTop - 150) {
-        current = section.getAttribute('id') || '';
-      }
-    });
-
-    navItems.forEach((item) => {
-      item.classList.remove('active-nav');
-      if (item.getAttribute('href') === `#${current}`) {
-        item.classList.add('active-nav');
-      }
-    });
+  // Mark active based on current pathname for non-hash links (e.g. /blog)
+  const currentPath = window.location.pathname;
+  navItems.forEach((item) => {
+    const href = item.getAttribute('href') || '';
+    if (!href.startsWith('/#') && href !== '/' && currentPath.startsWith(href)) {
+      item.classList.add('active-nav');
+    }
   });
+
+  // Scroll-spy for hash-based links on pages that have the sections
+  if (sections.length > 0) {
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach((section) => {
+        const sectionTop = (section as HTMLElement).offsetTop;
+        if (window.scrollY >= sectionTop - 150) {
+          current = section.getAttribute('id') || '';
+        }
+      });
+
+      navItems.forEach((item) => {
+        item.classList.remove('active-nav');
+        const href = item.getAttribute('href') || '';
+        if (href.endsWith(`#${current}`)) {
+          item.classList.add('active-nav');
+        }
+      });
+    });
+  }
 </script>
 
 <style>
