@@ -14,11 +14,29 @@ interface Props {
 
 const { 
 	title, 
-	description = "STIBIOS LABS - Estudio de software especializado en soluciones B2B, automatización y desarrollo web de alto rendimiento con Astro.",
-	image = "/logo.png" // Asumiendo que el usuario lo pondrá en public o usaremos una ref
+	description = "Stibios Labs — Estudio de software especializado en productos digitales para negocios pequeños y creadores. Desarrollo web, apps y automatización a medida.",
+	image = "/og-image.jpg"
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://stibios.net");
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://stibios.com");
+
+const schema = {
+	"@context": "https://schema.org",
+	"@type": "ProfessionalService",
+	"name": "Stibios Labs",
+	"description": "Estudio de software unipersonal especializado en productos digitales para negocios pequeños y creadores.",
+	"url": "https://stibios.com",
+	"logo": "https://stibios.com/logo.png",
+	"founder": {
+		"@type": "Person",
+		"name": "Stibios Labs"
+	},
+	"areaServed": "ES",
+	"serviceType": ["Desarrollo web", "Automatización", "Apps móviles", "Productos digitales"],
+	"sameAs": [
+		"https://linkedin.com/company/stibios-labs"
+	]
+};
 ---
 
 <!doctype html>
@@ -31,39 +49,41 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://stibios.
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<meta name="robots" content="index, follow" />
 		<meta name="googlebot" content="index, follow" />
-		<meta name="keywords" content="desarrollo de software, astro framework, automatización b2b, software profesional, stibios labs, aplicaciones escalables, desarrollo web españa" />
+		<meta name="keywords" content="desarrollo web negocios pequeños, software peluquerías, app reservas, productos digitales creadores, desarrollo web España, automatización pymes, estudio software" />
+		<meta name="author" content="Stibios Labs" />
 
-		<!-- SEO Primario -->
-		<title>{title} | STIBIOS LABS</title>
-<meta name="title" content={`${title} | STIBIOS LABS`} />
-<meta name="description" content={description} />
-<link rel="canonical" href={canonicalURL} />
+		<!-- SEO -->
+		<title>{title} | Stibios Labs</title>
+		<meta name="title" content={`${title} | Stibios Labs`} />
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
 
-		<!-- Open Graph / Facebook -->
+		<!-- Open Graph -->
 		<meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL} />
-<meta property="og:title" content={`${title} | STIBIOS LABS`} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={`${title} | Stibios Labs`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:locale" content="es_ES" />
+		<meta property="og:site_name" content="Stibios Labs" />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL} />
-<meta property="twitter:title" content={`${title} | STIBIOS LABS`} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
-
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={`${title} | Stibios Labs`} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 		<meta name="theme-color" content="#1d1f27" />
 
-		<!-- Google tag (gtag.js) -->
+		<!-- Schema.org -->
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+		<!-- Google Analytics con Consent Mode -->
 		<script is:inline>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
-
-		// Consent Mode default configuration
 		const savedConsent = typeof localStorage !== 'undefined' ? localStorage.getItem('cookie-consent') : null;
-		
 		gtag('consent', 'default', {
 			'analytics_storage': savedConsent === 'granted' ? 'granted' : 'denied',
 			'ad_storage': savedConsent === 'granted' ? 'granted' : 'denied',

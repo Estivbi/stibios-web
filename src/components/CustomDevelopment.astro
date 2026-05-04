@@ -1,131 +1,163 @@
 ---
-import { Server, ExternalLink } from "lucide-react";
+import { Server, ExternalLink, Sparkles } from "lucide-react";
 import custodioPreview from "../assets/capt-custodio.png";
 import patriciaPreview from "../assets/capt.porfolio.png";
 import rentasPreview from "../assets/capt-rentas.png";
 import revistaPreview from "../assets/capt-revista.png";
 
-const projects = [
+const clientProjects = [
   {
     name: "CUSTODIO JOSÉ PÉREZ",
     url: "https://www.custodiojoseperez.com/",
     desc: "Plataforma profesional con enfoque en marca personal y servicios legales.",
     preview: custodioPreview,
+    tag: "Abogacía · Marca personal",
   },
   {
     name: "PATRICIA MORENO",
     url: "https://patriciamoreno.vercel.app/",
     desc: "Portfolio de alto rendimiento con diseño minimalista y optimización SEO.",
     preview: patriciaPreview,
+    tag: "Portfolio · SEO",
   },
   {
     name: "RENTAS MEASESORAN",
     url: "https://rentas.measesoran.eu/login",
     desc: "Sistema B2B de gestión tributaria y área de cliente privada.",
     preview: rentasPreview,
+    tag: "Asesoría · B2B",
   },
+];
+
+const ownProducts = [
   {
     name: "VICTORIA REVISTA",
     url: "https://www.victoriarevista.com/",
-    desc: "Magacín digital de alta calidad visual con gestión de contenidos dinámica.",
+    desc: "Magacín digital de alta calidad visual con gestión de contenidos dinámica. Producto propio de Stibios Labs.",
     preview: revistaPreview,
-  }
+    tag: "Media · Contenido digital",
+    isOwn: true,
+  },
 ];
 ---
 
 <section id="casos-exito" class="py-32 px-4 relative overflow-hidden bg-stibios-bg">
-  {/* Fondo con gradiente sutil heredado de la card anterior */}
   <div class="absolute inset-0 bg-gradient-to-b from-gray-500/[0.03] to-transparent pointer-events-none"></div>
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gray-500/20 to-transparent"></div>
 
   <div class="max-w-6xl mx-auto relative z-10">
-    <div class="flex flex-col items-center text-center mb-16">
+
+    <!-- Proyectos de clientes -->
+    <div class="flex flex-col items-center text-center mb-12">
       <div class="flex items-center gap-3 mb-4">
-        <Server size={32} className="text-purple-500" />
-        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter mx-auto">
-            Casos de Éxito
-          </h2>
+        <Server size={32} class="text-stibios-accent" />
+        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter">
+          Proyectos de Clientes
+        </h2>
       </div>
-      <p class="text-stibios-dim text-lg max-w-2xl leading-relaxed text-left">
-        Estrategias digitales personalizadas con enfoque en 
-        <span class="text-white font-bold italic"> escalabilidad y rendimiento excepcional.</span> 
-        Transformamos necesidades de negocio en infraestructura robusta.
+      <p class="text-stibios-dim text-lg max-w-2xl leading-relaxed">
+        Peluquerías, abogados, asesoras, creadores —
+        <span class="text-white font-bold italic">negocios reales con resultados reales.</span>
       </p>
     </div>
 
-    <!-- Carrusel de Proyectos -->
-    <div class="relative group/carousel">
-      <div id="carousel-container" class="flex overflow-x-auto snap-x snap-mandatory gap-6 no-scrollbar pb-8 scroll-smooth">
-        {projects.map((p) => (
+    <div class="relative group/carousel mb-24">
+      <div id="carousel-clientes" class="flex overflow-x-auto snap-x snap-mandatory gap-6 no-scrollbar pb-8 scroll-smooth">
+        {clientProjects.map((p) => (
           <a
             href={p.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="min-w-[85vw] md:min-w-[450px] snap-center group relative bg-stibios-surface border border-stibios-border p-6 rounded-2xl transition-all duration-500 hover:border-gray-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.1)] flex flex-col"
+            class="min-w-[85vw] md:min-w-[420px] snap-center group relative bg-stibios-surface border border-stibios-border p-6 rounded-2xl transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.1)] flex flex-col"
           >
-            <div class="absolute inset-0 bg-gradient-to-br from-gray-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-            
             <div class="w-full h-48 rounded-xl mb-6 overflow-hidden relative border border-white/5 bg-black/30">
               <img
                 src={p.preview.src}
-                alt={`Captura de ${p.name}`}
+                alt={`Web de ${p.name} desarrollada por Stibios Labs`}
                 class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                 loading="lazy"
                 decoding="async"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-stibios-surface/80 via-transparent to-transparent"></div>
               <div class="absolute top-3 left-3 px-2 py-1 rounded-full bg-black/50 border border-white/10 text-[10px] font-mono tracking-[0.25em] text-white/80 uppercase backdrop-blur-sm">
-                Preview
+                {p.tag}
               </div>
             </div>
-
             <div class="flex-grow">
-              <div class="flex justify-between items-start mb-4">
-                <div class="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
-                <ExternalLink size={18} className="text-stibios-dim group-hover:text-purple-400 transition-colors" />
+              <div class="flex justify-between items-start mb-3">
+                <div class="w-1.5 h-1.5 bg-stibios-accent rounded-full animate-pulse shadow-[0_0_8px_rgba(0,209,255,0.8)]"></div>
+                <ExternalLink size={18} class="text-stibios-dim group-hover:text-stibios-accent transition-colors" />
               </div>
-              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-gray-300 transition-colors uppercase tracking-tight">
+              <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-tight group-hover:text-stibios-accent transition-colors">
                 {p.name}
               </h3>
-              <p class="text-stibios-dim text-sm leading-relaxed mb-6 text-left">
-                {p.desc}
-              </p>
+              <p class="text-stibios-dim text-sm leading-relaxed mb-4">{p.desc}</p>
             </div>
-
             <div class="pt-4 border-t border-stibios-border/50">
-              <span class="text-[10px] font-mono text-stibios-dim group-hover:text-gray-300 transition-colors">
-                // LIVE_PROJECT_STIBIOS_OS
-              </span>
+              <span class="text-[10px] font-mono text-stibios-dim/50">// BUILT BY STIBIOS LABS</span>
             </div>
           </a>
         ))}
       </div>
-
-      <!-- Flechas de navegación (PC) -->
-      <button id="prev" class="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full border border-stibios-border bg-stibios-surface/50 text-white hover:bg-stibios-accent hover:border-stibios-accent transition-all opacity-0 group-hover/carousel:opacity-100">
-        &larr;
-      </button>
-      <button id="next" class="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full border border-stibios-border bg-stibios-surface/50 text-white hover:bg-stibios-accent hover:border-stibios-accent transition-all opacity-0 group-hover/carousel:opacity-100">
-        &rarr;
-      </button>
     </div>
+
+    <!-- Productos propios -->
+    <div class="flex flex-col items-center text-center mb-12">
+      <div class="flex items-center gap-3 mb-4">
+        <Sparkles size={28} class="text-stibios-purple" />
+        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter">
+          Productos Propios
+        </h2>
+      </div>
+      <p class="text-stibios-dim text-lg max-w-2xl leading-relaxed">
+        No solo construyo para clientes. También apuesto por mis propias ideas —
+        <span class="text-white font-bold italic">eso valida el criterio técnico.</span>
+      </p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-6">
+      {ownProducts.map((p) => (
+        <a
+          href={p.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex-1 group relative bg-stibios-surface border border-stibios-purple/30 p-6 rounded-2xl transition-all duration-500 hover:border-stibios-purple hover:shadow-[0_0_50px_rgba(173,0,255,0.15)] flex flex-col"
+        >
+          <div class="absolute top-4 right-4">
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-stibios-purple/20 text-stibios-purple border border-stibios-purple/30 uppercase tracking-widest">
+              Producto Propio
+            </span>
+          </div>
+          <div class="w-full h-56 rounded-xl mb-6 overflow-hidden relative border border-white/5 bg-black/30">
+            <img
+              src={p.preview.src}
+              alt={`${p.name} — producto propio de Stibios Labs`}
+              class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-stibios-surface/80 via-transparent to-transparent"></div>
+            <div class="absolute top-3 left-3 px-2 py-1 rounded-full bg-stibios-purple/40 border border-stibios-purple/30 text-[10px] font-mono tracking-widest text-white/90 uppercase backdrop-blur-sm">
+              {p.tag}
+            </div>
+          </div>
+          <div class="flex justify-between items-start mb-3">
+            <div class="w-1.5 h-1.5 bg-stibios-purple rounded-full animate-pulse shadow-[0_0_8px_rgba(173,0,255,0.8)]"></div>
+            <ExternalLink size={18} class="text-stibios-dim group-hover:text-stibios-purple transition-colors" />
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2 uppercase tracking-tight group-hover:text-stibios-purple transition-colors">
+            {p.name}
+          </h3>
+          <p class="text-stibios-dim text-sm leading-relaxed flex-1">{p.desc}</p>
+          <div class="pt-4 border-t border-stibios-border/50 mt-4">
+            <span class="text-[10px] font-mono text-stibios-purple/50">// OWN PRODUCT · STIBIOS LABS</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
   </div>
 </section>
-
-<script>
-  const container = document.getElementById('carousel-container');
-  const prev = document.getElementById('prev');
-  const next = document.getElementById('next');
-
-  if (container && prev && next) {
-    prev.addEventListener('click', () => {
-      container.scrollBy({ left: -400, behavior: 'smooth' });
-    });
-    next.addEventListener('click', () => {
-      container.scrollBy({ left: 400, behavior: 'smooth' });
-    });
-  }
-</script>
 
 <style>
   .no-scrollbar::-webkit-scrollbar { display: none; }
