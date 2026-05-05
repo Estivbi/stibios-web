@@ -46,4 +46,4 @@ Esta experiencia "en las trincheras" es la que aplico a cada cliente. Cuando me 
 
 Stibios no es para todo el mundo. Es para quienes valoran la agilidad, la transparencia y quieren tecnología que funcione sin dramas. Si tienes un negocio, una idea o un proceso que necesita ser digitalizado de verdad, estoy al otro lado.
 
-[Escríbeme y veamos si hacemos match.](/contacto)
+[Escríbeme y veamos si hacemos match.](/#contacto)
