@@ -23,12 +23,12 @@ import { Send, Terminal } from 'lucide-react';
         
         <p class="text-stibios-dim text-lg leading-relaxed mb-10 text-left">
           Transformamos ideas complejas en infraestructuras digitales de alto rendimiento. 
-          Respondemos en menos de 24 horas para analizar la viabilidad técnica de tu proyecto.
+          Te responderemos lo antes posible para analizar la viabilidad técnica de tu proyecto.
         </p>
 
         <div class="font-mono text-xs text-stibios-dim/50">
             <p>UBICACIÓN: REMOTO / MUNDIAL</p>
-            <p>LATENCY: &lt; 24H RESPONSE</p>
+            <p>LATENCY: OPTIMAL</p>
         </div>
       </div>
 
@@ -116,7 +116,7 @@ import { Send, Terminal } from 'lucide-react';
         if (response.status === 200) {
             result.classList.replace('border-stibios-border', 'border-emerald-500');
             result.classList.replace('text-stibios-dim', 'text-emerald-400');
-            result.innerHTML = "> ÉXITO: MENSAJE_TRANSMITIDO_CORRECTAMENTE. PROCEDIENDO_A_RESPUESTA_EN_<24H.";
+            result.innerHTML = "> ÉXITO: MENSAJE_TRANSMITIDO_CORRECTAMENTE. PROCEDIENDO_A_RESPUESTA.";
             form.reset();
         } else {
             result.classList.replace('border-stibios-border', 'border-red-500');

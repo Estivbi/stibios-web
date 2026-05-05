@@ -48,11 +48,6 @@ export default function TerminalHero() {
           <span className="text-stibios-accent text-2xl font-bold">3</span>
           <span>productos propios</span>
         </div>
-        <div className="w-px h-10 bg-stibios-border self-center hidden sm:block" />
-        <div className="flex flex-col items-center gap-1">
-          <span className="text-stibios-purple text-2xl font-bold">&lt;24h</span>
-          <span>tiempo de respuesta</span>
-        </div>
       </div>
 
       <div className="flex flex-row justify-center gap-4 mt-2 mb-12">

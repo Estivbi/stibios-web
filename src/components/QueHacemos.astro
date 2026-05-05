@@ -1,42 +1,26 @@
 ---
-import { Code2, BarChart2, Cloud, Layers, Globe, Cog } from 'lucide-react';
+import { Code2, Globe, Layers, Cog } from 'lucide-react';
+import img1 from '../assets/img1.jpg';
 
-const servicesTop = [
-  {
-    icon: Cloud,
-    title: "Soluciones Cloud & DevOps",
-    desc: "Diseñamos e implementamos infraestructuras cloud escalables y pipelines CI/CD que aceleran el ciclo de entrega y maximizan la disponibilidad de tus sistemas."
-  }
-];
-
-const servicesMiddle = [
-  {
-    icon: Code2,
-    title: "Desarrollo a Medida",
-    desc: "Construimos aplicaciones web y sistemas B2B de alto rendimiento con arquitecturas escalables, priorizando la calidad del código y la velocidad de entrega."
-  },
-  {
-    icon: BarChart2,
-    title: "Estrategia Digital",
-    desc: "Definimos y ejecutamos estrategias digitales que conectan tecnología con resultados medibles: SEO técnico, analítica avanzada y optimización de conversión."
-  },
+const services = [
   {
     icon: Globe,
-    title: "Presencia Web Profesional",
-    desc: "Creamos sitios y plataformas que proyectan credibilidad, generan confianza y convierten visitantes en clientes con diseño de alto impacto."
-  }
-];
-
-const servicesBottom = [
-  {
-    icon: Layers,
-    title: "Automatización B2B",
-    desc: "Integramos y automatizamos flujos de trabajo críticos entre sistemas, eliminando procesos manuales y reduciendo errores operativos."
+    title: "Desarrollo Web para Negocios",
+    desc: "Creamos sitios y plataformas que proyectan credibilidad, generan confianza y convierten visitantes en clientes con diseño de alto impacto.",
+    url: "/servicios/web-para-negocios"
   },
+  {
+    icon: Code2,
+    title: "Desarrollo de Producto a Medida",
+    desc: "Si tienes una idea diferente o un proyecto más complejo, proponlo. Construimos soluciones a medida y escalables enfocadas puramente en tu producto.",
+    url: "/servicios/producto-a-medida"
+  },
+
   {
     icon: Cog,
     title: "Mantenimiento & Soporte",
-    desc: "Garantizamos la operatividad continua de tus sistemas con monitorización proactiva, actualizaciones de seguridad y soporte técnico especializado."
+    desc: "Garantizamos la operatividad continua de tus sistemas con monitorización proactiva, actualizaciones de seguridad y soporte técnico.",
+    url: "/servicios/mantenimiento-soporte"
   }
 ];
 ---
@@ -58,69 +42,85 @@ const servicesBottom = [
   </div>
 
   <!-- Bento grid: asymmetric layout with images breaking the card grid -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
-
-    <!-- Row 1: Cloud card (1 col) + datacenter image (2 cols wide) -->
-    {servicesTop.map((s) => (
-      <div class="group bg-stibios-surface border border-stibios-border rounded-2xl p-8 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)] flex flex-col justify-between min-h-[220px]">
-        <div class="w-14 h-14 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-6 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
-          <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={28} />
-        </div>
-        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-stibios-accent transition-colors">
-          {s.title}
-        </h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">
-          {s.desc}
-        </p>
-      </div>
-    ))}
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
 
     <!-- Datacenter image: spans 2 columns -->
-    <div class="md:col-span-2 overflow-hidden rounded-2xl shadow-2xl">
+    <div class="md:col-span-2 overflow-hidden rounded-2xl shadow-2xl h-48">
       <img
-        src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80"
-        alt="Datacenter de alto rendimiento"
-        class="w-full h-full min-h-[220px] object-cover rounded-2xl hover:scale-[1.02] transition-all duration-500"
+        src={img1.src}
+        alt="Trabajando en equipo en soluciones a medida"
+        class="w-full h-full object-cover rounded-2xl hover:scale-[1.02] transition-all duration-500"
       />
     </div>
 
-    <!-- Row 2: 3 service cards -->
-    {servicesMiddle.map((s) => (
-      <div class="group bg-stibios-surface border border-stibios-border rounded-2xl p-8 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)]">
-        <div class="w-14 h-14 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-6 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
-          <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={28} />
+    <!-- Web para Negocios (1 col) -->
+    {(() => {
+      const s = services[0];
+      const Tag = s.url ? 'a' : 'div';
+      return (
+      <Tag href={s.url} class="group bg-stibios-surface border border-stibios-border rounded-2xl p-6 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)] flex flex-col justify-between block cursor-pointer">
+        <div class="w-12 h-12 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-4 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
+          <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={24} />
         </div>
-        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-stibios-accent transition-colors">
-          {s.title}
-        </h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">
-          {s.desc}
-        </p>
-      </div>
-    ))}
+        <div>
+          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-stibios-accent transition-colors">
+            {s.title}
+          </h3>
+          <p class="text-stibios-dim text-sm leading-relaxed">
+            {s.desc}
+          </p>
+        </div>
+      </Tag>
+    )})( )}
 
-    <!-- Row 3: dev workspace image (1 col) + 2 service cards -->
-    <div class="overflow-hidden rounded-2xl shadow-2xl">
+    <!-- Producto a Medida (1 col) -->
+    {(() => {
+      const s = services[1];
+      const Tag = s.url ? 'a' : 'div';
+      return (
+      <Tag href={s.url} class="group bg-stibios-surface border border-stibios-border rounded-2xl p-6 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)] flex flex-col justify-between block cursor-pointer">
+        <div class="w-12 h-12 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-4 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
+          <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={24} />
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-stibios-accent transition-colors">
+            {s.title}
+          </h3>
+          <p class="text-stibios-dim text-sm leading-relaxed">
+            {s.desc}
+          </p>
+        </div>
+      </Tag>
+    )})( )}
+
+    <!-- dev workspace image (1 col) -->
+    <div class="overflow-hidden rounded-2xl shadow-2xl h-56">
       <img
         src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?w=800&auto=format&fit=crop&q=80"
         alt="Setup de desarrollo minimalista"
-        class="w-full h-full min-h-[200px] object-cover rounded-2xl hover:scale-[1.02] transition-all duration-500"
+        class="w-full h-full object-cover rounded-2xl hover:scale-[1.02] transition-all duration-500"
       />
     </div>
 
-    {servicesBottom.map((s) => (
-      <div class="group bg-stibios-surface border border-stibios-border rounded-2xl p-8 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)]">
-        <div class="w-14 h-14 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-6 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
-          <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={28} />
+    <!-- Mantenimiento & Soporte (1 col) -->
+    {(() => {
+      const s = services[2];
+      const Tag = s.url ? 'a' : 'div';
+      return (
+      <Tag href={s.url} class="group bg-stibios-surface border border-stibios-border rounded-2xl p-6 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)] flex flex-col justify-between block cursor-pointer">
+        <div class="w-12 h-12 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-4 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
+          <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={24} />
         </div>
-        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-stibios-accent transition-colors">
-          {s.title}
-        </h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">
-          {s.desc}
-        </p>
-      </div>
-    ))}
+        <div>
+          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-stibios-accent transition-colors">
+            {s.title}
+          </h3>
+          <p class="text-stibios-dim text-sm leading-relaxed">
+            {s.desc}
+          </p>
+        </div>
+      </Tag>
+    )})( )}
 
   </div>
 
