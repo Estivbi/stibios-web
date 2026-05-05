@@ -8,8 +8,6 @@ image: "/img/porque-stibios-web.webp"
 draft: false
 ---
 
-# Por qué construí Stibios: Software sin intermediarios para negocios reales
-
 Hay un problema silencioso en el mercado del desarrollo web: los negocios medianos y pequeños pagan precios de agencia "grande" pero reciben una atención de marca blanca. 
 
 He visto cómo la peluquería que necesita un sistema de reservas, la consultora que busca un área privada para clientes o el creador de contenido que necesita una web de alto impacto, acaban atrapados en procesos infinitos. Procesos gestionados por comerciales que prometen la luna y ejecutados por desarrolladores que nunca han hablado con el cliente final.
@@ -31,7 +29,7 @@ No construyo con herramientas de 2015. El ecosistema digital de 2026 exige veloc
 
 - **Frontend:** Uso **Astro** para landings de alto rendimiento y **React 19 / Next.js** para aplicaciones complejas. Todo bajo el rigor de **TypeScript**.
 - **Backend & Datos:** He abandonado los sistemas pesados por soluciones ágiles como **Node.js** con **Drizzle ORM** y **PostgreSQL**.
-- **Infraestructura:** Despliego en **Hetzner** gestionado con **Coolify**. Esto me permite ofrecer a mis clientes una infraestructura de nivel empresarial por una fracción del coste de los servicios tradicionales.
+- **Infraestructura y Mantenimiento:** Desde plataformas modernas en **Vercel** o servidores propios, hasta el mantenimiento y creación de webs en **WordPress**. Ya sea que necesites una web sencilla, arreglar tu WordPress, o crear un producto digital complejo desde cero, yo me encargo de todo.
 
 ## Stibios Labs: No solo programo para otros, construyo lo mío
 
