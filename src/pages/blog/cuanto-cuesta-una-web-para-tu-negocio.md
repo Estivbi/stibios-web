@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../layouts/BlogPost.astro
 title: "Cuánto cuesta una web para tu negocio (y por qué los precios varían tanto)"
 description: "Desde 500€ hasta 15.000€ por una web. Qué explica esa diferencia y cómo saber qué necesitas realmente."
 date: "2026-05-15"
