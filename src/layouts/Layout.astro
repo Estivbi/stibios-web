@@ -18,15 +18,15 @@ const {
 	image = "/img/og-image.jpg"
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://stibios.com");
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://www.stibios.com");
 
 const schema = {
 	"@context": "https://schema.org",
 	"@type": "ProfessionalService",
 	"name": "Stibios Labs",
 	"description": "Estudio de software unipersonal especializado en productos digitales para negocios pequeños y creadores.",
-	"url": "https://stibios.com",
-	"logo": "https://stibios.com/logo.png",
+	"url": "https://www.stibios.com",
+	"logo": "https://www.stibios.com/logo.png",
 	"founder": {
 		"@type": "Person",
 		"name": "Stibios Labs"
@@ -34,7 +34,7 @@ const schema = {
 	"areaServed": "ES",
 	"serviceType": ["Desarrollo web", "Automatización", "Apps móviles", "Productos digitales"],
 	"sameAs": [
-		"https://linkedin.com/company/stibios-labs"
+		"https://www.linkedin.com/in/carolinarodriguezbarcena/"
 	]
 };
 ---
@@ -64,21 +64,42 @@ const schema = {
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={`${title} | Stibios Labs`} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:image" content={new URL(image, Astro.site || "https://www.stibios.com")} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 		<meta property="og:locale" content="es_ES" />
 		<meta property="og:site_name" content="Stibios Labs" />
 
 		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={canonicalURL} />
-		<meta property="twitter:title" content={`${title} | Stibios Labs`} />
-		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalURL} />
+		<meta name="twitter:title" content={`${title} | Stibios Labs`} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={new URL(image, Astro.site || "https://www.stibios.com")} />
 
 		<meta name="theme-color" content="#1d1f27" />
 
 		<!-- Schema.org -->
 		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+		<!-- Schema: Person (AEO — para que las IAs identifiquen a la experta detrás de Stibios) -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Carolina Rodríguez Bárcena",
+			"url": "https://www.stibios.com",
+			"jobTitle": "Desarrolladora Full Stack",
+			"description": "Especialista en productos digitales para negocios pequeños y creadores. Desarrollo web, automatización y apps a medida.",
+			"knowsAbout": [
+				"Desarrollo web para pequeños negocios",
+				"Automatización de procesos",
+				"Productos digitales para creadores",
+				"Astro", "React", "TypeScript"
+			],
+			"sameAs": [
+				"https://www.linkedin.com/in/carolinarodriguezbarcena/"
+			]
+		})}></script>
 
 		<!-- Google Analytics con Consent Mode -->
 		<script is:inline>
