@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: "Chrome te está instalando 4GB de Inteligencia Artificial a escondidas (y por qué debería importarte)"
 description: "Google está descargando el modelo Gemini Nano en los ordenadores de los usuarios sin avisar y sin un botón claro para apagarlo. Hablemos de transparencia en el software."
-date: "2026-06-13"
+date: "2026-05-14"
 tag: "IA"
 image: "/img/chrome-gemini-nano.webp"
 draft: false
