@@ -41,4 +41,4 @@ En un mes laborable (20 días), **son 600€ que dejas de ganar** por estar haci
 
 Una automatización bien hecha se paga sola en cuestión de semanas. A partir de ahí, es un empleado perfecto que trabaja 24/7, no coge vacaciones y no se equivoca al copiar un email.
 
-En Stibios Labs no nos limitamos a hacer webs bonitas. Construimos sistemas para que recuperes tu tiempo. Si tienes un proceso en tu negocio que te tiene harto de repetir todos los días, hablemos y vemos cómo automatizarlo.
+En Stibios no nos limitamos a hacer webs bonitas. Construimos sistemas para que recuperes tu tiempo. Si tienes un proceso en tu negocio que te tiene harto de repetir todos los días, hablemos [/#contacto] y vemos cómo automatizarlo.
