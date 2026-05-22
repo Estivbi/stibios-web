@@ -4,13 +4,12 @@ title: "La IA no va a robarte el negocio. La gente que la usa, sí."
 description: "La IA ha dejado de ser un juguete para nerds. Te explico sin rodeos cómo puedes usarla hoy en tu negocio para ahorrar tiempo y dinero, antes de que tu competencia te adelante."
 date: "2026-05-22"
 tag: "IA"
-image: ""
 draft: true
 ---
 
 Soy Carol, y estoy hasta las narices de oír hablar de inteligencia artificial como si fuera magia negra o algo que solo entienden en Silicon Valley. Cada vez que hablo con dueños de negocios como tú, veo el mismo patrón: una mezcla de curiosidad y agobio. Crees que es demasiado complicado, que no es para ti, que ya tienes suficiente con gestionar los pedidos, las citas y los empleados. La mala noticia es que pensar así es el camino más rápido para quedarte atrás. La buena es que usar la IA es mucho más sencillo de lo que te han hecho creer.
 
-### La IA ha dejado de ser un juguete para pedirle recetas
+## La IA ha dejado de ser un juguete para pedirle recetas
 
 Hasta hace poco, usar una IA era como tener un becario muy listo pero sin iniciativa. Le pedías algo y te daba una respuesta. Fin. Podías pedirle que te escribiera un email o te diera ideas para un post, pero tenías que estar encima, copiando y pegando. Eso se acabó.
 
