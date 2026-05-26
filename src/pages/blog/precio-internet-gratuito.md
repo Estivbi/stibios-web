@@ -4,7 +4,7 @@ title: "El verdadero precio de internet gratuito (y por qué no eres el cliente)
 description: "Si no pagas por el producto, el producto eres tú. Qué datos recopilan sobre ti, para qué los usan y cómo protegerte sin ponerte el gorro de aluminio."
 date: "2026-06-03"
 tag: "Privacidad"
-img: "tus-datos-visibles.webp"
+img: "img/tus-datos-visibles.webp"
 draft: false
 ---
 
