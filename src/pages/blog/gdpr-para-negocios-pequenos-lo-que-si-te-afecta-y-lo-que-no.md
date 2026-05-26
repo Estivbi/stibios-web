@@ -1,12 +1,9 @@
-Claro, aquí tienes el post para el blog de Stibios.
-
 ---
 layout: ../../layouts/BlogPost.astro
 title: "GDPR para negocios pequeños: lo que sí te afecta y lo que no"
 description: "Deja de tenerle miedo al GDPR. Te explico en qué debes fijarte (tu web, tu lista de correo) y qué puedes ignorar para no perder el tiempo y el dinero."
 date: "2026-05-22"
 tag: "Seguridad"
-image: ""
 draft: true
 ---
 
