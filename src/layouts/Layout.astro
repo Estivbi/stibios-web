@@ -20,23 +20,41 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://stibios.com");
 
-const schema = {
-	"@context": "https://schema.org",
-	"@type": "ProfessionalService",
-	"name": "Stibios Labs",
-	"description": "Estudio de software unipersonal especializado en productos digitales para negocios pequeños y creadores.",
-	"url": "https://stibios.com",
-	"logo": "https://stibios.com/logo.png",
-	"founder": {
-		"@type": "Person",
-		"name": "Stibios Labs"
+const schema = [
+	{
+		"@context": "https://schema.org",
+		"@type": ["ProfessionalService", "LocalBusiness"],
+		"name": "Stibios Labs",
+		"description": "Estudio de software unipersonal especializado en productos digitales para negocios pequeños y creadores.",
+		"url": "https://stibios.com",
+		"logo": "https://stibios.com/logo.png",
+		"founder": {
+			"@type": "Person",
+			"name": "Carolina Rodríguez Bárcena",
+			"url": "https://stibios.com",
+			"sameAs": ["https://www.linkedin.com/in/carolinarb94"]
+		},
+		"areaServed": "ES",
+		"serviceType": ["Desarrollo web", "Automatización", "Apps móviles", "Productos digitales"],
+		"priceRange": "€€",
+		"sameAs": [
+			"https://www.linkedin.com/company/stibios-labs"
+		]
 	},
-	"areaServed": "ES",
-	"serviceType": ["Desarrollo web", "Automatización", "Apps móviles", "Productos digitales"],
-	"sameAs": [
-		"https://linkedin.com/company/stibios-labs"
-	]
-};
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Carolina Rodríguez Bárcena",
+		"jobTitle": "Fundadora y Desarrolladora Full-Stack",
+		"worksFor": {
+			"@type": "Organization",
+			"name": "Stibios Labs",
+			"url": "https://stibios.com"
+		},
+		"url": "https://stibios.com",
+		"sameAs": ["https://www.linkedin.com/in/carolinarb94"]
+	}
+];
 ---
 
 <!doctype html>

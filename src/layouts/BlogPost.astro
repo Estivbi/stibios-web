@@ -26,10 +26,37 @@ const wordCount = content.split(/\s+/).filter(Boolean).length;
 const readingTime = content ? Math.max(1, Math.ceil(wordCount / 200)) : 5;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://stibios.com').href;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": frontmatter.title,
+  "description": frontmatter.description,
+  "datePublished": frontmatter.date,
+  "dateModified": frontmatter.date,
+  "url": canonicalURL,
+  ...(frontmatter.image ? { "image": new URL(frontmatter.image, "https://stibios.com").href } : {}),
+  "author": {
+    "@type": "Person",
+    "name": "Carolina Rodríguez Bárcena",
+    "url": "https://stibios.com",
+    "sameAs": ["https://www.linkedin.com/in/carolinarb94"]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Stibios Labs",
+    "url": "https://stibios.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://stibios.com/logo.png"
+    }
+  }
+};
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.description} image={frontmatter.image}>
   <ReadingProgressBar client:load />
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <article class="blog-post">
     <div class="blog-post__container">
 
@@ -72,6 +99,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://stibios.
       <div class="blog-post__body">
         <slot />
       </div>
+
+      <aside class="blog-post__author">
+        <div class="blog-post__author-avatar" aria-hidden="true">CR</div>
+        <div class="blog-post__author-info">
+          <p class="blog-post__author-name">Carolina Rodríguez Bárcena</p>
+          <p class="blog-post__author-bio">Fundadora de Stibios Labs. Desarrolladora full-stack especializada en productos digitales para negocios pequeños y creadores.</p>
+          <a href="https://www.linkedin.com/in/carolinarb94" target="_blank" rel="noopener noreferrer" class="blog-post__author-link">
+            LinkedIn
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </aside>
 
       <footer class="blog-post__footer">
         <a href="/blog" class="blog-post__back">
@@ -365,5 +404,72 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://stibios.
 
   .blog-post__back:hover svg {
     transform: translateX(-3px);
+  }
+
+  /* ── Author Box ── */
+  .blog-post__author {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-stibios-surface);
+    border: 1px solid var(--color-stibios-border);
+    border-radius: 0.75rem;
+  }
+
+  .blog-post__author-avatar {
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-stibios-accent), var(--color-stibios-purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-stibios-bg);
+    letter-spacing: 0.05em;
+  }
+
+  .blog-post__author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .blog-post__author-name {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-stibios-text);
+    margin: 0;
+  }
+
+  .blog-post__author-bio {
+    font-size: 0.8rem;
+    color: var(--color-stibios-dim);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .blog-post__author-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-stibios-accent);
+    text-decoration: none;
+    margin-top: 0.25rem;
+    border-bottom: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .blog-post__author-link:hover {
+    opacity: 0.8;
+    border-bottom: none;
   }
 </style>

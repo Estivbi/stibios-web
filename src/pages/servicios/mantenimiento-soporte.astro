@@ -3,12 +3,33 @@ import Layout from '../../layouts/Layout.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
 import { Shield, Cog, Activity, ServerCrash } from 'lucide-react';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Mantenimiento y Soporte Web Profesional",
+  "description": "Mantenemos tu infraestructura digital segura, rápida y actualizada. Monitorización 24/7, actualizaciones de seguridad y soporte técnico dedicado.",
+  "url": "https://stibios.com/servicios/mantenimiento-soporte",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Stibios Labs",
+    "url": "https://stibios.com"
+  },
+  "areaServed": "ES",
+  "serviceType": "Mantenimiento Web",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "priceRange": "100-500"
+  }
+};
 ---
 
-<Layout 
-  title="Mantenimiento y Soporte Web Profesional" 
+<Layout
+  title="Mantenimiento y Soporte Web Profesional"
   description="Mantenemos tu infraestructura digital segura, rápida y actualizada. Soporte técnico dedicado para que tú solo te preocupes de tu negocio."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <section class="pt-32 pb-20 px-6 max-w-5xl mx-auto relative">
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-96 bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
 

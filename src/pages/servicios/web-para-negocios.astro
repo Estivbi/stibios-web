@@ -3,12 +3,33 @@ import Layout from '../../layouts/Layout.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
 import { Globe, Zap, Shield, Search } from 'lucide-react';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Desarrollo Web para Negocios y Pymes",
+  "description": "Páginas web profesionales de alto rendimiento para negocios. Diseño moderno, optimización SEO y máxima velocidad para atraer más clientes.",
+  "url": "https://stibios.com/servicios/web-para-negocios",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Stibios Labs",
+    "url": "https://stibios.com"
+  },
+  "areaServed": "ES",
+  "serviceType": "Desarrollo Web",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "priceRange": "800-5000"
+  }
+};
 ---
 
-<Layout 
-  title="Desarrollo Web para Negocios y Pymes" 
+<Layout
+  title="Desarrollo Web para Negocios y Pymes"
   description="Creamos páginas web profesionales de alto rendimiento para negocios. Diseño moderno, optimización SEO y máxima velocidad para atraer más clientes."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <section class="pt-32 pb-20 px-6 max-w-5xl mx-auto relative">
     <!-- Decoración de fondo -->
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-96 bg-stibios-accent/10 blur-[120px] rounded-full pointer-events-none z-0"></div>

@@ -3,12 +3,33 @@ import Layout from '../../layouts/Layout.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
 import { Code2, Target, Zap, Wrench } from 'lucide-react';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Desarrollo de Producto Digital a Medida",
+  "description": "Construimos soluciones tecnológicas a medida: herramientas internas, plataformas SaaS y productos digitales únicos adaptados a tu negocio.",
+  "url": "https://stibios.com/servicios/producto-a-medida",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Stibios Labs",
+    "url": "https://stibios.com"
+  },
+  "areaServed": "ES",
+  "serviceType": "Desarrollo de Software a Medida",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "priceRange": "4000-20000"
+  }
+};
 ---
 
-<Layout 
-  title="Desarrollo de Producto a Medida" 
+<Layout
+  title="Desarrollo de Producto a Medida"
   description="Si tienes una idea diferente o un proyecto más complejo, nosotros construimos la solución tecnológica a medida enfocada puramente en tu producto."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <section class="pt-32 pb-20 px-6 max-w-5xl mx-auto relative">
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-96 bg-stibios-purple/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
 
