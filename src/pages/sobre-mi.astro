@@ -1,0 +1,455 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Carolina Rodríguez Bárcena",
+  "jobTitle": "Desarrolladora Full-Stack & Fundadora de Stibios Labs",
+  "description": "Desarrolladora full-stack con más de 3 años de experiencia en empresas corporativas, especializada en front-end y fundadora de Stibios Labs.",
+  "url": "https://stibios.com/sobre-mi",
+  "image": "https://stibios.com/img/carolina.webp",
+  "sameAs": ["https://www.linkedin.com/in/carolinarb94"],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Stibios Labs",
+    "url": "https://stibios.com"
+  },
+  "knowsAbout": ["Desarrollo Web", "Astro", "React", "Next.js", "TypeScript", "Node.js", "Automatización con IA"]
+};
+---
+
+<Layout
+  title="Sobre mí — Carolina Rodríguez Bárcena"
+  description="Soy Carolina, desarrolladora full-stack con más de 3 años de experiencia y fundadora de Stibios Labs. Construyo productos digitales para negocios que quieren resultados reales."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+  <section class="about">
+    <div class="about__container">
+
+      <!-- Cabecera -->
+      <div class="about__hero">
+        <div class="about__photo-wrap">
+          <img
+            src="/img/carolina.webp"
+            alt="Carolina Rodríguez Bárcena, fundadora de Stibios Labs"
+            class="about__photo"
+            width="180"
+            height="180"
+          />
+          <div class="about__photo-ring"></div>
+        </div>
+
+        <div class="about__intro">
+          <div class="about__label">
+            <span class="about__dot"></span>
+            <span>Fundadora · Stibios Labs</span>
+          </div>
+          <h1 class="about__name">Carolina Rodríguez Bárcena</h1>
+          <p class="about__tagline">
+            Desarrolladora full-stack. Construyo productos digitales que funcionan de verdad — desde la primera línea de código hasta que el negocio crece.
+          </p>
+          <a
+            href="https://www.linkedin.com/in/carolinarb94"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="about__linkedin"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="about__divider"></div>
+
+      <!-- Bio -->
+      <div class="about__section">
+        <h2 class="about__section-title">Mi historia</h2>
+        <div class="about__bio">
+          <p>
+            Llevo más de 3 años trabajando como desarrolladora en empresas corporativas, con foco en front-end. He aprendido cómo funcionan los proyectos digitales a gran escala — y también he visto de primera mano los problemas: proyectos que tardan meses, decisiones tomadas por capas de intermediarios y código que nadie mantiene.
+          </p>
+          <p>
+            Monté Stibios Labs para hacer lo contrario. Trabajo directamente con el cliente, escribo yo el código y entrego resultados sin dramas. Mi especialidad son los negocios pequeños y los creadores que necesitan tecnología real pero no quieren pagar por un equipo de 10 personas.
+          </p>
+          <p>
+            En noviembre hago 4 años en el sector. En ese tiempo he pasado de ejecutar tickets a diseñar arquitecturas completas, y de trabajar para otros a construir mis propios productos bajo el sello Stibios.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stack -->
+      <div class="about__section">
+        <h2 class="about__section-title">Stack habitual</h2>
+        <div class="about__stack">
+          {[
+            { label: "Astro", note: "Webs estáticas y landings" },
+            { label: "React / Next.js", note: "Apps y plataformas" },
+            { label: "TypeScript", note: "En todo lo que construyo" },
+            { label: "Node.js", note: "Backend y APIs" },
+            { label: "Sanity CMS", note: "Contenido estructurado" },
+            { label: "Python", note: "Automatización e IA" },
+            { label: "Drizzle + PostgreSQL", note: "Bases de datos" },
+            { label: "Vercel / Cloud", note: "Despliegue y hosting" },
+          ].map(item => (
+            <div class="about__stack-item">
+              <span class="about__stack-name">{item.label}</span>
+              <span class="about__stack-note">{item.note}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Valores -->
+      <div class="about__section">
+        <h2 class="about__section-title">Cómo trabajo</h2>
+        <div class="about__values">
+          <div class="about__value">
+            <span class="about__value-num">01</span>
+            <div>
+              <p class="about__value-title">Sin intermediarios</p>
+              <p class="about__value-desc">Hablas conmigo directamente. La misma persona que entiende tu proyecto es la que escribe el código.</p>
+            </div>
+          </div>
+          <div class="about__value">
+            <span class="about__value-num">02</span>
+            <div>
+              <p class="about__value-title">Sinceridad técnica</p>
+              <p class="about__value-desc">Si algo no te va a dar resultados, te lo digo antes de empezar. No facturo horas por el placer de facturarlas.</p>
+            </div>
+          </div>
+          <div class="about__value">
+            <span class="about__value-num">03</span>
+            <div>
+              <p class="about__value-title">Entrego, no prometo</p>
+              <p class="about__value-desc">Los proyectos se entregan funcionando y documentados. Sin excusas de "falta un detalle" durante meses.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="about__cta">
+        <p class="about__cta-text">¿Tienes un proyecto en mente?</p>
+        <a href="/#contacto" class="about__cta-btn">Hablemos</a>
+        <a href="/proyectos" class="about__cta-secondary">Ver mis proyectos →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .about {
+    padding: 7rem 1.5rem 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .about {
+      padding: 9rem 2rem 5rem;
+    }
+  }
+
+  .about__container {
+    max-width: 48rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  /* ── Hero ── */
+  .about__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .about__hero {
+      flex-direction: row;
+      text-align: left;
+      align-items: flex-start;
+    }
+  }
+
+  .about__photo-wrap {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .about__photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 640px) {
+    .about__photo {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  .about__photo-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-stibios-accent), var(--color-stibios-purple));
+    z-index: 0;
+  }
+
+  .about__photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: var(--color-stibios-bg);
+    z-index: 0;
+  }
+
+  .about__photo {
+    z-index: 2;
+  }
+
+  .about__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .about__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-stibios-accent);
+  }
+
+  .about__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-stibios-accent);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 209, 255, 0.4); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0, 209, 255, 0); }
+  }
+
+  .about__name {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--color-stibios-text);
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .about__name {
+      font-size: 2.25rem;
+    }
+  }
+
+  .about__tagline {
+    font-size: 0.95rem;
+    color: var(--color-stibios-dim);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .about__linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-stibios-accent);
+    text-decoration: none;
+    margin-top: 0.25rem;
+    transition: opacity 0.2s ease;
+    width: fit-content;
+  }
+
+  .about__linkedin:hover {
+    opacity: 0.75;
+  }
+
+  /* ── Divider ── */
+  .about__divider {
+    height: 1px;
+    background: linear-gradient(to right, var(--color-stibios-accent), var(--color-stibios-purple), transparent);
+    opacity: 0.3;
+  }
+
+  /* ── Sections ── */
+  .about__section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .about__section-title {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-stibios-accent);
+    margin: 0;
+  }
+
+  /* ── Bio ── */
+  .about__bio {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .about__bio p {
+    font-size: 0.95rem;
+    color: rgba(248, 250, 252, 0.78);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* ── Stack ── */
+  .about__stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.625rem;
+  }
+
+  @media (min-width: 640px) {
+    .about__stack {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .about__stack-item {
+    background: var(--color-stibios-surface);
+    border: 1px solid var(--color-stibios-border);
+    border-radius: 0.625rem;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .about__stack-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-stibios-text);
+  }
+
+  .about__stack-note {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--color-stibios-dim);
+  }
+
+  /* ── Values ── */
+  .about__values {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .about__value {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .about__value-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-stibios-accent);
+    flex-shrink: 0;
+    padding-top: 0.15rem;
+    min-width: 2rem;
+  }
+
+  .about__value-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-stibios-text);
+    margin: 0 0 0.25rem;
+  }
+
+  .about__value-desc {
+    font-size: 0.85rem;
+    color: var(--color-stibios-dim);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── CTA ── */
+  .about__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: var(--color-stibios-surface);
+    border: 1px solid var(--color-stibios-border);
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .about__cta-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-stibios-text);
+    margin: 0;
+  }
+
+  .about__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    background: var(--color-stibios-text);
+    color: var(--color-stibios-bg);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.625rem 1.75rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .about__cta-btn:hover {
+    background: #fff;
+  }
+
+  .about__cta-secondary {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-stibios-accent);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .about__cta-secondary:hover {
+    opacity: 0.75;
+  }
+</style>

@@ -1,0 +1,412 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+
+const projects = [
+  {
+    name: "Revista Victoria",
+    description: "Web de moda inclusiva desarrollada de inicio a fin bajo el sello Stibios. Arquitectura editorial completa con CMS headless para gestión de artículos, diseño de alto impacto y rendimiento optimizado.",
+    url: "https://www.victoriarevista.com",
+    status: "live",
+    role: "Desarrollo completo",
+    stack: ["Astro", "React", "Sanity CMS", "TypeScript"],
+    accent: "accent",
+  },
+  {
+    name: "Custodio José Pérez",
+    description: "Web personal de escritor desarrollada de inicio a fin bajo el sello Stibios. Diseño a medida que transmite la voz y la identidad del autor, con arquitectura estática de máximo rendimiento.",
+    url: "https://www.custodiojoseperez.com",
+    status: "live",
+    role: "Desarrollo completo",
+    stack: ["Astro", "TypeScript"],
+    accent: "purple",
+  },
+  {
+    name: "Padelmix",
+    description: "Plataforma tecnológica para la comunidad de pádel. Proyecto propio en desarrollo avanzado con sistema de reservas, gestión de usuarios y matchmaking entre jugadores.",
+    url: "https://padelmix.vercel.app",
+    status: "beta",
+    role: "Producto propio · En desarrollo",
+    stack: ["Next.js", "TypeScript", "React"],
+    accent: "accent",
+  },
+  {
+    name: "Stibios Agents",
+    description: "Suite de agentes de automatización IA orientada a pequeños negocios. Automatiza tareas repetitivas, genera informes y gestiona flujos de trabajo sin intervención manual. Actualmente en desarrollo local como producto de la línea Stibios.",
+    url: null,
+    status: "dev",
+    role: "Producto propio · En desarrollo",
+    stack: ["Python", "Next.js", "TypeScript"],
+    accent: "purple",
+  },
+];
+
+const statusLabel: Record<string, string> = {
+  live: "Live",
+  beta: "Beta",
+  dev: "En desarrollo",
+};
+---
+
+<Layout
+  title="Proyectos — Stibios Labs"
+  description="Proyectos desarrollados bajo el sello Stibios Labs: Revista Victoria, web de Custodio José Pérez, Padelmix y Stibios Agents. Software real para negocios reales."
+>
+  <section class="projects">
+    <div class="projects__container">
+
+      <header class="projects__header">
+        <div class="projects__label">
+          <span class="projects__dot"></span>
+          <span>Proyectos</span>
+        </div>
+        <h1 class="projects__title">Lo que he construido</h1>
+        <p class="projects__subtitle">
+          Proyectos reales bajo el sello Stibios — algunos para clientes, otros propios. Código mío, decisiones mías, resultados medibles.
+        </p>
+        <div class="projects__header-line"></div>
+      </header>
+
+      <div class="projects__list">
+        {projects.map((project, i) => (
+          <article class="project-card" style={`animation-delay: ${i * 80}ms`}>
+            <div class="project-card__top">
+              <div class="project-card__meta">
+                <span class={`project-card__status project-card__status--${project.status}`}>
+                  {project.status === "live" && <span class="project-card__status-dot"></span>}
+                  {statusLabel[project.status]}
+                </span>
+                <span class="project-card__role">{project.role}</span>
+              </div>
+
+              {project.url ? (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-card__link"
+                  aria-label={`Visitar ${project.name}`}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              ) : (
+                <span class="project-card__no-link" title="No disponible públicamente">—</span>
+              )}
+            </div>
+
+            <h2 class="project-card__name">{project.name}</h2>
+            <p class="project-card__desc">{project.description}</p>
+
+            <div class="project-card__stack">
+              {project.stack.map(tech => (
+                <span class={`project-card__tech project-card__tech--${project.accent}`}>{tech}</span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="projects__footer">
+        <p class="projects__footer-text">¿Tienes un proyecto en mente?</p>
+        <a href="/#contacto" class="projects__cta">Cuéntamelo</a>
+        <a href="/sobre-mi" class="projects__cta-sec">Conoce mi perfil →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .projects {
+    padding: 7rem 1.5rem 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .projects {
+      padding: 9rem 2rem 5rem;
+    }
+  }
+
+  .projects__container {
+    max-width: 52rem;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .projects__header {
+    margin-bottom: 3rem;
+  }
+
+  .projects__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-stibios-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .projects__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-stibios-accent);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 209, 255, 0.4); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0, 209, 255, 0); }
+  }
+
+  .projects__title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--color-stibios-text);
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .projects__title {
+      font-size: 2.75rem;
+    }
+  }
+
+  .projects__subtitle {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--color-stibios-dim);
+    line-height: 1.5;
+  }
+
+  .projects__header-line {
+    margin-top: 1.5rem;
+    height: 1px;
+    background: linear-gradient(to right, var(--color-stibios-accent), var(--color-stibios-purple), transparent);
+    opacity: 0.4;
+  }
+
+  /* ── Project List ── */
+  .projects__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  /* ── Project Card ── */
+  .project-card {
+    background: var(--color-stibios-surface);
+    border: 1px solid var(--color-stibios-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    animation: card-enter 0.5s ease-out both;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @keyframes card-enter {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .project-card:hover {
+    border-color: var(--color-stibios-accent);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 209, 255, 0.08);
+  }
+
+  .project-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .project-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  /* Status badge */
+  .project-card__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.625rem;
+    border-radius: 9999px;
+  }
+
+  .project-card__status--live {
+    color: #34d399;
+    background: rgba(52, 211, 153, 0.08);
+    border: 1px solid rgba(52, 211, 153, 0.25);
+  }
+
+  .project-card__status--beta {
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+  }
+
+  .project-card__status--dev {
+    color: var(--color-stibios-dim);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--color-stibios-border);
+  }
+
+  .project-card__status-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #34d399;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  .project-card__role {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--color-stibios-dim);
+  }
+
+  .project-card__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-stibios-border);
+    color: var(--color-stibios-dim);
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .project-card__link:hover {
+    border-color: var(--color-stibios-accent);
+    color: var(--color-stibios-accent);
+    background: rgba(0, 209, 255, 0.06);
+  }
+
+  .project-card__no-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8rem;
+    color: var(--color-stibios-border);
+    flex-shrink: 0;
+  }
+
+  .project-card__name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-stibios-text);
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .project-card__desc {
+    font-size: 0.875rem;
+    color: var(--color-stibios-dim);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* Tech stack badges */
+  .project-card__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-top: 0.25rem;
+  }
+
+  .project-card__tech {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+  }
+
+  .project-card__tech--accent {
+    color: var(--color-stibios-accent);
+    background: rgba(0, 209, 255, 0.06);
+    border: 1px solid rgba(0, 209, 255, 0.2);
+  }
+
+  .project-card__tech--purple {
+    color: var(--color-stibios-purple);
+    background: rgba(173, 0, 255, 0.06);
+    border: 1px solid rgba(173, 0, 255, 0.2);
+  }
+
+  /* ── Footer CTA ── */
+  .projects__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: var(--color-stibios-surface);
+    border: 1px solid var(--color-stibios-border);
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .projects__footer-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-stibios-text);
+    margin: 0;
+  }
+
+  .projects__cta {
+    display: inline-flex;
+    align-items: center;
+    background: var(--color-stibios-text);
+    color: var(--color-stibios-bg);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.625rem 1.75rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .projects__cta:hover {
+    background: #fff;
+  }
+
+  .projects__cta-sec {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-stibios-accent);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .projects__cta-sec:hover {
+    opacity: 0.75;
+  }
+</style>
