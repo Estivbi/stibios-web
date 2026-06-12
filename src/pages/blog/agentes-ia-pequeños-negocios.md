@@ -3,6 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: "Agentes de IA para pequeños negocios: qué son y por qué cambian las reglas"
 description: "La automatización tradicional ejecuta tareas repetitivas. Los agentes de IA toman decisiones. Te explico la diferencia con los casos reales que estoy construyendo."
 date: "2026-05-27"
+author: "Carolina Rodríguez Bárcena"
 tag: "IA"
 image: "/img/agentes-de-ia.webp"
 draft: false
