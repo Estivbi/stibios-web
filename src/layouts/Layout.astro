@@ -37,6 +37,21 @@ const schema = {
 		"https://www.linkedin.com/in/carolinarodriguezbarcena/"
 	]
 };
+
+const websiteSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"name": "Stibios Labs",
+	"url": "https://www.stibios.com",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": {
+			"@type": "EntryPoint",
+			"urlTemplate": "https://www.stibios.com/blog?q={search_term_string}"
+		},
+		"query-input": "required name=search_term_string"
+	}
+};
 ---
 
 <!doctype html>
@@ -81,6 +96,7 @@ const schema = {
 
 		<!-- Schema.org -->
 		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 
 		<!-- Schema: Person (AEO — para que las IAs identifiquen a la experta detrás de Stibios) -->
 		<script type="application/ld+json" set:html={JSON.stringify({

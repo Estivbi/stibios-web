@@ -2,30 +2,102 @@
 import Layout from '../../layouts/Layout.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
-import { Shield, Cog, Activity, ServerCrash } from 'lucide-react';
+import { Shield, Cog, Activity, ServerCrash, CheckCircle } from 'lucide-react';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Mantenimiento y Soporte Web Profesional",
+  "description": "Mantenemos tu infraestructura digital segura, rápida y actualizada. Monitorización 24/7, actualizaciones de seguridad y soporte técnico dedicado.",
+  "url": "https://www.stibios.com/servicios/mantenimiento-soporte",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Stibios Labs",
+    "url": "https://www.stibios.com"
+  },
+  "areaServed": "ES",
+  "serviceType": "Mantenimiento Web",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "80",
+    "highPrice": "500",
+    "offerCount": "3"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.stibios.com" },
+    { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://www.stibios.com/servicios" },
+    { "@type": "ListItem", "position": 3, "name": "Mantenimiento y Soporte", "item": "https://www.stibios.com/servicios/mantenimiento-soporte" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué incluye el plan de mantenimiento básico?",
+      "acceptedAnswer": { "@type": "Answer", "text": "El plan básico incluye actualizaciones de seguridad mensuales, monitorización de disponibilidad, backup semanal y hasta 1 hora mensual de cambios menores (textos, imágenes, ajustes visuales). Si necesitas más horas o funcionalidades nuevas, se presupuestan aparte." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo tardas en resolver una incidencia?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Incidencias críticas (web caída, fallo de seguridad) se atienden en menos de 4 horas laborables. Problemas funcionales no críticos se resuelven en 24-48 horas. Los cambios de contenido menores en 24 horas." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Funciona para webs hechas con WordPress?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Ofrezco mantenimiento tanto para webs desarrolladas con Stibios como para WordPress de terceros. La auditoría inicial permite entender el estado del proyecto antes de comprometerse con un plan." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo cambiar de plan o cancelar cuando quiera?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los planes son mensuales sin permanencia mínima. Si tus necesidades cambian, puedes subir, bajar o cancelar con 15 días de aviso." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Incluye cambios de contenido o solo actualizaciones técnicas?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Los planes incluyen horas de soporte que puedes usar para cambios de contenido (añadir un servicio, cambiar precios, actualizar fotos) además de las actualizaciones técnicas. Las horas sobrantes no se acumulan al mes siguiente." }
+    }
+  ]
+};
 ---
 
-<Layout 
-  title="Mantenimiento y Soporte Web Profesional" 
-  description="Mantenemos tu infraestructura digital segura, rápida y actualizada. Soporte técnico dedicado para que tú solo te preocupes de tu negocio."
+<Layout
+  title="Mantenimiento y Soporte Web Profesional"
+  description="Mantenemos tu web segura, rápida y sin caídas. Monitorización 24/7, actualizaciones de seguridad y soporte técnico dedicado. Planes desde 80€/mes."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
   <section class="pt-32 pb-20 px-6 max-w-5xl mx-auto relative">
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-96 bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
-
     <div class="relative z-10 space-y-8 text-center max-w-3xl mx-auto">
+      <nav class="text-xs font-mono text-stibios-dim flex items-center justify-center gap-2" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-stibios-accent transition-colors">Inicio</a>
+        <span>/</span>
+        <a href="/servicios" class="hover:text-stibios-accent transition-colors">Servicios</a>
+        <span>/</span>
+        <span class="text-stibios-text">Mantenimiento y soporte</span>
+      </nav>
       <div class="inline-flex items-center gap-2 text-emerald-400 text-xs font-mono border border-emerald-500/20 px-3 py-1 rounded-full bg-emerald-500/5">
         <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
         MANTENIMIENTO WEB
       </div>
-      
       <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white">
-        Tu tranquilidad es nuestro <span class="text-emerald-400">objetivo principal.</span>
+        Tu web siempre operativa. <span class="text-emerald-400">Sin que tengas que pensar en ello.</span>
       </h1>
-      
       <p class="text-stibios-dim text-lg leading-relaxed">
-        Garantizamos la operatividad continua de tus sistemas con monitorización proactiva, actualizaciones de seguridad y soporte técnico especializado. Nos encargamos de que tu negocio digital nunca se detenga.
+        Una web sin mantenimiento es una bomba de relojería. Las vulnerabilidades de seguridad, las librerías desactualizadas y los errores silenciosos afectan a tu negocio aunque no los veas. Nosotros nos encargamos de todo eso.
       </p>
-
       <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="#contacto" class="w-full sm:w-auto inline-flex items-center justify-center bg-stibios-text text-stibios-bg font-bold py-3 px-8 rounded hover:bg-white transition-all">
           Solicitar mantenimiento
@@ -34,32 +106,124 @@ import { Shield, Cog, Activity, ServerCrash } from 'lucide-react';
     </div>
   </section>
 
+  <!-- Por qué importa -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">El problema real</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Lo que pasa cuando no hay mantenimiento</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {[
+        "La web se cae en el peor momento y nadie se entera hasta que un cliente lo reporta",
+        "Las librerías desactualizadas abren vulnerabilidades que los bots explotan automáticamente",
+        "Los backups no se hacen o están corruptos cuando más los necesitas",
+        "Un plugin o dependencia rota deja de funcionar y paraliza el negocio",
+        "Los formularios de contacto dejan de enviar correos sin que nadie lo note",
+        "Las páginas se vuelven lentas con el tiempo y pierdes posiciones en Google",
+      ].map(item => (
+        <div class="flex items-start gap-3 bg-stibios-surface border border-stibios-border rounded-xl p-4">
+          <span class="text-red-400 text-lg flex-shrink-0 font-bold">✕</span>
+          <span class="text-stibios-dim text-sm">{item}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <!-- Beneficios -->
-  <section class="py-16 px-6 max-w-6xl mx-auto">
+  <section class="py-4 px-6 max-w-6xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Shield class="text-emerald-400" size={32} />
         <h3 class="text-xl font-bold text-white">Seguridad Proactiva</h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">Protegemos tu web contra vulnerabilidades, malware y ataques con auditorías regulares y actualizaciones constantes del código.</p>
+        <p class="text-stibios-dim text-sm leading-relaxed">Auditorías regulares, actualizaciones de dependencias y parches de seguridad antes de que se conviertan en un problema. Tu web está protegida sin que tengas que hacer nada.</p>
       </div>
-
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Activity class="text-emerald-400" size={32} />
         <h3 class="text-xl font-bold text-white">Monitorización 24/7</h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">Sistemas de alerta que nos avisan de cualquier caída en tiempo real para intervenir inmediatamente, minimizando el impacto en tus clientes.</p>
+        <p class="text-stibios-dim text-sm leading-relaxed">Sistemas de alerta automática que nos notifican cualquier caída en tiempo real. Intervenimos antes de que tu cliente lo note, minimizando el impacto en tu negocio.</p>
       </div>
-
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Cog class="text-emerald-400" size={32} />
         <h3 class="text-xl font-bold text-white">Actualizaciones Sin Riesgo</h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">Actualizamos frameworks, librerías y servidores en entornos de prueba antes de pasarlo a producción para evitar roturas inesperadas.</p>
+        <p class="text-stibios-dim text-sm leading-relaxed">Probamos cada actualización en un entorno de staging antes de aplicarla en producción. Nada se rompe sin que tengamos una solución preparada.</p>
       </div>
-
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <ServerCrash class="text-emerald-400" size={32} />
         <h3 class="text-xl font-bold text-white">Backups Diarios</h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">Copias de seguridad automáticas y almacenadas en servidores externos. Si ocurre un desastre, restauramos tu negocio en minutos.</p>
+        <p class="text-stibios-dim text-sm leading-relaxed">Copias de seguridad automáticas en servidores externos. Si ocurre un desastre — servidor comprometido, error de deploy, ataque — restauramos tu negocio en minutos.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Planes -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">Planes</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Elige tu nivel de tranquilidad</h2>
+      <p class="text-stibios-dim mt-2 text-sm">Sin permanencia. Cancela o cambia de plan cuando quieras con 15 días de aviso.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[
+        {
+          tier: "Básico",
+          price: "80€/mes",
+          desc: "Para webs simples que solo necesitan estar seguras y operativas.",
+          features: ["Actualizaciones de seguridad", "Monitorización de disponibilidad", "Backup semanal", "1h/mes de cambios menores", "Respuesta en 48h"]
+        },
+        {
+          tier: "Profesional",
+          price: "180€/mes",
+          desc: "Para negocios que necesitan respuesta rápida y soporte regular.",
+          features: ["Todo lo del plan Básico", "Backup diario", "3h/mes de cambios", "Respuesta en 8h", "Informe mensual de estado"],
+          highlight: true
+        },
+        {
+          tier: "Prioritario",
+          price: "desde 350€/mes",
+          desc: "Para plataformas críticas donde cada minuto de caída tiene impacto real.",
+          features: ["Todo lo anterior", "Respuesta en 2h (crítico)", "8h/mes de soporte", "Staging environment dedicado", "Llamada mensual de revisión"]
+        },
+      ].map(plan => (
+        <div class={`bg-stibios-surface border rounded-2xl p-6 flex flex-col gap-4 ${plan.highlight ? 'border-emerald-500' : 'border-stibios-border'}`}>
+          {plan.highlight && <span class="text-xs font-mono font-bold text-emerald-400 tracking-widest uppercase">Más popular</span>}
+          <h3 class="text-white font-bold text-lg">{plan.tier}</h3>
+          <p class="text-2xl font-black text-emerald-400">{plan.price}</p>
+          <p class="text-stibios-dim text-sm leading-relaxed">{plan.desc}</p>
+          <ul class="space-y-2 mt-2">
+            {plan.features.map(f => (
+              <li class="flex items-center gap-2 text-sm text-stibios-dim">
+                <CheckCircle size={14} className="text-emerald-400 flex-shrink-0" />
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 px-6 max-w-3xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">FAQ</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Preguntas frecuentes</h2>
+    </div>
+    <div class="space-y-4">
+      {[
+        { q: "¿Qué incluye el plan básico?", a: "Actualizaciones de seguridad mensuales, monitorización de disponibilidad, backup semanal y hasta 1 hora mensual de cambios menores. Más horas o funcionalidades nuevas se presupuestan aparte." },
+        { q: "¿Cuánto tardas en responder a una incidencia?", a: "Incidencias críticas (web caída) se atienden en menos de 4 horas laborables. Problemas no críticos en 24-48h. Cambios menores en 24h." },
+        { q: "¿Funciona para webs en WordPress?", a: "Sí. Ofrezco mantenimiento tanto para webs hechas con Stibios como para WordPress de terceros. Siempre empezamos con una auditoría inicial." },
+        { q: "¿Puedo cancelar cuando quiera?", a: "Sí. Los planes son mensuales sin permanencia mínima. Puedes subir, bajar o cancelar con 15 días de aviso." },
+        { q: "¿Incluye cambios de contenido?", a: "Sí. Las horas de soporte incluidas en cada plan se pueden usar tanto para cambios de contenido como para tareas técnicas." },
+      ].map(item => (
+        <details class="bg-stibios-surface border border-stibios-border rounded-xl group">
+          <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-white text-sm list-none select-none">
+            {item.q}
+            <svg class="flex-shrink-0 ml-4 transition-transform group-open:rotate-180" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="px-5 pb-5 text-stibios-dim text-sm leading-relaxed">{item.a}</p>
+        </details>
+      ))}
     </div>
   </section>
 
