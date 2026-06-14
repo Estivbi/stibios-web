@@ -1,0 +1,42 @@
+import type { Event, Zone, TransportOption } from "./supabase";
+export const SEED_EVENTS: Event[] = [
+  { id: "1",  day: "vie", time_label: "10:00", name: "FP1 — Fórmula 1", category: "Libre 1", type: "f1", badge: "F1", is_confirmed: true },
+  { id: "2",  day: "vie", time_label: "11:30", name: "FP1 — Fórmula 2", category: "Libre 1", type: "f2", badge: "F2", is_confirmed: true },
+  { id: "3",  day: "vie", time_label: "14:00", name: "FP2 — Fórmula 1", category: "Libre 2", type: "f1", badge: "F1", is_confirmed: true },
+  { id: "4",  day: "vie", time_label: "15:30", name: "Sprint — Fórmula 3", category: "Carrera", type: "f3", badge: "F3", is_confirmed: true },
+  { id: "5",  day: "vie", time_label: "18:00", name: "Fan Zone abre — Zona Pit Lane", category: "Espectáculo", type: "show", badge: "GRATIS", is_confirmed: true },
+  { id: "6",  day: "vie", time_label: "20:30", name: "Concierto apertura — Artista TBC", category: "Música", type: "show", badge: "GRATIS", is_confirmed: false },
+  { id: "7",  day: "sab", time_label: "09:00", name: "FP3 — Fórmula 1", category: "Libre 3", type: "f1", badge: "F1", is_confirmed: true },
+  { id: "8",  day: "sab", time_label: "10:30", name: "Clasificación — Fórmula 2", category: "Qualy", type: "f2", badge: "F2", is_confirmed: true },
+  { id: "9",  day: "sab", time_label: "13:00", name: "Clasificación — Fórmula 3", category: "Qualy", type: "f3", badge: "F3", is_confirmed: true },
+  { id: "10", day: "sab", time_label: "16:00", name: "CLASIFICACIÓN F1 — Gran Premio de España", category: "Qualy", type: "f1", badge: "F1", is_confirmed: true },
+  { id: "11", day: "sab", time_label: "19:00", name: "Pit Lane Walk — Acceso especial", category: "Experiencia", type: "show", badge: "ENTRADA", is_confirmed: true },
+  { id: "12", day: "sab", time_label: "21:00", name: "Concierto principal — Estadio Metropolitano", category: "Música", type: "show", badge: "GRATIS", is_confirmed: false },
+  { id: "13", day: "dom", time_label: "09:00", name: "Carrera — Fórmula 3", category: "Race", type: "f3", badge: "F3", is_confirmed: true },
+  { id: "14", day: "dom", time_label: "11:00", name: "Carrera — Fórmula 2", category: "Race", type: "f2", badge: "F2", is_confirmed: true },
+  { id: "15", day: "dom", time_label: "13:00", name: "Driver Parade — Calle de salida", category: "Espectáculo", type: "show", badge: null, is_confirmed: true },
+  { id: "16", day: "dom", time_label: "15:00", name: "CARRERA F1 — Gran Premio de España", category: "Race", type: "f1", badge: "F1", is_confirmed: true },
+  { id: "17", day: "dom", time_label: "17:30", name: "Podio + Trofeos", category: "Ceremonia", type: "f1", badge: "F1", is_confirmed: true },
+  { id: "18", day: "dom", time_label: "19:00", name: "Concierto de cierre", category: "Música", type: "show", badge: "GRATIS", is_confirmed: false },
+  { id: "19", day: "free", time_label: "Todo el día", name: "Fan Zone Gran Vía — Pantallas + simulador", category: "Ciudad", type: "show", badge: "GRATIS", is_confirmed: true },
+  { id: "20", day: "free", time_label: "11–13 Sep", name: "Exhibición coches históricos — Puerta de Alcálá", category: "Ciudad", type: "show", badge: "GRATIS", is_confirmed: true },
+  { id: "21", day: "free", time_label: "Vie 20:30", name: "Proyección F2 — Matadero Madrid", category: "Ciudad", type: "show", badge: "GRATIS", is_confirmed: false },
+  { id: "22", day: "free", time_label: "Sáb 16:00", name: "Clasificación F1 en pantalla — Plaza Mayor", category: "Ciudad", type: "show", badge: "GRATIS", is_confirmed: true },
+  { id: "23", day: "free", time_label: "Dom 15:00", name: "Carrera F1 en directo — Retiro / FNAC", category: "Ciudad", type: "show", badge: "GRATIS", is_confirmed: true },
+];
+export const SEED_ZONES: Zone[] = [
+  { id: "z1", number: 1, name: "General Sur", description: "Vista panorámica de la recta de meta y curva 1.", ticket_type: "general", location: "Recta principal" },
+  { id: "z2", number: 2, name: "Tribuna Pit Lane", description: "Frente a los garajes. Pit stops en tiempo real.", ticket_type: "gold", location: "Pit lane" },
+  { id: "z3", number: 3, name: "Platinum Paddock Club", description: "Acceso al paddock, hospitalidad premium, terraza.", ticket_type: "platinum", location: "Paddock" },
+  { id: "z4", number: 4, name: "Curva 1 Norte", description: "La curva de frenada más espectacular del circuito.", ticket_type: "general", location: "Curva 1" },
+  { id: "z5", number: 5, name: "Fan Zone Pit Lane", description: "Simuladores y actividades. Sin entrada al recinto.", ticket_type: "all", location: "Exterior IFEMA" },
+  { id: "z6", number: 6, name: "Gold Stand Chicane", description: "Vista privilegiada de la chicane, sombreada por la tarde.", ticket_type: "gold", location: "Chicane" },
+  { id: "z7", number: 7, name: "Kids Zone", description: "Área infantil con actividades y karting junior.", ticket_type: "all", location: "Zona Norte" },
+  { id: "z8", number: 8, name: "Concierto Metropolitano", description: "Entrada independiente para el concierto del sábado noche.", ticket_type: "separate", location: "Estadio Metropolitano" },
+];
+export const SEED_TRANSPORT: TransportOption[] = [
+  { id: "t1", icon: "🚇", title: "Metro",       detail: "Línea 8 (Rosa) → Campo de las Naciones\nDesde Nuevos Ministerios o Aeropuerto T4", time_estimate: "20'", sort_order: 1 },
+  { id: "t2", icon: "🚆", title: "Cercanías",   detail: "C-1 → Aeropuerto T4. Shuttle gratuito T4→IFEMA en días de carrera", time_estimate: "25'", sort_order: 2 },
+  { id: "t3", icon: "🚌", title: "Bus",         detail: "Líneas 101, 104, 122 → IFEMA. Servicio especial nocturno los tres días", time_estimate: "35'", sort_order: 3 },
+  { id: "t4", icon: "🚗", title: "Coche / VTC", detail: "Parking IFEMA Norte. Evitar A-2 los sábados. Uber/Cabify: drop-off zona P1", time_estimate: "—", sort_order: 4 },
+];
