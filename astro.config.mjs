@@ -11,6 +11,11 @@ export default defineConfig({
   },
   integrations: [
     react(),
-    sitemap(), // ← genera /sitemap-index.xml y /sitemap-0.xml automáticamente
+    sitemap({
+      lastmod: new Date(),
+      changefreq: 'weekly',
+      priority: 0.7,
+      customPages: [],
+    }), // genera /sitemap-index.xml y /sitemap-0.xml con lastmod
   ]
 });

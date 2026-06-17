@@ -1,9 +1,19 @@
 @import "tailwindcss";
 
+/* CLS fix: monospace fallback con size-adjust para evitar reflow al cargar JetBrains Mono */
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New");
+  size-adjust: 95%;
+  ascent-override: 98%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
 @theme {
   /* Tipografía: Mix entre Sans profesional y Mono técnica */
   --font-sans: "Inter", "Geist", "San Francisco", "Helvetica Neue", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-mono: "JetBrains Mono", "JetBrains Mono Fallback", monospace;
   
   /* Colores Base Logo (Azul y Morado Neon) */
   --color-stibios-bg: #1D1F27;

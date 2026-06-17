@@ -2,30 +2,107 @@
 import Layout from '../../layouts/Layout.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
-import { Code2, Target, Zap, Wrench } from 'lucide-react';
+import { Code2, Target, Zap, Wrench, CheckCircle } from 'lucide-react';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Desarrollo de Producto Digital a Medida",
+  "description": "Construimos soluciones tecnológicas a medida: herramientas internas, plataformas SaaS y productos digitales únicos adaptados exactamente a tu negocio.",
+  "url": "https://www.stibios.com/servicios/producto-a-medida",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Stibios Labs",
+    "url": "https://www.stibios.com"
+  },
+  "areaServed": "ES",
+  "serviceType": "Desarrollo de Software a Medida",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "4000",
+    "highPrice": "25000",
+    "offerCount": "3"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.stibios.com" },
+    { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://www.stibios.com/servicios" },
+    { "@type": "ListItem", "position": 3, "name": "Producto a Medida", "item": "https://www.stibios.com/servicios/producto-a-medida" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo sé si necesito un producto a medida o simplemente una web?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Si lo que necesitas es presencia digital, mostrar tus servicios o captar contactos, con una web profesional es suficiente. Si necesitas automatizar procesos, gestionar datos de clientes, crear un área privada o construir una herramienta que tus empleados usen cada día, entonces necesitas un producto a medida." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tecnologías usas para desarrollar productos a medida?",
+      "acceptedAnswer": { "@type": "Answer", "text": "El stack varía según el proyecto, pero mi estándar es React o Next.js en el frontend, Node.js con TypeScript en el backend, PostgreSQL con Drizzle ORM para los datos y Vercel o servidores dedicados para el hosting. Para productos con IA, integro modelos de OpenAI, Anthropic o Google según el caso de uso." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo ampliar el producto después de la primera entrega?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí, y es lo habitual. Construyo pensando en la escalabilidad desde el principio: arquitectura modular, código documentado y base de datos diseñada para crecer. Añadir funcionalidades después no implica reescribir todo desde cero." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta desarrollar un producto digital a medida?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Un MVP funcional parte desde 4.000€. Una plataforma con múltiples módulos y usuarios puede llegar a 15.000-25.000€. El precio depende de la complejidad, las integraciones necesarias y si el proyecto incluye diseño desde cero. Siempre hay un presupuesto cerrado antes de empezar." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si no tengo claro qué quiero construir exactamente?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Es lo más normal. Por eso empezamos siempre con una fase de discovery: entender el problema de negocio, los usuarios que lo van a usar y el resultado que necesitas. A partir de ahí defino el MVP mínimo que resuelve el problema real sin construir de más." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo ser dueño del código que se desarrolle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Todo el código es tuyo desde el primer día. Te entrego el repositorio completo al finalizar el proyecto y puedes hacer lo que quieras con él: dárselo a otro desarrollador, seguir con Stibios o mantenerlo internamente." }
+    }
+  ]
+};
 ---
 
-<Layout 
-  title="Desarrollo de Producto a Medida" 
-  description="Si tienes una idea diferente o un proyecto más complejo, nosotros construimos la solución tecnológica a medida enfocada puramente en tu producto."
+<Layout
+  title="Desarrollo de Producto Digital a Medida"
+  description="Construimos soluciones tecnológicas a medida: apps, plataformas SaaS, herramientas internas y productos digitales únicos. Código tuyo, arquitectura escalable. Desde 4.000€."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
   <section class="pt-32 pb-20 px-6 max-w-5xl mx-auto relative">
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-96 bg-stibios-purple/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
-
     <div class="relative z-10 space-y-8 text-center max-w-3xl mx-auto">
+      <nav class="text-xs font-mono text-stibios-dim flex items-center justify-center gap-2" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-stibios-accent transition-colors">Inicio</a>
+        <span>/</span>
+        <a href="/servicios" class="hover:text-stibios-accent transition-colors">Servicios</a>
+        <span>/</span>
+        <span class="text-stibios-text">Producto a medida</span>
+      </nav>
       <div class="inline-flex items-center gap-2 text-stibios-purple text-xs font-mono border border-stibios-purple/20 px-3 py-1 rounded-full bg-stibios-purple/5">
         <div class="w-2 h-2 rounded-full bg-stibios-purple animate-pulse"></div>
         SOLUCIONES PERSONALIZADAS
       </div>
-      
       <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white">
-        Tecnología diseñada <br class="hidden md:block"/> exclusivamente <span class="text-stibios-purple">para ti.</span>
+        Tecnología diseñada <br class="hidden md:block" /> exclusivamente <span class="text-stibios-purple">para ti.</span>
       </h1>
-      
       <p class="text-stibios-dim text-lg leading-relaxed">
-        Las plantillas y los software genéricos tienen límites. Si tu negocio necesita una herramienta interna, una plataforma SaaS o un producto digital único, nosotros lo desarrollamos desde cero.
+        Las plantillas y el software genérico tienen límites. Si tu negocio necesita una herramienta interna, una plataforma SaaS o un producto digital único, lo desarrollamos desde cero con el stack más adecuado para tu caso.
       </p>
-
       <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="#contacto" class="w-full sm:w-auto inline-flex items-center justify-center bg-stibios-text text-stibios-bg font-bold py-3 px-8 rounded hover:bg-white transition-all">
           Háblanos de tu proyecto
@@ -34,32 +111,133 @@ import { Code2, Target, Zap, Wrench } from 'lucide-react';
     </div>
   </section>
 
+  <!-- Para quién es -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-stibios-purple uppercase">¿Es para ti?</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Cuándo tiene sentido un producto a medida</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {[
+        "Necesitas automatizar procesos manuales repetitivos",
+        "Quieres gestionar clientes, pedidos o reservas con lógica propia",
+        "Tienes una idea de negocio que ninguna herramienta existente cubre",
+        "Necesitas un área privada con roles y permisos diferenciados",
+        "Quieres integrar IA en tu flujo de trabajo real",
+        "Tu equipo trabaja con herramientas internas hechas en Excel que ya no escalan",
+      ].map(item => (
+        <div class="flex items-start gap-3 bg-stibios-surface border border-stibios-border rounded-xl p-4">
+          <CheckCircle size={18} className="text-stibios-purple flex-shrink-0 mt-0.5" />
+          <span class="text-stibios-dim text-sm">{item}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <!-- Beneficios -->
-  <section class="py-16 px-6 max-w-6xl mx-auto">
+  <section class="py-4 px-6 max-w-6xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Wrench class="text-stibios-purple" size={32} />
         <h3 class="text-xl font-bold text-white">Adaptación Total</h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">El software se adapta a tus procesos, no al revés. Evaluamos cómo trabaja tu equipo y creamos la herramienta perfecta para potenciarlo.</p>
+        <p class="text-stibios-dim text-sm leading-relaxed">El software se adapta a cómo trabaja tu equipo, no al revés. Evaluamos tus procesos actuales y construimos la herramienta exacta que los potencia sin romper lo que ya funciona.</p>
       </div>
-
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Zap class="text-stibios-purple" size={32} />
-        <h3 class="text-xl font-bold text-white">Escalabilidad Sin Límites</h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">Tu negocio crecerá, y tu software también. Diseñamos bases de datos y arquitecturas pensadas para soportar 10 o 10.000 usuarios concurrentes.</p>
+        <h3 class="text-xl font-bold text-white">Escalabilidad Real</h3>
+        <p class="text-stibios-dim text-sm leading-relaxed">Diseñamos bases de datos y arquitecturas pensadas para soportar 10 o 10.000 usuarios. Cuando tu negocio crece, el software crece con él sin necesidad de reescribir todo.</p>
       </div>
-
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Target class="text-stibios-purple" size={32} />
         <h3 class="text-xl font-bold text-white">Enfoque a Resultados</h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">No escribimos código por escribir. Cada funcionalidad que desarrollamos tiene un propósito comercial claro: vender más o gastar menos.</p>
+        <p class="text-stibios-dim text-sm leading-relaxed">Cada funcionalidad que desarrollamos tiene un propósito de negocio concreto: vender más, reducir tiempo o eliminar errores. No escribimos código por el placer de escribirlo.</p>
       </div>
-
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Code2 class="text-stibios-purple" size={32} />
-        <h3 class="text-xl font-bold text-white">Código Limpio y Moderno</h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">Utilizamos los mejores estándares y frameworks del mercado para asegurar que el proyecto sea mantenible a largo plazo por cualquier equipo técnico.</p>
+        <h3 class="text-xl font-bold text-white">Código Limpio y Tuyo</h3>
+        <p class="text-stibios-dim text-sm leading-relaxed">El repositorio es tuyo desde el primer día. Usamos estándares modernos y TypeScript para que cualquier desarrollador pueda mantener el proyecto en el futuro, no solo nosotros.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Proceso -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-stibios-purple uppercase">Metodología</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Del problema al producto</h2>
+    </div>
+    <div class="space-y-6">
+      {[
+        { num: "01", title: "Discovery", desc: "Antes de escribir una línea de código, entendemos el problema de negocio real. ¿Qué proceso intentas resolver? ¿Quién lo usa? ¿Qué resultado define el éxito? Esta fase evita construir funcionalidades que nadie necesita." },
+        { num: "02", title: "Definición del MVP", desc: "Definimos el conjunto mínimo de funcionalidades que resuelve el problema real. El objetivo no es construirlo todo, sino lanzar algo que funcione cuanto antes y validar con usuarios reales." },
+        { num: "03", title: "Desarrollo iterativo", desc: "Trabajo en ciclos cortos con demos periódicas. Ves el progreso real y puedes dar feedback antes de que algo esté completamente terminado. Los cambios son baratos al principio, caros al final." },
+        { num: "04", title: "QA, lanzamiento y traspaso", desc: "Tests, deploy en producción, documentación y sesión de formación para tu equipo. El proyecto se entrega funcionando y entiendes cómo está construido." },
+      ].map(step => (
+        <div class="flex gap-6 items-start bg-stibios-surface border border-stibios-border rounded-2xl p-6">
+          <span class="text-stibios-purple font-mono font-bold text-2xl flex-shrink-0">{step.num}</span>
+          <div>
+            <h3 class="text-white font-bold text-lg mb-1">{step.title}</h3>
+            <p class="text-stibios-dim text-sm leading-relaxed">{step.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Precios -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-stibios-purple uppercase">Inversión</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Rangos orientativos</h2>
+      <p class="text-stibios-dim mt-2 text-sm">El precio final depende de la complejidad. Siempre presupuesto cerrado antes de empezar.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[
+        { tier: "MVP", price: "desde 4.000€", desc: "Un producto funcional con las características esenciales para validar tu idea en el mercado real.", features: ["1 módulo principal", "Autenticación de usuarios", "Base de datos", "Deploy en producción", "30 días de soporte"] },
+        { tier: "Plataforma", price: "desde 8.000€", desc: "Varios módulos interconectados, roles de usuario y flujos de trabajo complejos.", features: ["Todo lo del MVP", "Múltiples módulos", "Panel de administración", "Integraciones externas", "API propia"], highlight: true },
+        { tier: "Producto SaaS", price: "desde 15.000€", desc: "Producto completo con multi-tenant, suscripciones y capacidad para escalar a miles de usuarios.", features: ["Todo lo anterior", "Multi-tenant", "Facturación y pagos", "Analytics integrados", "Infraestructura escalable"] },
+      ].map(plan => (
+        <div class={`bg-stibios-surface border rounded-2xl p-6 flex flex-col gap-4 ${plan.highlight ? 'border-stibios-purple' : 'border-stibios-border'}`}>
+          {plan.highlight && <span class="text-xs font-mono font-bold text-stibios-purple tracking-widest uppercase">Más solicitado</span>}
+          <h3 class="text-white font-bold text-lg">{plan.tier}</h3>
+          <p class="text-2xl font-black text-stibios-purple">{plan.price}</p>
+          <p class="text-stibios-dim text-sm leading-relaxed">{plan.desc}</p>
+          <ul class="space-y-2 mt-2">
+            {plan.features.map(f => (
+              <li class="flex items-center gap-2 text-sm text-stibios-dim">
+                <CheckCircle size={14} className="text-stibios-purple flex-shrink-0" />
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 px-6 max-w-3xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-stibios-purple uppercase">FAQ</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Preguntas frecuentes</h2>
+    </div>
+    <div class="space-y-4">
+      {[
+        { q: "¿Cómo sé si necesito un producto a medida o simplemente una web?", a: "Si necesitas presencia digital, una web profesional es suficiente. Si necesitas automatizar procesos, gestionar datos con lógica propia o construir una herramienta que tus equipos usen cada día, necesitas un producto a medida." },
+        { q: "¿Qué tecnologías usas?", a: "Mi estándar es React o Next.js en el frontend, Node.js con TypeScript en el backend, PostgreSQL para los datos y Vercel para el hosting. Para productos con IA integro modelos de OpenAI, Anthropic o Google según el caso." },
+        { q: "¿Puedo ampliar el producto después de la entrega?", a: "Sí, y es lo habitual. Construyo con arquitectura modular y código documentado pensando en el crecimiento desde el principio." },
+        { q: "¿Cuánto cuesta un producto a medida?", a: "Un MVP funcional parte desde 4.000€. Una plataforma completa puede llegar a 15.000-25.000€. Siempre hay un presupuesto cerrado antes de empezar." },
+        { q: "¿Qué pasa si no tengo claro qué quiero exactamente?", a: "Es lo más normal. Empezamos con una fase de discovery para entender el problema antes de escribir código. Defino el MVP mínimo que resuelve el problema real sin sobrediseñar." },
+        { q: "¿El código es mío?", a: "Sí. El repositorio es tuyo desde el primer día. Puedes dárselo a cualquier desarrollador o seguir con Stibios. Sin dependencias forzadas." },
+      ].map(item => (
+        <details class="bg-stibios-surface border border-stibios-border rounded-xl group">
+          <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-white text-sm list-none select-none">
+            {item.q}
+            <svg class="flex-shrink-0 ml-4 transition-transform group-open:rotate-180" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="px-5 pb-5 text-stibios-dim text-sm leading-relaxed">{item.a}</p>
+        </details>
+      ))}
     </div>
   </section>
 

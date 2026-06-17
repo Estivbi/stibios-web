@@ -2,31 +2,107 @@
 import Layout from '../../layouts/Layout.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
-import { Globe, Zap, Shield, Search } from 'lucide-react';
+import { Globe, Zap, Shield, Search, CheckCircle } from 'lucide-react';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Desarrollo Web para Negocios y Pymes",
+  "description": "Páginas web profesionales de alto rendimiento para negocios. Diseño moderno, SEO técnico integrado y máxima velocidad para atraer más clientes.",
+  "url": "https://www.stibios.com/servicios/web-para-negocios",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Stibios Labs",
+    "url": "https://www.stibios.com"
+  },
+  "areaServed": "ES",
+  "serviceType": "Desarrollo Web",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "800",
+    "highPrice": "5000",
+    "offerCount": "3"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.stibios.com" },
+    { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://www.stibios.com/servicios" },
+    { "@type": "ListItem", "position": 3, "name": "Desarrollo Web para Negocios", "item": "https://www.stibios.com/servicios/web-para-negocios" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tarda en hacerse una web profesional?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Una web informativa estándar tarda entre 2 y 4 semanas desde que cierro los requisitos contigo. Una web con funcionalidades como reservas o tienda puede llevar entre 4 y 8 semanas. Todo depende de la complejidad y de la rapidez con la que me vayas entregando el contenido (textos, fotos, logo)." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito saber de tecnología para trabajar con Stibios?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Mi trabajo es traducir tus necesidades de negocio a código. Tú me explicas qué quieres conseguir con tu web — atraer clientes, mostrar servicios, vender online — y yo me encargo del resto. Las decisiones técnicas son cosa mía." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre hacer una web con Wix y hacerlo con Stibios?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Con Wix pagas por una plantilla que comparten miles de negocios, la velocidad de carga suele ser mediocre y el SEO tiene limitaciones estructurales. Con Stibios obtienes una web construida desde cero para tu negocio concreto, con código limpio que carga en milisegundos y una arquitectura optimizada para posicionar en Google." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Incluye mantenimiento después de la entrega?",
+      "acceptedAnswer": { "@type": "Answer", "text": "El proyecto incluye 30 días de soporte post-entrega sin coste para resolver cualquier ajuste. A partir de ahí, ofrezco planes de mantenimiento mensual que cubren actualizaciones de seguridad, cambios de contenido y monitorización. No es obligatorio, pero es lo más sensato para una web profesional." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo gestionar el contenido yo mismo después?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Si necesitas actualizar textos o imágenes frecuentemente, integro un CMS headless (como Sanity) que te permite gestionar el contenido desde un panel visual sin tocar código. Si los cambios son esporádicos, simplemente me los pides." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta una web profesional?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Una web informativa parte desde 800€. Una web con reservas o funcionalidades avanzadas parte desde 2.000€. El precio final depende de la complejidad, el número de páginas y si necesitas integraciones especiales. Siempre entrego un presupuesto cerrado antes de empezar, sin sorpresas." }
+    }
+  ]
+};
 ---
 
-<Layout 
-  title="Desarrollo Web para Negocios y Pymes" 
-  description="Creamos páginas web profesionales de alto rendimiento para negocios. Diseño moderno, optimización SEO y máxima velocidad para atraer más clientes."
+<Layout
+  title="Desarrollo Web para Negocios y Pymes"
+  description="Creamos páginas web profesionales de alto rendimiento para negocios. Diseño moderno, SEO técnico integrado y velocidad extrema para atraer más clientes. Desde 800€."
 >
-  <section class="pt-32 pb-20 px-6 max-w-5xl mx-auto relative">
-    <!-- Decoración de fondo -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-96 bg-stibios-accent/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
+  <!-- Hero -->
+  <section class="pt-32 pb-20 px-6 max-w-5xl mx-auto relative">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-96 bg-stibios-accent/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
     <div class="relative z-10 space-y-8 text-center max-w-3xl mx-auto">
+      <nav class="text-xs font-mono text-stibios-dim flex items-center justify-center gap-2" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-stibios-accent transition-colors">Inicio</a>
+        <span>/</span>
+        <a href="/servicios" class="hover:text-stibios-accent transition-colors">Servicios</a>
+        <span>/</span>
+        <span class="text-stibios-text">Web para negocios</span>
+      </nav>
       <div class="inline-flex items-center gap-2 text-stibios-accent text-xs font-mono border border-stibios-accent/20 px-3 py-1 rounded-full bg-stibios-accent/5">
         <div class="w-2 h-2 rounded-full bg-stibios-accent animate-pulse"></div>
         DESARROLLO WEB PROFESIONAL
       </div>
-      
       <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white">
         Webs que proyectan <span class="text-stibios-accent">credibilidad</span> y captan clientes.
       </h1>
-      
       <p class="text-stibios-dim text-lg leading-relaxed">
         No hacemos webs plantilleras. Construimos plataformas digitales de alto rendimiento enfocadas en resultados de negocio. Cargas ultrarrápidas, diseño impecable y listas para posicionar en Google.
       </p>
-
       <div class="pt-4">
         <a href="#contacto" class="inline-flex items-center justify-center bg-stibios-text text-stibios-bg font-bold py-3 px-8 rounded hover:bg-white transition-all">
           Solicitar presupuesto
@@ -41,26 +117,121 @@ import { Globe, Zap, Shield, Search } from 'lucide-react';
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Zap class="text-stibios-accent" size={32} />
         <h3 class="text-xl font-bold text-white">Velocidad Extrema</h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">Desarrollo moderno (sin Wordpress pesados) que garantiza cargas en milisegundos, mejorando la experiencia del usuario y las métricas de negocio.</p>
+        <p class="text-stibios-dim text-sm leading-relaxed">Desarrollo moderno sin WordPress pesados que garantiza cargas en milisegundos. Un segundo de mejora en tiempo de carga se traduce en un 7% más de conversiones.</p>
       </div>
-
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Search class="text-stibios-accent" size={32} />
         <h3 class="text-xl font-bold text-white">SEO Técnico Integrado</h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">Estructura de datos, etiquetas y rendimiento optimizados desde la primera línea de código para gustarle a Google.</p>
+        <p class="text-stibios-dim text-sm leading-relaxed">Estructura de datos, meta etiquetas, canonical URLs y rendimiento optimizados desde la primera línea de código. Tu web llega a Google preparada para posicionar.</p>
       </div>
-
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Globe class="text-stibios-accent" size={32} />
         <h3 class="text-xl font-bold text-white">Diseño de Alto Impacto</h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">Estética moderna, animaciones sutiles y arquitectura visual diseñada para guiar al usuario hacia la conversión (contacto o venta).</p>
+        <p class="text-stibios-dim text-sm leading-relaxed">Estética moderna y arquitectura visual diseñada para guiar al usuario hacia la conversión. Cada elemento tiene un propósito: que el visitante tome acción.</p>
       </div>
-
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Shield class="text-stibios-accent" size={32} />
-        <h3 class="text-xl font-bold text-white">Seguridad y Mantenimiento</h3>
-        <p class="text-stibios-dim text-sm leading-relaxed">Infraestructura robusta contra ataques. Tú te centras en tu negocio, nosotros garantizamos que tu web siempre esté operativa.</p>
+        <h3 class="text-xl font-bold text-white">Seguridad y Escalabilidad</h3>
+        <p class="text-stibios-dim text-sm leading-relaxed">Infraestructura robusta sobre Vercel o servidores dedicados. Tu web aguanta picos de tráfico sin caerse y se mantiene segura sin que tengas que preocuparte.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Proceso -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-stibios-accent uppercase">Cómo trabajamos</span>
+      <h2 class="text-3xl font-bold text-white mt-2">El proceso, paso a paso</h2>
+      <p class="text-stibios-dim mt-2 text-sm">Sin sorpresas. Sabes en todo momento en qué punto estamos.</p>
+    </div>
+    <div class="space-y-6">
+      {[
+        { num: "01", title: "Consulta inicial", desc: "Una llamada o mensaje para entender tu negocio, tu competencia y lo que necesitas conseguir con la web. Sin formularios, sin PowerPoints. Solo escucharme y preguntarte." },
+        { num: "02", title: "Propuesta y presupuesto cerrado", desc: "Te mando una propuesta con el alcance exacto, el stack técnico y el precio final. Sin costes ocultos ni \"depende\". Si hay algo que no encaja, lo ajustamos antes de empezar." },
+        { num: "03", title: "Diseño y desarrollo", desc: "Trabajo con feedback real tuyo en cada etapa. No desaparezco 3 semanas y vuelvo con algo que no esperabas. Hay revisiones incluidas y comunicación directa conmigo." },
+        { num: "04", title: "Lanzamiento", desc: "Deploy, configuración del dominio, comprobación en todos los dispositivos y una sesión para explicarte cómo funciona todo. Tu web, lista para dar resultados." },
+      ].map(step => (
+        <div class="flex gap-6 items-start bg-stibios-surface border border-stibios-border rounded-2xl p-6">
+          <span class="text-stibios-accent font-mono font-bold text-2xl flex-shrink-0">{step.num}</span>
+          <div>
+            <h3 class="text-white font-bold text-lg mb-1">{step.title}</h3>
+            <p class="text-stibios-dim text-sm leading-relaxed">{step.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Precios orientativos -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-stibios-accent uppercase">Inversión</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Precios orientativos</h2>
+      <p class="text-stibios-dim mt-2 text-sm">Presupuesto cerrado siempre antes de empezar. Sin sorpresas al final.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[
+        {
+          tier: "Web Informativa",
+          price: "desde 800€",
+          desc: "Para negocios que necesitan presencia digital profesional y captar clientes.",
+          features: ["Hasta 6 páginas", "Diseño a medida", "SEO técnico básico", "Formulario de contacto", "Optimización móvil"]
+        },
+        {
+          tier: "Web Funcional",
+          price: "desde 2.000€",
+          desc: "Para negocios que necesitan reservas, pagos o funcionalidades avanzadas.",
+          features: ["Todo lo anterior", "Sistema de reservas", "Integración de pagos", "Panel de administración", "CMS para contenido"],
+          highlight: true
+        },
+        {
+          tier: "Plataforma Web",
+          price: "desde 4.000€",
+          desc: "Para negocios con flujos complejos, área privada o múltiples integraciones.",
+          features: ["Todo lo anterior", "Área privada de cliente", "Integraciones API", "Dashboard personalizado", "Arquitectura escalable"]
+        },
+      ].map(plan => (
+        <div class={`bg-stibios-surface border rounded-2xl p-6 flex flex-col gap-4 ${plan.highlight ? 'border-stibios-accent' : 'border-stibios-border'}`}>
+          {plan.highlight && <span class="text-xs font-mono font-bold text-stibios-accent tracking-widest uppercase">Más popular</span>}
+          <h3 class="text-white font-bold text-lg">{plan.tier}</h3>
+          <p class="text-2xl font-black text-stibios-accent">{plan.price}</p>
+          <p class="text-stibios-dim text-sm leading-relaxed">{plan.desc}</p>
+          <ul class="space-y-2 mt-2">
+            {plan.features.map(f => (
+              <li class="flex items-center gap-2 text-sm text-stibios-dim">
+                <CheckCircle size={14} className="text-stibios-accent flex-shrink-0" />
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 px-6 max-w-3xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-stibios-accent uppercase">FAQ</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Preguntas frecuentes</h2>
+    </div>
+    <div class="space-y-4">
+      {[
+        { q: "¿Cuánto tarda en hacerse una web profesional?", a: "Una web informativa estándar tarda entre 2 y 4 semanas desde que cerramos los requisitos. Con reservas o funcionalidades avanzadas, entre 4 y 8 semanas. La velocidad también depende de qué tan rápido me entregas el contenido." },
+        { q: "¿Necesito saber de tecnología para trabajar conmigo?", a: "No. Me explicas qué quieres conseguir con tu web y yo me encargo del resto. Las decisiones técnicas corren de mi cuenta." },
+        { q: "¿Qué diferencia hay entre Wix y Stibios?", a: "Con Wix obtienes una plantilla compartida por miles de negocios, velocidad mediocre y SEO limitado. Con Stibios obtienes código limpio construido para tu negocio concreto, optimizado para Google y que carga en milisegundos." },
+        { q: "¿Incluye mantenimiento después de la entrega?", a: "Incluye 30 días de soporte post-entrega sin coste. A partir de ahí, ofrezco planes de mantenimiento mensual que cubren actualizaciones, cambios y monitorización." },
+        { q: "¿Puedo gestionar el contenido yo mismo?", a: "Sí. Si necesitas actualizar contenido frecuentemente integro un CMS headless (Sanity) con panel visual. Si los cambios son esporádicos, simplemente me los pides." },
+        { q: "¿Cuánto cuesta una web profesional?", a: "Una web informativa parte desde 800€. Con reservas o funcionalidades avanzadas, desde 2.000€. Siempre entrego presupuesto cerrado antes de empezar." },
+      ].map(item => (
+        <details class="bg-stibios-surface border border-stibios-border rounded-xl group">
+          <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-white text-sm list-none select-none">
+            {item.q}
+            <svg class="flex-shrink-0 ml-4 transition-transform group-open:rotate-180" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="px-5 pb-5 text-stibios-dim text-sm leading-relaxed">{item.a}</p>
+        </details>
+      ))}
     </div>
   </section>
 
