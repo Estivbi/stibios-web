@@ -1,0 +1,227 @@
+---
+import { Server, ExternalLink, Sparkles } from "lucide-react";
+import custodioPreview from "../assets/capt-custodio.png";
+import patriciaPreview from "../assets/capt.porfolio.png";
+import rentasPreview from "../assets/capt-rentas.png";
+import revistaPreview from "../assets/capt-revista.png";
+
+const clientProjects = [
+  {
+    name: "CUSTODIO JOSÉ PÉREZ",
+    url: "https://www.custodiojoseperez.com/",
+    desc: "Plataforma profesional con enfoque en marca personal y servicios legales.",
+    preview: custodioPreview,
+    tag: "Abogacía · Marca personal",
+  },
+  {
+    name: "PATRICIA MORENO",
+    url: "https://patriciamoreno.vercel.app/",
+    desc: "Portfolio de alto rendimiento con diseño minimalista y optimización SEO.",
+    preview: patriciaPreview,
+    tag: "Portfolio · SEO",
+  },
+  {
+    name: "RENTAS MEASESORAN",
+    url: "https://rentas.measesoran.eu/login",
+    desc: "Sistema B2B de gestión tributaria y área de cliente privada.",
+    preview: rentasPreview,
+    tag: "Asesoría · B2B",
+  },
+];
+
+const ownProducts = [
+  {
+    name: "VICTORIA REVISTA",
+    url: "https://www.victoriarevista.com/",
+    desc: "Magacín digital de alta calidad visual con gestión de contenidos dinámica. Producto propio de Stibios Labs.",
+    preview: revistaPreview,
+    tag: "Media · Contenido digital",
+    isOwn: true,
+  },
+];
+---
+
+<section id="casos-exito" class="py-32 px-4 relative overflow-hidden bg-stibios-bg">
+  <div class="absolute inset-0 bg-gradient-to-b from-gray-500/[0.03] to-transparent pointer-events-none"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gray-500/20 to-transparent"></div>
+
+  <div class="max-w-6xl mx-auto relative z-10">
+
+    <!-- Proyectos de clientes -->
+    <div class="flex flex-col items-center text-center mb-12">
+      <div class="flex items-center gap-3 mb-4">
+        <Server size={32} class="text-stibios-accent" />
+        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter">
+          Proyectos de Clientes
+        </h2>
+      </div>
+      <p class="text-stibios-dim text-lg max-w-2xl leading-relaxed">
+        Peluquerías, abogados, asesoras, creadores —
+        <span class="text-white font-bold italic">negocios reales con resultados reales.</span>
+      </p>
+    </div>
+
+    <div class="relative group/carousel mb-24">
+      <!-- Nav buttons -->
+      <button
+        id="prev-clientes"
+        aria-label="Anterior"
+        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-stibios-surface border border-stibios-border text-stibios-dim hover:text-stibios-accent hover:border-stibios-accent/50 transition-all flex items-center justify-center shadow-xl opacity-0 group-hover/carousel:opacity-100 focus:opacity-100"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button
+        id="next-clientes"
+        aria-label="Siguiente"
+        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-stibios-surface border border-stibios-border text-stibios-dim hover:text-stibios-accent hover:border-stibios-accent/50 transition-all flex items-center justify-center shadow-xl opacity-0 group-hover/carousel:opacity-100 focus:opacity-100"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+
+      <div id="carousel-clientes" class="flex overflow-x-auto snap-x snap-mandatory gap-6 no-scrollbar pb-8 scroll-smooth">
+        {clientProjects.map((p) => (
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="min-w-[85vw] md:min-w-[380px] snap-start group relative bg-stibios-surface border border-stibios-border p-6 rounded-2xl transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.1)] flex flex-col shrink-0"
+          >
+            <div class="w-full h-48 rounded-xl mb-6 overflow-hidden relative border border-white/5 bg-black/30">
+              <img
+                src={p.preview.src}
+                alt={`Web de ${p.name} desarrollada por Stibios Labs`}
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-stibios-surface/80 via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3 px-2 py-1 rounded-full bg-black/50 border border-white/10 text-[10px] font-mono tracking-[0.25em] text-white/80 uppercase backdrop-blur-sm">
+                {p.tag}
+              </div>
+            </div>
+            <div class="flex-grow">
+              <div class="flex justify-between items-start mb-3">
+                <div class="w-1.5 h-1.5 bg-stibios-accent rounded-full animate-pulse shadow-[0_0_8px_rgba(0,209,255,0.8)]"></div>
+                <ExternalLink size={18} class="text-stibios-dim group-hover:text-stibios-accent transition-colors" />
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-tight group-hover:text-stibios-accent transition-colors">
+                {p.name}
+              </h3>
+              <p class="text-stibios-dim text-sm leading-relaxed mb-4">{p.desc}</p>
+            </div>
+            <div class="pt-4 border-t border-stibios-border/50">
+              <span class="text-[10px] font-mono text-stibios-dim/50">// BUILT BY STIBIOS LABS</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Scroll hint dots -->
+      <div class="flex justify-center gap-2 mt-2" id="carousel-dots"></div>
+    </div>
+
+    <script>
+      const carousel = document.getElementById('carousel-clientes') as HTMLElement;
+      const prevBtn = document.getElementById('prev-clientes') as HTMLButtonElement;
+      const nextBtn = document.getElementById('next-clientes') as HTMLButtonElement;
+      const dotsContainer = document.getElementById('carousel-dots') as HTMLElement;
+
+      const cards = carousel ? Array.from(carousel.querySelectorAll('a')) : [];
+      const cardCount = cards.length;
+
+      // Build dots
+      cards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = `w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === 0 ? 'bg-stibios-accent w-4' : 'bg-stibios-border'}`;
+        dot.setAttribute('aria-label', `Ir a proyecto ${i + 1}`);
+        dot.addEventListener('click', () => scrollToCard(i));
+        dotsContainer?.appendChild(dot);
+      });
+
+      function getCardWidth() {
+        return cards[0] ? cards[0].offsetWidth + 24 : 400; // card width + gap
+      }
+
+      function currentIndex() {
+        return Math.round(carousel.scrollLeft / getCardWidth());
+      }
+
+      function scrollToCard(index: number) {
+        const clamped = Math.max(0, Math.min(index, cardCount - 1));
+        carousel.scrollTo({ left: clamped * getCardWidth(), behavior: 'smooth' });
+      }
+
+      function updateDots() {
+        const idx = currentIndex();
+        dotsContainer?.querySelectorAll('button').forEach((dot, i) => {
+          dot.className = `h-1.5 rounded-full transition-all duration-300 ${i === idx ? 'bg-stibios-accent w-4' : 'bg-stibios-border w-1.5'}`;
+        });
+      }
+
+      prevBtn?.addEventListener('click', () => scrollToCard(currentIndex() - 1));
+      nextBtn?.addEventListener('click', () => scrollToCard(currentIndex() + 1));
+      carousel?.addEventListener('scroll', updateDots, { passive: true });
+    </script>
+
+    <!-- Productos propios -->
+    <div class="flex flex-col items-center text-center mb-12">
+      <div class="flex items-center gap-3 mb-4">
+        <Sparkles size={28} class="text-stibios-purple" />
+        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter">
+          Productos Propios
+        </h2>
+      </div>
+      <p class="text-stibios-dim text-lg max-w-2xl leading-relaxed">
+        No solo construyo para clientes. También apuesto por mis propias ideas —
+        <span class="text-white font-bold italic">eso valida el criterio técnico.</span>
+      </p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-6 justify-center">
+      {ownProducts.map((p) => (
+        <a
+          href={p.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex-1 max-w-xl mx-auto w-full group relative bg-stibios-surface border border-stibios-purple/30 p-6 rounded-2xl transition-all duration-500 hover:border-stibios-purple hover:shadow-[0_0_50px_rgba(173,0,255,0.15)] flex flex-col"
+        >
+          <div class="absolute top-4 right-4">
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-stibios-purple/20 text-stibios-purple border border-stibios-purple/30 uppercase tracking-widest">
+              Producto Propio
+            </span>
+          </div>
+          <div class="w-full h-56 rounded-xl mb-6 overflow-hidden relative border border-white/5 bg-black/30">
+            <img
+              src={p.preview.src}
+              alt={`${p.name} — producto propio de Stibios Labs`}
+              class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-stibios-surface/80 via-transparent to-transparent"></div>
+            <div class="absolute top-3 left-3 px-2 py-1 rounded-full bg-stibios-purple/40 border border-stibios-purple/30 text-[10px] font-mono tracking-widest text-white/90 uppercase backdrop-blur-sm">
+              {p.tag}
+            </div>
+          </div>
+          <div class="flex justify-between items-start mb-3">
+            <div class="w-1.5 h-1.5 bg-stibios-purple rounded-full animate-pulse shadow-[0_0_8px_rgba(173,0,255,0.8)]"></div>
+            <ExternalLink size={18} class="text-stibios-dim group-hover:text-stibios-purple transition-colors" />
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2 uppercase tracking-tight group-hover:text-stibios-purple transition-colors">
+            {p.name}
+          </h3>
+          <p class="text-stibios-dim text-sm leading-relaxed flex-1">{p.desc}</p>
+          <div class="pt-4 border-t border-stibios-border/50 mt-4">
+            <span class="text-[10px] font-mono text-stibios-purple/50">// OWN PRODUCT · STIBIOS LABS</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>

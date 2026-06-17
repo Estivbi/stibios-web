@@ -1,0 +1,135 @@
+---
+import { X, Info } from 'lucide-react';
+---
+
+<div id="info-modal" class="fixed inset-0 z-[100] hidden">
+  <!-- Backdrop con efecto Linear -->
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-xl modal-close opacity-0 transition-opacity duration-300" id="modal-backdrop"></div>
+  
+  <!-- Content Container (Scrollable) -->
+  <div class="absolute inset-0 overflow-y-auto overflow-x-hidden pt-12 pb-24 px-4 scrollbar-hide">
+    <div class="relative w-full max-w-3xl mx-auto bg-stibios-surface border border-stibios-border rounded-3xl shadow-[0_32px_128px_rgba(0,0,0,0.8)] overflow-hidden transform scale-95 opacity-0 transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1)" id="modal-content">
+      
+      <!-- Linear Style Image Placeholder -->
+      <div class="w-full h-80 bg-gradient-to-br from-stibios-accent/20 via-stibios-purple/20 to-stibios-bg relative overflow-hidden group">
+        <div class="absolute inset-0 flex items-center justify-center opacity-30">
+            <div id="modal-bg-icon"></div>
+        </div>
+        <button class="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/50 border border-white/10 flex items-center justify-center text-white modal-close hover:bg-white hover:text-black transition-all z-20 backdrop-blur-md">
+          <X size={20} />
+        </button>
+      </div>
+
+      <div class="p-10 md:p-16">
+        <div class="max-w-xl mx-auto">
+          <div id="modal-tag" class="text-[10px] font-mono tracking-[0.3em] uppercase mb-4 py-1 px-3 border border-stibios-border rounded-full w-fit text-stibios-accent"></div>
+          
+          <h3 id="modal-title" class="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tighter leading-tight"></h3>
+          
+          <div class="space-y-6 text-stibios-dim text-lg md:text-xl leading-relaxed font-sans mb-12" id="modal-description-container">
+            <!-- P tags will be inserted here -->
+          </div>
+          
+          <div class="border-t border-stibios-border pt-12 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="flex flex-col gap-1">
+              <span class="text-[11px] font-mono text-stibios-dim uppercase tracking-widest opacity-50">Próximo Hito</span>
+              <span id="modal-status" class="text-stibios-text font-bold"></span>
+            </div>
+            
+            <a href="#contacto" class="modal-close flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-extrabold rounded-full hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+              Saber más
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const modalData = {
+    predictiva: {
+      tag: "Inteligencia de Datos",
+      title: "Anticipa el mercado.",
+      paragraphs: [
+        "Creemos que el futuro del software no está en reaccionar, sino en predecir. Nuestra solución de Inteligencia Predictiva extrae señales de ruido masivo para darte una ventaja injusta.",
+        "A través de arquitecturas diseñadas para la precisión, procesamos flujos de datos complejos que se traducen en decisiones de negocio claras.",
+        "Es una herramienta con velocidad incomparable, robustez de grado ingeniería y una interfaz que elimina cualquier fricción."
+      ],
+      status: "Despliegue Estratégico Q1 2026",
+      color: "var(--color-stibios-glow)"
+    },
+    reservas: {
+      tag: "Sistemas Propios",
+      title: "Control absoluto.",
+      paragraphs: [
+        "Un arte perdido en el software actual es la calidad mágica de la propiedad absoluta. Creamos tu propio motor de reservas sin depender de plataformas de terceros.",
+        "Velocidad inigualable y una UI pixel-perfect. Un sistema diseñado para que los mejores equipos operen con la eficiencia que su ambición requiere.",
+        "No es solo una herramienta, es un activo digital optimizado para el delight del usuario final."
+      ],
+      status: "Beta Privada en curso",
+      color: "#AD00FF"
+    }
+  };
+
+  const modal = document.getElementById('info-modal');
+  const backdrop = document.getElementById('modal-backdrop');
+  const content = document.getElementById('modal-content');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDescContainer = document.getElementById('modal-description-container');
+  const modalStatus = document.getElementById('modal-status');
+  const modalTag = document.getElementById('modal-tag');
+
+  window.openModal = function(type) {
+    const data = modalData[type];
+    if (!data) return;
+
+    modalTitle.innerText = data.title;
+    modalTag.innerText = data.tag;
+    modalStatus.innerText = data.status;
+    modalTag.style.borderColor = data.color + '44';
+    modalTag.style.color = data.color;
+
+    // Limpiar y añadir párrafos
+    modalDescContainer.innerHTML = '';
+    data.paragraphs.forEach(p => {
+      const pTag = document.createElement('p');
+      pTag.innerText = p;
+      modalDescContainer.appendChild(pTag);
+    });
+
+    modal.classList.remove('hidden');
+    
+    // Trigger animation
+    requestAnimationFrame(() => {
+      backdrop.classList.remove('opacity-0');
+      backdrop.classList.add('opacity-100');
+      content.classList.remove('scale-95', 'opacity-0');
+      content.classList.add('scale-100', 'opacity-100');
+    });
+
+    document.body.style.overflow = 'hidden';
+  };
+
+  function closeModal() {
+    backdrop.classList.remove('opacity-100');
+    backdrop.classList.add('opacity-0');
+    content.classList.remove('scale-100', 'opacity-100');
+    content.classList.add('scale-95', 'opacity-0');
+    
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }, 500);
+  }
+
+  document.querySelectorAll('.modal-close').forEach(el => {
+    el.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+</script>

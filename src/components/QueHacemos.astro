@@ -1,0 +1,127 @@
+---
+import { Code2, Globe, Layers, Cog } from 'lucide-react';
+import img1 from '../assets/img1.jpg';
+
+const services = [
+  {
+    icon: Globe,
+    title: "Desarrollo Web para Negocios",
+    desc: "Creamos sitios y plataformas que proyectan credibilidad, generan confianza y convierten visitantes en clientes con diseño de alto impacto.",
+    url: "/servicios/web-para-negocios"
+  },
+  {
+    icon: Code2,
+    title: "Desarrollo de Producto a Medida",
+    desc: "Si tienes una idea diferente o un proyecto más complejo, proponlo. Construimos soluciones a medida y escalables enfocadas puramente en tu producto.",
+    url: "/servicios/producto-a-medida"
+  },
+
+  {
+    icon: Cog,
+    title: "Mantenimiento & Soporte",
+    desc: "Garantizamos la operatividad continua de tus sistemas con monitorización proactiva, actualizaciones de seguridad y soporte técnico.",
+    url: ""
+  }
+];
+---
+
+<section id="que-hacemos" class="py-24 px-4 max-w-6xl mx-auto">
+
+  <div class="flex flex-col items-center justify-center gap-3 mb-20 text-center">
+    <div class="inline-flex items-center gap-2 text-stibios-accent text-xs font-mono mb-2 border border-stibios-accent/20 px-3 py-1 rounded-full bg-stibios-accent/5">
+      <div class="w-2 h-2 rounded-full bg-stibios-accent animate-pulse"></div>
+      NUESTROS SERVICIOS
+    </div>
+    <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter mx-auto uppercase">
+      Qué Hacemos
+    </h2>
+    <p class="text-stibios-dim mt-2 text-sm md:text-base font-mono max-w-lg text-center">
+      &gt; Tecnología aplicada a resultados de negocio concretos.
+    </p>
+    <div class="w-12 h-1 bg-stibios-accent/30 rounded-full mt-4"></div>
+  </div>
+
+  <!-- Bento grid: asymmetric layout with images breaking the card grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+
+    <!-- Datacenter image: spans 2 columns -->
+    <div class="md:col-span-2 overflow-hidden rounded-2xl shadow-2xl h-48">
+      <img
+        src={img1.src}
+        alt="Trabajando en equipo en soluciones a medida"
+        class="w-full h-full object-cover rounded-2xl hover:scale-[1.02] transition-all duration-500"
+      />
+    </div>
+
+    <!-- Web para Negocios (1 col) -->
+    {(() => {
+      const s = services[0];
+      const Tag = s.url ? 'a' : 'div';
+      return (
+      <Tag href={s.url} class="group bg-stibios-surface border border-stibios-border rounded-2xl p-6 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)] flex flex-col justify-between block cursor-pointer">
+        <div class="w-12 h-12 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-4 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
+          <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={24} />
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-stibios-accent transition-colors">
+            {s.title}
+          </h3>
+          <p class="text-stibios-dim text-sm leading-relaxed">
+            {s.desc}
+          </p>
+        </div>
+      </Tag>
+    )})( )}
+
+    <!-- Producto a Medida (1 col) -->
+    {(() => {
+      const s = services[1];
+      const Tag = s.url ? 'a' : 'div';
+      return (
+      <Tag href={s.url} class="group bg-stibios-surface border border-stibios-border rounded-2xl p-6 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)] flex flex-col justify-between block cursor-pointer">
+        <div class="w-12 h-12 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-4 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
+          <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={24} />
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-stibios-accent transition-colors">
+            {s.title}
+          </h3>
+          <p class="text-stibios-dim text-sm leading-relaxed">
+            {s.desc}
+          </p>
+        </div>
+      </Tag>
+    )})( )}
+
+    <!-- dev workspace image (1 col) -->
+    <div class="overflow-hidden rounded-2xl shadow-2xl h-56">
+      <img
+        src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?w=800&auto=format&fit=crop&q=80"
+        alt="Setup de desarrollo minimalista"
+        class="w-full h-full object-cover rounded-2xl hover:scale-[1.02] transition-all duration-500"
+      />
+    </div>
+
+    <!-- Mantenimiento & Soporte (1 col) -->
+    {(() => {
+      const s = services[2];
+      const Tag = s.url ? 'a' : 'div';
+      return (
+      <Tag href={s.url} class="group bg-stibios-surface border border-stibios-border rounded-2xl p-6 transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_0_40px_rgba(0,209,255,0.08)] flex flex-col justify-between block cursor-pointer">
+        <div class="w-12 h-12 bg-stibios-bg border border-stibios-border rounded-xl flex items-center justify-center mb-4 group-hover:border-stibios-accent/40 group-hover:bg-stibios-accent/[0.04] transition-all duration-500 shadow-xl shadow-black/20">
+          <s.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={24} />
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-stibios-accent transition-colors">
+            {s.title}
+          </h3>
+          <p class="text-stibios-dim text-sm leading-relaxed">
+            {s.desc}
+          </p>
+        </div>
+      </Tag>
+    )})( )}
+
+  </div>
+
+</section>

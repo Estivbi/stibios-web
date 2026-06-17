@@ -1,0 +1,186 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import Contact from '../../components/Contact.astro';
+import { Globe, Code2, Shield, ArrowRight } from 'lucide-react';
+
+const services = [
+  {
+    icon: Globe,
+    color: 'accent',
+    tag: 'WEB PARA NEGOCIOS',
+    href: '/servicios/web-para-negocios',
+    title: 'Desarrollo Web para Negocios y Pymes',
+    description:
+      'Webs profesionales de alto rendimiento que proyectan credibilidad y captan clientes. Diseño moderno, SEO técnico integrado y cargas ultrarrápidas. Sin plantillas, sin WordPress pesados.',
+    features: ['Diseño a medida', 'SEO técnico', 'Velocidad extrema', 'Mobile-first'],
+  },
+  {
+    icon: Code2,
+    color: 'purple',
+    tag: 'PRODUCTO A MEDIDA',
+    href: '/servicios/producto-a-medida',
+    title: 'Desarrollo de Producto a Medida',
+    description:
+      'Si tienes una idea diferente o un proyecto más complejo, construyo la solución tecnológica desde cero. Herramientas internas, plataformas SaaS, apps y productos digitales únicos.',
+    features: ['Arquitectura escalable', 'Stack moderno', 'Código limpio', 'Enfoque a resultados'],
+  },
+  {
+    icon: Shield,
+    color: 'emerald',
+    tag: 'MANTENIMIENTO & SOPORTE',
+    href: '/servicios/mantenimiento-soporte',
+    title: 'Mantenimiento y Soporte Web',
+    description:
+      'Garantizo la operatividad continua de tu infraestructura digital con monitorización proactiva, actualizaciones de seguridad y soporte técnico dedicado. Tu negocio nunca se detiene.',
+    features: ['Monitorización 24/7', 'Seguridad proactiva', 'Backups diarios', 'Actualizaciones sin riesgo'],
+  },
+];
+
+const colorMap: Record<string, { border: string; glow: string; tag: string; dot: string; feature: string }> = {
+  accent: {
+    border: 'border-stibios-accent/30 hover:border-stibios-accent/60',
+    glow: 'bg-stibios-accent/10',
+    tag: 'text-stibios-accent border-stibios-accent/20 bg-stibios-accent/5',
+    dot: 'bg-stibios-accent',
+    feature: 'text-stibios-accent',
+  },
+  purple: {
+    border: 'border-stibios-purple/30 hover:border-stibios-purple/60',
+    glow: 'bg-stibios-purple/10',
+    tag: 'text-stibios-purple border-stibios-purple/20 bg-stibios-purple/5',
+    dot: 'bg-stibios-purple',
+    feature: 'text-stibios-purple',
+  },
+  emerald: {
+    border: 'border-emerald-500/30 hover:border-emerald-500/60',
+    glow: 'bg-emerald-500/10',
+    tag: 'text-emerald-400 border-emerald-500/20 bg-emerald-500/5',
+    dot: 'bg-emerald-400',
+    feature: 'text-emerald-400',
+  },
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Servicios de Stibios Labs",
+  "description": "Servicios de desarrollo web, producto a medida y mantenimiento para pequeños negocios y creadores.",
+  "url": "https://www.stibios.com/servicios",
+  "itemListElement": services.map((s, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Service",
+      "name": s.title,
+      "description": s.description,
+      "url": `https://www.stibios.com${s.href}`,
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Stibios Labs",
+        "url": "https://www.stibios.com"
+      }
+    }
+  }))
+};
+---
+
+<Layout
+  title="Servicios — Desarrollo Web, Producto a Medida y Mantenimiento"
+  description="Stibios Labs ofrece desarrollo web para negocios, productos digitales a medida y mantenimiento web. Sin agencias, sin intermediarios. Código y estrategia directa de Carolina Rodríguez Bárcena."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 px-6 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-96 bg-stibios-accent/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 text-stibios-accent text-xs font-mono mb-6 border border-stibios-accent/20 px-4 py-1.5 rounded-full bg-stibios-accent/5">
+        <div class="w-1.5 h-1.5 rounded-full bg-stibios-accent animate-pulse"></div>
+        STIBIOS LABS · SERVICIOS
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 leading-tight">
+        Software a medida para<br class="hidden md:block" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent via-stibios-purple to-stibios-accent bg-[length:200%_auto] animate-shimmer">
+          negocios reales
+        </span>
+      </h1>
+      <p class="text-stibios-dim text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+        Sin agencias intermediarias. Sin plantillas. Hablas directamente con Carolina, la persona que escribe el código.
+        Tres servicios claros para que elijas el que mejor encaja con tu proyecto.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Cards -->
+  <section class="py-16 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {services.map((service) => {
+        const c = colorMap[service.color];
+        const Icon = service.icon;
+        return (
+          <article class={`group relative bg-stibios-surface border rounded-2xl p-8 flex flex-col gap-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] ${c.border}`}>
+            <!-- Glow background -->
+            <div class={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${c.glow} blur-xl`}></div>
+
+            <div class="relative z-10 flex flex-col gap-5 flex-1">
+              <!-- Tag -->
+              <div class={`inline-flex items-center gap-2 text-xs font-mono w-fit border px-3 py-1 rounded-full ${c.tag}`}>
+                <div class={`w-1.5 h-1.5 rounded-full ${c.dot}`}></div>
+                {service.tag}
+              </div>
+
+              <!-- Icon + Title -->
+              <div class="flex flex-col gap-3">
+                <Icon size={36} className={c.feature} />
+                <h2 class="text-xl font-bold text-white leading-snug">{service.title}</h2>
+              </div>
+
+              <!-- Description -->
+              <p class="text-stibios-dim text-sm leading-relaxed">{service.description}</p>
+
+              <!-- Features list -->
+              <ul class="flex flex-col gap-2 mt-auto">
+                {service.features.map((f) => (
+                  <li class="flex items-center gap-2 text-xs font-mono text-stibios-dim/80">
+                    <span class={`w-1 h-1 rounded-full flex-shrink-0 ${c.dot}`}></span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- CTA -->
+            <a
+              href={service.href}
+              class={`relative z-10 mt-4 flex items-center justify-between px-5 py-3 rounded-xl border text-sm font-bold transition-all duration-200 ${c.border} bg-white/[0.02] hover:bg-white/[0.05] text-white`}
+            >
+              <span>Ver servicio</span>
+              <ArrowRight size={16} className={`${c.feature} group-hover:translate-x-1 transition-transform`} />
+            </a>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <section class="py-12 px-6">
+    <div class="max-w-3xl mx-auto border border-stibios-border rounded-2xl p-8 bg-stibios-surface/50 text-center">
+      <p class="text-stibios-dim text-base leading-relaxed mb-6">
+        ¿No sabes qué servicio necesitas? Cuéntame tu proyecto y te oriento sin compromiso.
+        Trabajo con <span class="text-white font-semibold">peluquerías, clínicas, consultoras, creadores y pymes</span> de toda España.
+      </p>
+      <a
+        href="/#contacto"
+        class="inline-flex items-center gap-3 bg-stibios-accent text-stibios-bg font-bold py-3 px-8 rounded-full hover:bg-white transition-all duration-200 text-sm"
+      >
+        Cuéntame tu proyecto
+        <ArrowRight size={16} />
+      </a>
+    </div>
+  </section>
+
+  <Contact />
+  <Footer />
+</Layout>

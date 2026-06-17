@@ -1,0 +1,374 @@
+---
+import Layout from './Layout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import ReadingProgressBar from '../components/ReadingProgressBar';
+import ShareButtons from '../components/ShareButtons';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+    date: string;
+    tag?: string;
+    image?: string;
+    author?: string;
+  };
+}
+
+const { frontmatter, rawContent } = Astro.props as any;
+
+const [year, month, day] = frontmatter.date.split('-').map(Number);
+const formattedDate = new Date(Date.UTC(year, month - 1, day))
+  .toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
+// Tiempo de lectura calculado dinámicamente
+const content = rawContent ? rawContent() : '';
+const wordCount = content.split(/\s+/).filter(Boolean).length;
+const readingTime = content ? Math.max(1, Math.ceil(wordCount / 200)) : 5;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.stibios.com').href;
+const authorName = frontmatter.author || 'Carolina Rodríguez Bárcena';
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description} image={frontmatter.image}>
+  <ReadingProgressBar client:load />
+  <article class="blog-post">
+    <div class="blog-post__container">
+
+      <Breadcrumb title={frontmatter.title} />
+
+      <header class="blog-post__header">
+        <div class="blog-post__meta">
+          {frontmatter.tag && (
+            <span class="blog-post__tag">
+              {frontmatter.tag}
+            </span>
+          )}
+          <time class="blog-post__date">{formattedDate}</time>
+          <span class="blog-post__separator">·</span>
+          <span class="blog-post__reading-time">{readingTime} min de lectura</span>
+          <span class="blog-post__separator">·</span>
+          <span class="blog-post__author">Por {authorName}</span>
+        </div>
+        <h1 class="blog-post__title">
+          {frontmatter.title}
+        </h1>
+        {frontmatter.description && (
+          <p class="blog-post__description">
+            {frontmatter.description}
+          </p>
+        )}
+      </header>
+
+      {frontmatter.image && (
+        <figure class="blog-post__hero">
+          <img
+            src={frontmatter.image}
+            alt={frontmatter.title}
+            class="blog-post__hero-image"
+          />
+          <div class="blog-post__hero-gradient"></div>
+        </figure>
+      )}
+
+      <div class="blog-post__divider"></div>
+
+      <div class="blog-post__body">
+        <slot />
+      </div>
+
+      <footer class="blog-post__footer">
+        <a href="/blog" class="blog-post__back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5" /><path d="m12 19-7-7 7-7" />
+          </svg>
+          Volver al blog
+        </a>
+        <ShareButtons client:load title={frontmatter.title} url={canonicalURL} />
+      </footer>
+
+    </div>
+  </article>
+</Layout>
+
+<style>
+  /* ── Blog Post Container ── */
+  .blog-post {
+    position: relative;
+    padding: 7rem 1.5rem 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .blog-post {
+      padding: 8rem 2rem 5rem;
+    }
+  }
+
+  .blog-post__container {
+    max-width: 44rem;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .blog-post__header {
+    margin-bottom: 2rem;
+    animation: fade-up 0.5s ease-out both;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .blog-post__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-post__tag {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-stibios-accent);
+    border: 1px solid rgba(0, 209, 255, 0.25);
+    padding: 0.2rem 0.625rem;
+    border-radius: 9999px;
+    background: rgba(0, 209, 255, 0.06);
+  }
+
+  .blog-post__date,
+  .blog-post__separator,
+  .blog-post__reading-time,
+  .blog-post__author {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-stibios-dim);
+  }
+
+  .blog-post__title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--color-stibios-text);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .blog-post__title {
+      font-size: 2.25rem;
+    }
+  }
+
+  .blog-post__description {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    color: var(--color-stibios-dim);
+    line-height: 1.6;
+  }
+
+  /* ── Hero Image ── */
+  .blog-post__hero {
+    position: relative;
+    margin: 0 0 1.5rem 0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--color-stibios-border);
+    max-height: 20rem;
+    animation: fade-up 0.6s ease-out 0.1s both;
+  }
+
+  .blog-post__hero-image {
+    width: 100%;
+    height: 100%;
+    max-height: 20rem;
+    object-fit: cover;
+    display: block;
+  }
+
+  .blog-post__hero-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, var(--color-stibios-bg), transparent);
+    pointer-events: none;
+  }
+
+  /* ── Divider ── */
+  .blog-post__divider {
+    height: 1px;
+    background: linear-gradient(to right, var(--color-stibios-accent), var(--color-stibios-purple), transparent);
+    opacity: 0.3;
+    margin-bottom: 2rem;
+  }
+
+  /* ── Body / Prose ── */
+  .blog-post__body {
+    animation: fade-up 0.6s ease-out 0.2s both;
+  }
+
+  .blog-post__body :global(h1) {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-stibios-text);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .blog-post__body :global(h2) {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-stibios-text);
+    margin-top: 2rem;
+    margin-bottom: 0.625rem;
+    line-height: 1.3;
+    padding-bottom: 0.375rem;
+    border-bottom: 1px solid rgba(0, 209, 255, 0.12);
+  }
+
+  .blog-post__body :global(h3) {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-stibios-text);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-post__body :global(p) {
+    font-size: 0.95rem;
+    color: rgba(248, 250, 252, 0.78);
+    line-height: 1.75;
+    margin-bottom: 1.125rem;
+  }
+
+  .blog-post__body :global(strong) {
+    color: var(--color-stibios-text);
+    font-weight: 600;
+  }
+
+  .blog-post__body :global(a) {
+    color: var(--color-stibios-accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 209, 255, 0.25);
+    transition: border-color 0.2s ease;
+  }
+
+  .blog-post__body :global(a:hover) {
+    border-bottom-color: var(--color-stibios-accent);
+  }
+
+  .blog-post__body :global(ul),
+  .blog-post__body :global(ol) {
+    padding-left: 1.25rem;
+    margin-bottom: 1.125rem;
+  }
+
+  .blog-post__body :global(li) {
+    font-size: 0.95rem;
+    color: rgba(248, 250, 252, 0.78);
+    line-height: 1.7;
+    margin-bottom: 0.375rem;
+    position: relative;
+  }
+
+  .blog-post__body :global(ul li::marker) {
+    color: var(--color-stibios-accent);
+  }
+
+  .blog-post__body :global(ol li::marker) {
+    color: var(--color-stibios-accent);
+    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+
+  .blog-post__body :global(blockquote) {
+    border-left: 3px solid var(--color-stibios-accent);
+    margin: 1.5rem 0;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 209, 255, 0.04);
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  .blog-post__body :global(blockquote p) {
+    margin-bottom: 0;
+    font-style: italic;
+    color: var(--color-stibios-dim);
+  }
+
+  .blog-post__body :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: rgba(0, 209, 255, 0.08);
+    color: var(--color-stibios-accent);
+    padding: 0.15em 0.4em;
+    border-radius: 0.3em;
+  }
+
+  .blog-post__body :global(pre) {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-stibios-border);
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    overflow-x: auto;
+    font-size: 0.85rem;
+  }
+
+  .blog-post__body :global(pre code) {
+    background: none;
+    padding: 0;
+    color: var(--color-stibios-text);
+  }
+
+  .blog-post__body :global(hr) {
+    border: none;
+    height: 1px;
+    background: var(--color-stibios-border);
+    margin: 2rem 0;
+  }
+
+  /* ── Footer ── */
+  .blog-post__footer {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-stibios-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .blog-post__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-stibios-dim);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .blog-post__back:hover {
+    color: var(--color-stibios-accent);
+  }
+
+  .blog-post__back svg {
+    transition: transform 0.25s ease;
+  }
+
+  .blog-post__back:hover svg {
+    transform: translateX(-3px);
+  }
+</style>

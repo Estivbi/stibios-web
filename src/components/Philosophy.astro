@@ -1,0 +1,50 @@
+---
+import { Cpu, Palette, GitBranch, Zap } from 'lucide-react';
+
+const features = [
+  {
+    icon: Cpu,
+    title: "Escalabilidad Técnica",
+    desc: "Desarrollamos arquitecturas sólidas que crecen orgánicamente con tu empresa, evitando la deuda técnica y garantizando el futuro del software."
+  },
+  {
+    icon: Palette,
+    title: "Diseño Estratégico",
+    desc: "Interfaces de alto impacto que no solo proyectan una imagen profesional, sino que están optimizadas para la conversión y la retención del usuario."
+  },
+  {
+    icon: GitBranch,
+    title: "Disponibilidad Crítica",
+    desc: "Implementamos sistemas de monitorización y despliegue continuo para asegurar que tus servicios estén operativos el 100% del tiempo."
+  }
+];
+---
+
+<section id="metodo" class="py-24 px-4 max-w-6xl mx-auto">
+
+  <div class="flex flex-col items-center justify-center gap-3 mb-20 text-center">
+    <Zap size={40} className="text-stibios-accent mb-2" />
+    <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter mx-auto uppercase">
+      Nuestro Método
+    </h2>
+    <div class="w-12 h-1 bg-stibios-accent/30 rounded-full mt-4"></div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+    {features.map(f => (
+      <div class="group">
+        <div class="w-14 h-14 bg-stibios-surface border border-stibios-border rounded-xl flex items-center justify-center mb-8 group-hover:border-stibios-accent group-hover:bg-stibios-accent/[0.03] transition-all duration-500 shadow-xl shadow-black/20 group-hover:shadow-stibios-accent/5">
+          <f.icon className="text-stibios-dim group-hover:text-stibios-accent transition-colors" size={28} />
+        </div>
+        
+        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-stibios-accent transition-colors">
+          {f.title}
+        </h3>
+        
+        <p class="text-base text-stibios-dim leading-relaxed text-left">
+          {f.desc}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
