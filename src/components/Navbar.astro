@@ -1,71 +1,113 @@
 ---
-import { Home, Layers, Zap, Mail, Monitor, Users, BookOpen } from 'lucide-react';
+import { Home, Layers, Zap, Mail, Monitor, Users, BookOpen, User, FolderOpen } from 'lucide-react';
 import Logo from './Logo.astro';
+
+const links = [
+  { href: "/#inicio",      label: "Inicio",        icon: "home" },
+  { href: "/#que-hacemos", label: "Servicios",      icon: "monitor" },
+  { href: "/#metodo",      label: "Metodología",    icon: "zap" },
+  { href: "/#casos-exito", label: "Casos de éxito", icon: "layers" },
+  { href: "/#nosotros",    label: "Nosotros",       icon: "users" },
+  { href: "/blog",         label: "Blog",           icon: "book" },
+  { href: "/proyectos",    label: "Proyectos",      icon: "folder" },
+  { href: "/sobre-mi",     label: "Sobre mí",       icon: "user" },
+  { href: "/#contacto",    label: "Hablemos",       icon: "mail", cta: true },
+];
 ---
 
+<!-- ── Desktop pill navbar ── -->
 <header class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-center items-start pointer-events-none">
-  
+
   <div class="absolute left-8 top-8 pointer-events-auto hidden xl:block">
     <Logo />
   </div>
 
-  <nav class="pointer-events-auto w-full max-w-3xl group/nav"> 
-    <div class="flex items-center justify-between px-8 py-4 rounded-full 
+  <nav class="pointer-events-auto w-full max-w-3xl hidden md:block">
+    <div class="flex items-center justify-between px-8 py-4 rounded-full
                 bg-stibios-surface backdrop-blur-2xl border border-stibios-border
                 shadow-[0_8px_32px_rgba(0,0,0,0.8)] transition-all hover:border-stibios-accent/50">
-      
+
       <a href="/" class="xl:hidden mr-4 text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent to-stibios-purple font-black font-sans text-xl hover:scale-110 transition-transform">S</a>
 
-      <div class="flex items-center gap-6 md:gap-10 mx-auto"> 
+      <div class="flex items-center gap-5 lg:gap-8 mx-auto">
         <a href="/#inicio" class="nav-item group" aria-label="Inicio">
-          <Home size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
+          <Home size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/inicio</span>
         </a>
-
         <a href="/#que-hacemos" class="nav-item group" aria-label="Servicios">
-          <Monitor size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
+          <Monitor size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/servicios</span>
         </a>
-
         <a href="/#metodo" class="nav-item group" aria-label="Metodología">
-          <Zap size={22} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all nav-icon" />
+          <Zap size={20} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/metodología</span>
         </a>
-
         <a href="/#casos-exito" class="nav-item group" aria-label="Casos de Éxito">
-          <Layers size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
+          <Layers size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/casos de éxito</span>
         </a>
-
         <a href="/#nosotros" class="nav-item group" aria-label="Nosotros">
-          <Users size={22} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all nav-icon" />
+          <Users size={20} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/nosotros</span>
         </a>
-
         <a href="/blog" class="nav-item group" aria-label="Blog">
-          <BookOpen size={22} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
+          <BookOpen size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
           <span class="tooltip">/blog</span>
         </a>
-      </div>
-
-      <div class="flex items-center pl-6 border-l border-stibios-border ml-6">
-        <a href="/#contacto" class="flex items-center gap-3 text-[11px] font-black text-stibios-accent hover:text-white transition-all tracking-widest uppercase nav-item-contact">
-          <Mail size={18} />
-          <span class="hidden sm:inline">Hablemos</span>
+        <a href="/proyectos" class="nav-item group" aria-label="Proyectos">
+          <FolderOpen size={20} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all nav-icon" />
+          <span class="tooltip">/proyectos</span>
+        </a>
+        <a href="/sobre-mi" class="nav-item group" aria-label="Sobre mí">
+          <User size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
+          <span class="tooltip">/sobre mí</span>
         </a>
       </div>
 
+      <div class="flex items-center pl-5 border-l border-stibios-border ml-5">
+        <a href="/#contacto" class="flex items-center gap-2 text-[11px] font-black text-stibios-accent hover:text-white transition-all tracking-widest uppercase nav-item-contact">
+          <Mail size={17} />
+          <span class="hidden lg:inline">Hablemos</span>
+        </a>
+      </div>
     </div>
   </nav>
-
 </header>
 
+<!-- ── Mobile top bar ── -->
+<div class="mobile-bar md:hidden">
+  <a href="/" class="mobile-bar__logo">S</a>
+  <button id="menu-toggle" class="mobile-bar__burger" aria-label="Abrir menú" aria-expanded="false">
+    <span class="burger-line burger-line--top"></span>
+    <span class="burger-line burger-line--mid"></span>
+    <span class="burger-line burger-line--bot"></span>
+  </button>
+</div>
+
+<!-- ── Mobile menu overlay ── -->
+<div id="mobile-menu" class="mobile-menu md:hidden" aria-hidden="true">
+  <nav class="mobile-menu__nav">
+    <ul class="mobile-menu__list">
+      {links.map((link, i) => (
+        <li class="mobile-menu__item" style={`--i:${i}`}>
+          <a href={link.href} class={`mobile-menu__link${link.cta ? ' mobile-menu__link--cta' : ''}`}>
+            <span class="mobile-menu__label">{link.label}</span>
+            <svg class="mobile-menu__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>
+
 <script>
+  // ── Active state ──
   const sections = document.querySelectorAll('section[id]');
   const navItems = document.querySelectorAll('.nav-item');
-
-  // Mark active based on current pathname for non-hash links (e.g. /blog)
   const currentPath = window.location.pathname;
+
   navItems.forEach((item) => {
     const href = item.getAttribute('href') || '';
     if (!href.startsWith('/#') && href !== '/' && currentPath.startsWith(href)) {
@@ -73,29 +115,58 @@ import Logo from './Logo.astro';
     }
   });
 
-  // Scroll-spy for hash-based links on pages that have the sections
   if (sections.length > 0) {
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach((section) => {
         const sectionTop = (section as HTMLElement).offsetTop;
-        if (window.scrollY >= sectionTop - 150) {
-          current = section.getAttribute('id') || '';
-        }
+        if (window.scrollY >= sectionTop - 150) current = section.getAttribute('id') || '';
       });
-
       navItems.forEach((item) => {
         item.classList.remove('active-nav');
         const href = item.getAttribute('href') || '';
-        if (href.endsWith(`#${current}`)) {
-          item.classList.add('active-nav');
-        }
+        if (href.endsWith(`#${current}`)) item.classList.add('active-nav');
       });
     });
   }
+
+  // ── Hamburger menu ──
+  const toggle = document.getElementById('menu-toggle')!;
+  const menu   = document.getElementById('mobile-menu')!;
+
+  function openMenu() {
+    menu.classList.add('is-open');
+    toggle.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    menu.classList.remove('is-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', () => {
+    menu.classList.contains('is-open') ? closeMenu() : openMenu();
+  });
+
+  // Close when a link is tapped
+  menu.querySelectorAll('.mobile-menu__link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on backdrop click (outside nav)
+  menu.addEventListener('click', (e) => {
+    if (e.target === menu) closeMenu();
+  });
 </script>
 
 <style>
+  /* ── Desktop nav-item ── */
   .nav-item { position: relative; display: flex; justify-content: center; opacity: 0.7; transition: opacity 0.3s; }
   .nav-item.active-nav { opacity: 1; }
   .nav-item.active-nav .nav-icon { color: white !important; filter: drop-shadow(0 0 8px rgba(0, 209, 255, 0.5)); }
@@ -106,9 +177,178 @@ import Logo from './Logo.astro';
     padding: 4px 8px; border-radius: 6px;
     opacity: 0; transform: translateY(-8px);
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; white-space: nowrap;
-    color: var(--color-stibios-text);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    z-index: 60;
+    color: var(--color-stibios-text); box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 60;
   }
   .nav-item:hover .tooltip { opacity: 1; transform: translateY(0); }
+
+  /* ── Mobile top bar ── */
+  .mobile-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: var(--color-stibios-surface);
+    border-bottom: 1px solid var(--color-stibios-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .mobile-bar__logo {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--color-stibios-accent), var(--color-stibios-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  /* ── Hamburger button ── */
+  .mobile-bar__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  .burger-line {
+    display: block;
+    height: 2px;
+    background: var(--color-stibios-text);
+    border-radius: 2px;
+    transform-origin: center;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.25s ease,
+                width     0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .burger-line--top { width: 24px; }
+  .burger-line--mid { width: 18px; }
+  .burger-line--bot { width: 24px; }
+
+  /* X state */
+  .mobile-bar__burger.is-open .burger-line--top {
+    width: 24px;
+    transform: translateY(7px) rotate(45deg);
+  }
+  .mobile-bar__burger.is-open .burger-line--mid {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .mobile-bar__burger.is-open .burger-line--bot {
+    width: 24px;
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ── Mobile menu overlay ── */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 49;
+    background: rgba(13, 14, 20, 0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Hidden state */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-menu.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu__nav {
+    width: 100%;
+    padding: 5rem 2rem 2rem;
+  }
+
+  .mobile-menu__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  /* Stagger items */
+  .mobile-menu__item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--i) * 40ms);
+  }
+
+  .mobile-menu.is-open .mobile-menu__item {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .mobile-menu__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-stibios-dim);
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-menu__link:hover,
+  .mobile-menu__link:focus {
+    color: var(--color-stibios-text);
+    background: var(--color-stibios-surface);
+    border-color: var(--color-stibios-border);
+  }
+
+  .mobile-menu__link--cta {
+    margin-top: 0.75rem;
+    color: var(--color-stibios-accent);
+    background: rgba(0, 209, 255, 0.06);
+    border-color: rgba(0, 209, 255, 0.2);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .mobile-menu__link--cta:hover {
+    background: rgba(0, 209, 255, 0.12);
+    border-color: var(--color-stibios-accent);
+    color: var(--color-stibios-accent);
+  }
+
+  .mobile-menu__arrow {
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .mobile-menu__link:hover .mobile-menu__arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
 </style>

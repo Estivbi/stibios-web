@@ -73,6 +73,8 @@ import { Send, Terminal } from 'lucide-react';
             ></textarea>
           </div>
 
+          <div class="h-captcha" data-captcha="true"></div>
+
           <div id="result" class="hidden font-mono text-xs p-3 border rounded mb-2"></div>
 
           <button id="submit-btn" type="submit" class="w-full bg-stibios-text text-stibios-bg font-bold py-3 rounded hover:bg-white transition-all flex items-center justify-center gap-2 group">
@@ -86,6 +88,8 @@ import { Send, Terminal } from 'lucide-react';
     </div>
   </div>
 </section>
+
+<script src="https://web3forms.com/client/script.js" async defer></script>
 
 <script is:inline>
   const form = document.getElementById('contact-form');
