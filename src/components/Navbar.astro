@@ -1,12 +1,12 @@
 ---
-import { Home, Cpu, Mail, Monitor, BookOpen, User, FolderOpen } from 'lucide-react';
+import { Home, Mail, Monitor, BookOpen, User, FolderOpen } from 'lucide-react';
 import Logo from './Logo.astro';
 
 const links = [
   { href: "/#inicio",      label: "Inicio",        icon: "home" },
   { href: "/#que-hacemos", label: "Servicios",      icon: "monitor" },
   { href: "/#casos-exito", label: "Casos de éxito", icon: "monitor" },
-  { href: "/agentes-ia",   label: "Agentes IA",    icon: "cpu" },
+  { href: "/agentes-ia",   label: "Agentes IA",    icon: "folder" },
   { href: "/blog",         label: "Blog",           icon: "book" },
   { href: "/proyectos",    label: "Proyectos",      icon: "folder" },
   { href: "/sobre-mi",     label: "Sobre mí",       icon: "user" },
@@ -37,17 +37,9 @@ const links = [
           <Monitor size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
           <span class="tooltip">/servicios</span>
         </a>
-        <a href="/#metodo" class="nav-item group" aria-label="Metodología">
-          <Zap size={20} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-none transition-all nav-icon" />
-          <span class="tooltip">/metodología</span>
-        </a>
         <a href="/#casos-exito" class="nav-item group" aria-label="Casos de Éxito">
-          <Layers size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
+          <Monitor size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
           <span class="tooltip">/casos de éxito</span>
-        </a>
-        <a href="/#nosotros" class="nav-item group" aria-label="Nosotros">
-          <Users size={20} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-none transition-all nav-icon" />
-          <span class="tooltip">/nosotros</span>
         </a>
         <a href="/blog" class="nav-item group" aria-label="Blog">
           <BookOpen size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
