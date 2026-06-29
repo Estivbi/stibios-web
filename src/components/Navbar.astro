@@ -1,13 +1,12 @@
 ---
-import { Home, Layers, Zap, Mail, Monitor, Users, BookOpen, User, FolderOpen } from 'lucide-react';
+import { Home, Cpu, Mail, Monitor, BookOpen, User, FolderOpen } from 'lucide-react';
 import Logo from './Logo.astro';
 
 const links = [
   { href: "/#inicio",      label: "Inicio",        icon: "home" },
   { href: "/#que-hacemos", label: "Servicios",      icon: "monitor" },
-  { href: "/#metodo",      label: "Metodología",    icon: "zap" },
-  { href: "/#casos-exito", label: "Casos de éxito", icon: "layers" },
-  { href: "/#nosotros",    label: "Nosotros",       icon: "users" },
+  { href: "/#casos-exito", label: "Casos de éxito", icon: "monitor" },
+  { href: "/agentes-ia",   label: "Agentes IA",    icon: "cpu" },
   { href: "/blog",         label: "Blog",           icon: "book" },
   { href: "/proyectos",    label: "Proyectos",      icon: "folder" },
   { href: "/sobre-mi",     label: "Sobre mí",       icon: "user" },
@@ -31,35 +30,35 @@ const links = [
 
       <div class="flex items-center gap-5 lg:gap-8 mx-auto">
         <a href="/#inicio" class="nav-item group" aria-label="Inicio">
-          <Home size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
+          <Home size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
           <span class="tooltip">/inicio</span>
         </a>
         <a href="/#que-hacemos" class="nav-item group" aria-label="Servicios">
-          <Monitor size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
+          <Monitor size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
           <span class="tooltip">/servicios</span>
         </a>
         <a href="/#metodo" class="nav-item group" aria-label="Metodología">
-          <Zap size={20} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all nav-icon" />
+          <Zap size={20} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-none transition-all nav-icon" />
           <span class="tooltip">/metodología</span>
         </a>
         <a href="/#casos-exito" class="nav-item group" aria-label="Casos de Éxito">
-          <Layers size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
+          <Layers size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
           <span class="tooltip">/casos de éxito</span>
         </a>
         <a href="/#nosotros" class="nav-item group" aria-label="Nosotros">
-          <Users size={20} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all nav-icon" />
+          <Users size={20} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-none transition-all nav-icon" />
           <span class="tooltip">/nosotros</span>
         </a>
         <a href="/blog" class="nav-item group" aria-label="Blog">
-          <BookOpen size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
+          <BookOpen size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
           <span class="tooltip">/blog</span>
         </a>
         <a href="/proyectos" class="nav-item group" aria-label="Proyectos">
-          <FolderOpen size={20} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-[0_0_8px_rgba(173,0,255,0.5)] transition-all nav-icon" />
+          <FolderOpen size={20} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-none transition-all nav-icon" />
           <span class="tooltip">/proyectos</span>
         </a>
         <a href="/sobre-mi" class="nav-item group" aria-label="Sobre mí">
-          <User size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-[0_0_8px_rgba(0,209,255,0.5)] transition-all nav-icon" />
+          <User size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
           <span class="tooltip">/sobre mí</span>
         </a>
       </div>
@@ -169,7 +168,7 @@ const links = [
   /* ── Desktop nav-item ── */
   .nav-item { position: relative; display: flex; justify-content: center; opacity: 0.7; transition: opacity 0.3s; }
   .nav-item.active-nav { opacity: 1; }
-  .nav-item.active-nav .nav-icon { color: white !important; filter: drop-shadow(0 0 8px rgba(0, 209, 255, 0.5)); }
+  .nav-item.active-nav .nav-icon { color: white !important; }
   .tooltip {
     position: absolute; top: 160%;
     font-family: var(--font-mono); font-size: 11px;
