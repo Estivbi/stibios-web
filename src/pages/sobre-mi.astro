@@ -2,6 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import {
+  Cpu,
+  Code2,
+  Rocket,
+  Package,
+  Wind,
+  Database,
+  Triangle,
+  GitBranch
+} from 'lucide-react';
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -23,6 +33,17 @@ const breadcrumbSchema = {
     { "@type": "ListItem", "position": 2, "name": "Sobre mí", "item": "https://www.stibios.com/sobre-mi" }
   ]
 };
+
+const stack = [
+  { name: "React", icon: Cpu },
+  { name: "TypeScript", icon: Code2 },
+  { name: "Astro", icon: Rocket },
+  { name: "Node.js", icon: Package },
+  { name: "Tailwind", icon: Wind },
+  { name: "PostgreSQL", icon: Database },
+  { name: "Vercel", icon: Triangle },
+  { name: "Git", icon: GitBranch }
+];
 ---
 
 <Layout
@@ -119,77 +140,15 @@ const breadcrumbSchema = {
     <div class="mb-20">
       <h2 class="text-2xl font-bold text-white mb-8">Stack Tecnológico</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <!-- React -->
-        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-cyan-400">
-            <circle cx="12" cy="12" r="2" fill="currentColor"/>
-            <path d="M12 2c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6zm0 2c2.209 0 4 1.791 4 4s-1.791 4-4 4-4-1.791-4-4 1.791-4 4-4z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-            <ellipse cx="12" cy="12" rx="8" ry="3" stroke="currentColor" stroke-width="1.5" fill="none" transform="rotate(45 12 12)"/>
-            <ellipse cx="12" cy="12" rx="8" ry="3" stroke="currentColor" stroke-width="1.5" fill="none" transform="rotate(-45 12 12)"/>
-          </svg>
-          <p class="text-stibios-text font-mono text-xs font-bold">React</p>
-        </div>
-
-        <!-- TypeScript -->
-        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-blue-600">
-            <rect width="24" height="24" rx="1" fill="currentColor"/>
-            <text x="12" y="16" font-size="12" font-weight="bold" text-anchor="middle" fill="white">TS</text>
-          </svg>
-          <p class="text-stibios-text font-mono text-xs font-bold">TypeScript</p>
-        </div>
-
-        <!-- Astro -->
-        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-orange-500">
-            <path d="M8.5 2.5L6 10h11l-2.5-7.5M11 10l-1.5 8.5h5L13 10" fill="currentColor"/>
-          </svg>
-          <p class="text-stibios-text font-mono text-xs font-bold">Astro</p>
-        </div>
-
-        <!-- Node.js -->
-        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-green-600">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3-9h-5v1h4v2h-4v2h5v-5z" fill="currentColor"/>
-          </svg>
-          <p class="text-stibios-text font-mono text-xs font-bold">Node.js</p>
-        </div>
-
-        <!-- Tailwind CSS -->
-        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-cyan-500">
-            <path d="M12 2C6.5 2 2 5.58 2 10c0 2.92 2.22 5.44 5.3 6.46-1.46-2.16-2.3-4.61-2.3-7.46 0-2.7.98-5.16 2.6-7.1-1.86 1.65-3.1 4.15-3.1 7.1 0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" fill="currentColor"/>
-          </svg>
-          <p class="text-stibios-text font-mono text-xs font-bold">Tailwind</p>
-        </div>
-
-        <!-- PostgreSQL -->
-        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-blue-700">
-            <path d="M12 2c4.42 0 8 2.69 8 6v4c0 2-1 3.5-2.5 4.5v2.5c0 1-1 2-2 2h-7c-1 0-2-1-2-2v-2.5C6 17.5 5 16 5 14v-4c0-3.31 3.58-6 7-6zm0 2c-2.76 0-5 2-5 4.5v4c0 1.5.5 2.5 1.5 3.5 0 0 1 1 2.5 1h7c1.5 0 2.5-1 2.5-1 1-1 1.5-2 1.5-3.5v-4c0-2.5-2.24-4.5-5-4.5z" fill="currentColor"/>
-          </svg>
-          <p class="text-stibios-text font-mono text-xs font-bold">PostgreSQL</p>
-        </div>
-
-        <!-- Vercel -->
-        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-white">
-            <polygon points="12,4 22,18 2,18" fill="currentColor"/>
-          </svg>
-          <p class="text-stibios-text font-mono text-xs font-bold">Vercel</p>
-        </div>
-
-        <!-- Git -->
-        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-red-600">
-            <circle cx="9" cy="3" r="2" fill="currentColor"/>
-            <circle cx="3" cy="13" r="2" fill="currentColor"/>
-            <circle cx="15" cy="13" r="2" fill="currentColor"/>
-            <circle cx="9" cy="23" r="2" fill="currentColor"/>
-            <path d="M9 5v5M11 10l3 1M6 13v8M12 15v6" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          </svg>
-          <p class="text-stibios-text font-mono text-xs font-bold">Git</p>
-        </div>
+        {stack.map(tech => {
+          const IconComponent = tech.icon;
+          return (
+            <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
+              <IconComponent className="w-10 h-10 text-stibios-accent" />
+              <p class="text-stibios-text font-mono text-xs font-bold">{tech.name}</p>
+            </div>
+          );
+        })}
       </div>
     </div>
 
