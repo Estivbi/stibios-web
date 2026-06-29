@@ -110,11 +110,76 @@ const breadcrumbSchema = {
     <div class="mb-20">
       <h2 class="text-2xl font-bold text-white mb-8">Stack Tecnológico</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {["React", "TypeScript", "Astro", "Node.js", "Tailwind CSS", "PostgreSQL", "Vercel", "Git"].map(tech => (
-          <div class="bg-stibios-surface border border-stibios-border rounded-lg p-4 text-center">
-            <p class="text-stibios-text font-mono text-sm font-bold">{tech}</p>
-          </div>
-        ))}
+        <!-- React -->
+        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-sky-400">
+            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+            <path d="M7.5 13.5c1.5-2 2.5-4 4.5-4s3 2 4.5 4m-8-2c-2 0-3.5 2.5-3.5 5s1.5 5 3.5 5m8-10c2 0 3.5 2.5 3.5 5s-1.5 5-3.5 5" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <p class="text-stibios-text font-mono text-xs font-bold">React</p>
+        </div>
+
+        <!-- TypeScript -->
+        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-blue-600">
+            <rect width="24" height="24" rx="2" fill="currentColor"/>
+            <text x="12" y="18" font-size="14" font-weight="bold" text-anchor="middle" fill="white">TS</text>
+          </svg>
+          <p class="text-stibios-text font-mono text-xs font-bold">TypeScript</p>
+        </div>
+
+        <!-- Astro -->
+        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-orange-600">
+            <circle cx="12" cy="12" r="10" fill="currentColor"/>
+            <path d="M9 6l6 12H9z" fill="white"/>
+          </svg>
+          <p class="text-stibios-text font-mono text-xs font-bold">Astro</p>
+        </div>
+
+        <!-- Node.js -->
+        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-green-600">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-3 15h2v-5h-2v5zm4 0h2V9h-2v8zm4 0h2v-3h-2v3z"/>
+          </svg>
+          <p class="text-stibios-text font-mono text-xs font-bold">Node.js</p>
+        </div>
+
+        <!-- Tailwind CSS -->
+        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-cyan-500">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-4 14h2v-4h-2v4zm4 0h2V8h-2v8zm4 0h2v-2h-2v2z"/>
+          </svg>
+          <p class="text-stibios-text font-mono text-xs font-bold">Tailwind</p>
+        </div>
+
+        <!-- PostgreSQL -->
+        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-blue-700">
+            <circle cx="12" cy="12" r="10" fill="currentColor"/>
+            <path d="M12 5c2.5 0 4 1.5 4 3.5v4c0 1.5-1 2.5-2 3v2.5M12 5c-2.5 0-4 1.5-4 3.5v4c0 1.5 1 2.5 2 3v2.5" stroke="white" stroke-width="1.5" fill="none"/>
+          </svg>
+          <p class="text-stibios-text font-mono text-xs font-bold">PostgreSQL</p>
+        </div>
+
+        <!-- Vercel -->
+        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-white">
+            <polygon points="12,2 22,20 2,20" fill="currentColor"/>
+          </svg>
+          <p class="text-stibios-text font-mono text-xs font-bold">Vercel</p>
+        </div>
+
+        <!-- Git -->
+        <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-red-600">
+            <circle cx="8" cy="12" r="2" fill="currentColor"/>
+            <circle cx="16" cy="12" r="2" fill="currentColor"/>
+            <circle cx="12" cy="6" r="2" fill="currentColor"/>
+            <path d="M8 14v4M16 14v4M12 8v2M10 10l2-2l2 2" stroke="currentColor" stroke-width="1" fill="none"/>
+          </svg>
+          <p class="text-stibios-text font-mono text-xs font-bold">Git</p>
+        </div>
       </div>
     </div>
 
