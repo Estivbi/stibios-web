@@ -15,17 +15,17 @@
   --font-sans: "Inter", "Geist", "San Francisco", "Helvetica Neue", sans-serif;
   --font-mono: "JetBrains Mono", "JetBrains Mono Fallback", monospace;
   
-  /* Colores Base Logo (Azul y Morado Neon) */
+  /* Colores Base (Azul y Morado profesionales) */
   --color-stibios-bg: #1D1F27;
   --color-stibios-surface: #2C2F3F;
   --color-stibios-border: #3A3D52;
   --color-stibios-text: #F8FAFC;
   --color-stibios-dim: #A8B5C5;
-  
-  /* Gradiente Logo */
-  --color-stibios-accent: #00D1FF;  /* Azul Cyan del logo */
-  --color-stibios-purple: #AD00FF;  /* Morado del logo */
-  --color-stibios-glow: #00D1FF;    /* Usamos el azul como brillo principal */
+
+  /* Accent Colors (tono profesional, menos neon) */
+  --color-stibios-accent: #0891B2;  /* Cyan profesional (vs #00D1FF neon) */
+  --color-stibios-purple: #7C3AED;  /* Purple corporativo (vs #AD00FF neon) */
+  --color-stibios-glow: #0891B2;    /* Azul profesional */
 
   /* Animaciones Sutiles */
   --animate-cursor-blink: blink 1s step-end infinite;
