@@ -58,14 +58,23 @@ const breadcrumbSchema = {
   <section class="py-20 px-6 max-w-5xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
       <!-- Foto placeholder (reemplazar con imagen real) -->
-      <div class="rounded-2xl overflow-hidden bg-stibios-surface border border-stibios-border h-96 flex items-center justify-center">
-        <div class="text-center text-stibios-dim/50">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto mb-2 opacity-30">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-          <p class="text-sm">Foto: carolina.webp</p>
+      <div class="flex flex-col items-center gap-6">
+        <div class="rounded-2xl overflow-hidden bg-stibios-surface border border-stibios-border h-96 w-full max-w-sm flex items-center justify-center">
+          <div class="text-center text-stibios-dim/50">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto mb-2 opacity-30">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <p class="text-sm">Foto: carolina.webp</p>
+          </div>
         </div>
+        <!-- LinkedIn link below photo -->
+        <a href="https://www.linkedin.com/in/carolinarb94" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-stibios-accent/10 text-stibios-accent border border-stibios-accent/20 px-4 py-2.5 rounded-lg hover:bg-stibios-accent/20 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          LinkedIn
+        </a>
       </div>
 
       <!-- Bio -->
@@ -112,71 +121,72 @@ const breadcrumbSchema = {
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <!-- React -->
         <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-sky-400">
-            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-            <path d="M7.5 13.5c1.5-2 2.5-4 4.5-4s3 2 4.5 4m-8-2c-2 0-3.5 2.5-3.5 5s1.5 5 3.5 5m8-10c2 0 3.5 2.5 3.5 5s-1.5 5-3.5 5" stroke="currentColor" stroke-width="1.5"/>
+          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-cyan-400">
+            <circle cx="12" cy="12" r="2" fill="currentColor"/>
+            <path d="M12 2c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6zm0 2c2.209 0 4 1.791 4 4s-1.791 4-4 4-4-1.791-4-4 1.791-4 4-4z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <ellipse cx="12" cy="12" rx="8" ry="3" stroke="currentColor" stroke-width="1.5" fill="none" transform="rotate(45 12 12)"/>
+            <ellipse cx="12" cy="12" rx="8" ry="3" stroke="currentColor" stroke-width="1.5" fill="none" transform="rotate(-45 12 12)"/>
           </svg>
           <p class="text-stibios-text font-mono text-xs font-bold">React</p>
         </div>
 
         <!-- TypeScript -->
         <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-blue-600">
-            <rect width="24" height="24" rx="2" fill="currentColor"/>
-            <text x="12" y="18" font-size="14" font-weight="bold" text-anchor="middle" fill="white">TS</text>
+          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-blue-600">
+            <rect width="24" height="24" rx="1" fill="currentColor"/>
+            <text x="12" y="16" font-size="12" font-weight="bold" text-anchor="middle" fill="white">TS</text>
           </svg>
           <p class="text-stibios-text font-mono text-xs font-bold">TypeScript</p>
         </div>
 
         <!-- Astro -->
         <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-orange-600">
-            <circle cx="12" cy="12" r="10" fill="currentColor"/>
-            <path d="M9 6l6 12H9z" fill="white"/>
+          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-orange-500">
+            <path d="M8.5 2.5L6 10h11l-2.5-7.5M11 10l-1.5 8.5h5L13 10" fill="currentColor"/>
           </svg>
           <p class="text-stibios-text font-mono text-xs font-bold">Astro</p>
         </div>
 
         <!-- Node.js -->
         <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-green-600">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-3 15h2v-5h-2v5zm4 0h2V9h-2v8zm4 0h2v-3h-2v3z"/>
+          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-green-600">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3-9h-5v1h4v2h-4v2h5v-5z" fill="currentColor"/>
           </svg>
           <p class="text-stibios-text font-mono text-xs font-bold">Node.js</p>
         </div>
 
         <!-- Tailwind CSS -->
         <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-cyan-500">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-4 14h2v-4h-2v4zm4 0h2V8h-2v8zm4 0h2v-2h-2v2z"/>
+          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-cyan-500">
+            <path d="M12 2C6.5 2 2 5.58 2 10c0 2.92 2.22 5.44 5.3 6.46-1.46-2.16-2.3-4.61-2.3-7.46 0-2.7.98-5.16 2.6-7.1-1.86 1.65-3.1 4.15-3.1 7.1 0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" fill="currentColor"/>
           </svg>
           <p class="text-stibios-text font-mono text-xs font-bold">Tailwind</p>
         </div>
 
         <!-- PostgreSQL -->
         <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-blue-700">
-            <circle cx="12" cy="12" r="10" fill="currentColor"/>
-            <path d="M12 5c2.5 0 4 1.5 4 3.5v4c0 1.5-1 2.5-2 3v2.5M12 5c-2.5 0-4 1.5-4 3.5v4c0 1.5 1 2.5 2 3v2.5" stroke="white" stroke-width="1.5" fill="none"/>
+          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-blue-700">
+            <path d="M12 2c4.42 0 8 2.69 8 6v4c0 2-1 3.5-2.5 4.5v2.5c0 1-1 2-2 2h-7c-1 0-2-1-2-2v-2.5C6 17.5 5 16 5 14v-4c0-3.31 3.58-6 7-6zm0 2c-2.76 0-5 2-5 4.5v4c0 1.5.5 2.5 1.5 3.5 0 0 1 1 2.5 1h7c1.5 0 2.5-1 2.5-1 1-1 1.5-2 1.5-3.5v-4c0-2.5-2.24-4.5-5-4.5z" fill="currentColor"/>
           </svg>
           <p class="text-stibios-text font-mono text-xs font-bold">PostgreSQL</p>
         </div>
 
         <!-- Vercel -->
         <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-white">
-            <polygon points="12,2 22,20 2,20" fill="currentColor"/>
+          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-white">
+            <polygon points="12,4 22,18 2,18" fill="currentColor"/>
           </svg>
           <p class="text-stibios-text font-mono text-xs font-bold">Vercel</p>
         </div>
 
         <!-- Git -->
         <div class="bg-stibios-surface border border-stibios-border rounded-lg p-6 text-center hover:border-stibios-accent/50 transition-colors flex flex-col items-center justify-center gap-3">
-          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-red-600">
-            <circle cx="8" cy="12" r="2" fill="currentColor"/>
-            <circle cx="16" cy="12" r="2" fill="currentColor"/>
-            <circle cx="12" cy="6" r="2" fill="currentColor"/>
-            <path d="M8 14v4M16 14v4M12 8v2M10 10l2-2l2 2" stroke="currentColor" stroke-width="1" fill="none"/>
+          <svg viewBox="0 0 24 24" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="text-red-600">
+            <circle cx="9" cy="3" r="2" fill="currentColor"/>
+            <circle cx="3" cy="13" r="2" fill="currentColor"/>
+            <circle cx="15" cy="13" r="2" fill="currentColor"/>
+            <circle cx="9" cy="23" r="2" fill="currentColor"/>
+            <path d="M9 5v5M11 10l3 1M6 13v8M12 15v6" stroke="currentColor" stroke-width="1.5" fill="none"/>
           </svg>
           <p class="text-stibios-text font-mono text-xs font-bold">Git</p>
         </div>
@@ -202,28 +212,6 @@ const breadcrumbSchema = {
           <h3 class="text-white font-bold mb-2">Confianza</h3>
           <p class="text-stibios-dim text-sm">Construyo relaciones a largo plazo. Tu éxito es mi éxito.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Enlaces -->
-  <section class="py-16 px-6 max-w-5xl mx-auto">
-    <div class="bg-stibios-surface border border-stibios-border rounded-2xl p-8 text-center">
-      <h3 class="text-xl font-bold text-white mb-6">Conecta conmigo</h3>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="https://www.linkedin.com/in/carolinarb94" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-stibios-accent/10 text-stibios-accent border border-stibios-accent/20 px-4 py-2 rounded-lg hover:bg-stibios-accent/20 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-          </svg>
-          LinkedIn
-        </a>
-        <a href="/#contacto" class="inline-flex items-center gap-2 bg-stibios-text text-stibios-bg font-bold px-4 py-2 rounded-lg hover:bg-white transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-          Escríbeme
-        </a>
       </div>
     </div>
   </section>
