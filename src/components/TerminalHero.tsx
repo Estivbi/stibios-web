@@ -23,7 +23,7 @@ export default function TerminalHero() {
         href="/#contacto"
         onMouseMove={(e) => handleMouseMove(e, 0)}
         onMouseLeave={() => setHoveredButton(null)}
-        className="group relative px-8 py-3.5 bg-white/[0.03] rounded-full overflow-hidden transition-all duration-300 border border-white/10 hover:border-stibios-accent/50 flex items-center gap-3 hover:bg-stibios-accent/5 hover:shadow-[0_0_20px_rgba(0,209,255,0.1)]"
+        className="group relative px-8 py-3.5 bg-white/[0.03] rounded-lg overflow-hidden transition-all duration-300 border border-white/10 hover:border-stibios-accent/50 flex items-center gap-3 hover:bg-stibios-accent/5 hover:shadow-[0_0_20px_rgba(0,209,255,0.1)]"
       >
         {hoveredButton === 0 && (
           <div
@@ -46,7 +46,7 @@ export default function TerminalHero() {
         href="/#casos-exito"
         onMouseMove={(e) => handleMouseMove(e, 1)}
         onMouseLeave={() => setHoveredButton(null)}
-        className="group relative px-8 py-3.5 bg-white/[0.01] rounded-full overflow-hidden transition-all duration-300 border border-white/10 hover:border-white/30 flex items-center gap-3 hover:bg-white/5"
+        className="group relative px-8 py-3.5 bg-white/[0.01] rounded-lg overflow-hidden transition-all duration-300 border border-white/10 hover:border-white/30 flex items-center gap-3 hover:bg-white/5"
       >
         {hoveredButton === 1 && (
           <div

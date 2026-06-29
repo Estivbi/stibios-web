@@ -66,14 +66,14 @@ const ownProducts = [
       <button
         id="prev-clientes"
         aria-label="Anterior"
-        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-stibios-surface border border-stibios-border text-stibios-dim hover:text-stibios-accent hover:border-stibios-accent/50 transition-all flex items-center justify-center shadow-xl opacity-0 group-hover/carousel:opacity-100 focus:opacity-100"
+        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-lg bg-stibios-surface border border-stibios-border text-stibios-dim hover:text-stibios-accent hover:border-stibios-accent/50 transition-all flex items-center justify-center shadow-xl opacity-0 group-hover/carousel:opacity-100 focus:opacity-100"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
       </button>
       <button
         id="next-clientes"
         aria-label="Siguiente"
-        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-stibios-surface border border-stibios-border text-stibios-dim hover:text-stibios-accent hover:border-stibios-accent/50 transition-all flex items-center justify-center shadow-xl opacity-0 group-hover/carousel:opacity-100 focus:opacity-100"
+        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-lg bg-stibios-surface border border-stibios-border text-stibios-dim hover:text-stibios-accent hover:border-stibios-accent/50 transition-all flex items-center justify-center shadow-xl opacity-0 group-hover/carousel:opacity-100 focus:opacity-100"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
       </button>
@@ -95,13 +95,13 @@ const ownProducts = [
                 decoding="async"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-stibios-surface/80 via-transparent to-transparent"></div>
-              <div class="absolute top-3 left-3 px-2 py-1 rounded-full bg-black/50 border border-white/10 text-[10px] font-mono tracking-[0.25em] text-white/80 uppercase backdrop-blur-sm">
+              <div class="absolute top-3 left-3 px-2 py-1 rounded-lg bg-black/50 border border-white/10 text-[10px] font-mono tracking-[0.25em] text-white/80 uppercase backdrop-blur-sm">
                 {p.tag}
               </div>
             </div>
             <div class="flex-grow">
               <div class="flex justify-between items-start mb-3">
-                <div class="w-1.5 h-1.5 bg-stibios-accent rounded-full animate-pulse shadow-[0_0_8px_rgba(0,209,255,0.8)]"></div>
+                <div class="w-1.5 h-1.5 bg-stibios-accent rounded-lg animate-pulse shadow-[0_0_8px_rgba(0,209,255,0.8)]"></div>
                 <ExternalLink size={18} class="text-stibios-dim group-hover:text-stibios-accent transition-colors" />
               </div>
               <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-tight group-hover:text-stibios-accent transition-colors">
@@ -132,7 +132,7 @@ const ownProducts = [
       // Build dots
       cards.forEach((_, i) => {
         const dot = document.createElement('button');
-        dot.className = `w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === 0 ? 'bg-stibios-accent w-4' : 'bg-stibios-border'}`;
+        dot.className = `w-1.5 h-1.5 rounded-lg transition-all duration-300 ${i === 0 ? 'bg-stibios-accent w-4' : 'bg-stibios-border'}`;
         dot.setAttribute('aria-label', `Ir a proyecto ${i + 1}`);
         dot.addEventListener('click', () => scrollToCard(i));
         dotsContainer?.appendChild(dot);
@@ -154,7 +154,7 @@ const ownProducts = [
       function updateDots() {
         const idx = currentIndex();
         dotsContainer?.querySelectorAll('button').forEach((dot, i) => {
-          dot.className = `h-1.5 rounded-full transition-all duration-300 ${i === idx ? 'bg-stibios-accent w-4' : 'bg-stibios-border w-1.5'}`;
+          dot.className = `h-1.5 rounded-lg transition-all duration-300 ${i === idx ? 'bg-stibios-accent w-4' : 'bg-stibios-border w-1.5'}`;
         });
       }
 
@@ -186,7 +186,7 @@ const ownProducts = [
           class="flex-1 max-w-xl mx-auto w-full group relative bg-stibios-surface border border-stibios-purple/30 p-6 rounded-2xl transition-all duration-500 hover:border-stibios-purple hover:shadow-[0_0_50px_rgba(173,0,255,0.15)] flex flex-col"
         >
           <div class="absolute top-4 right-4">
-            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-stibios-purple/20 text-stibios-purple border border-stibios-purple/30 uppercase tracking-widest">
+            <span class="px-2 py-0.5 rounded-lg text-[10px] font-mono bg-stibios-purple/20 text-stibios-purple border border-stibios-purple/30 uppercase tracking-widest">
               Producto Propio
             </span>
           </div>
@@ -199,12 +199,12 @@ const ownProducts = [
               decoding="async"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-stibios-surface/80 via-transparent to-transparent"></div>
-            <div class="absolute top-3 left-3 px-2 py-1 rounded-full bg-stibios-purple/40 border border-stibios-purple/30 text-[10px] font-mono tracking-widest text-white/90 uppercase backdrop-blur-sm">
+            <div class="absolute top-3 left-3 px-2 py-1 rounded-lg bg-stibios-purple/40 border border-stibios-purple/30 text-[10px] font-mono tracking-widest text-white/90 uppercase backdrop-blur-sm">
               {p.tag}
             </div>
           </div>
           <div class="flex justify-between items-start mb-3">
-            <div class="w-1.5 h-1.5 bg-stibios-purple rounded-full animate-pulse shadow-[0_0_8px_rgba(173,0,255,0.8)]"></div>
+            <div class="w-1.5 h-1.5 bg-stibios-purple rounded-lg animate-pulse shadow-[0_0_8px_rgba(173,0,255,0.8)]"></div>
             <ExternalLink size={18} class="text-stibios-dim group-hover:text-stibios-purple transition-colors" />
           </div>
           <h3 class="text-2xl font-bold text-white mb-2 uppercase tracking-tight group-hover:text-stibios-purple transition-colors">
