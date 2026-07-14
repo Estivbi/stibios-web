@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+import { Video, Bot, Trophy } from 'lucide-react';
+
+const agentesSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Agentes IA - Soluciones Técnicas de Stibios Labs",
+  "description": "Plataformas de IA y automatización desarrolladas por Stibios Labs. Identica (clonación IA), Trend Agent (análisis predictivo) y Padelmix (app deportiva).",
+  "url": "https://www.stibios.com/agentes-ia"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.stibios.com" },
+    { "@type": "ListItem", "position": 2, "name": "Agentes IA", "item": "https://www.stibios.com/agentes-ia" }
+  ]
+};
+---
+
+<Layout
+  title="Agentes IA y Soluciones Técnicas"
+  description="Plataformas de inteligencia artificial y automatización desarrolladas por Stibios Labs. Identica, Trend Agent y Padelmix — soluciones in-house para innovación digital."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(agentesSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 px-6 max-w-5xl mx-auto relative">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-96 bg-stibios-accent/3 blur-[120px] rounded-lg pointer-events-none z-0"></div>
+    <div class="relative z-10 space-y-8 text-center max-w-3xl mx-auto">
+      <nav class="text-xs font-mono text-stibios-dim flex items-center justify-center gap-2" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-stibios-accent transition-colors">Inicio</a>
+        <span>/</span>
+        <span class="text-stibios-text">Agentes IA</span>
+      </nav>
+      <div class="inline-flex items-center gap-2 text-stibios-accent text-xs font-mono border border-stibios-accent/20 px-3 py-1 rounded-lg bg-stibios-accent/3">
+        <div class="w-2 h-2 rounded-lg bg-stibios-accent animate-pulse"></div>
+        SOLUCIONES TÉCNICAS
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white">
+        Agentes IA y Plataformas Propias
+      </h1>
+      <p class="text-stibios-dim text-lg leading-relaxed max-w-2xl mx-auto">
+        Soluciones de inteligencia artificial y automatización desarrolladas por Stibios Labs. Productos en desarrollo enfocados en resolver problemas reales con tecnología de vanguardia.
+      </p>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section class="py-24 px-6 max-w-6xl mx-auto">
+    <div class="space-y-8">
+
+      <!-- Identica -->
+      <article class="bg-stibios-surface border border-stibios-border rounded-2xl p-8 md:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div>
+            <div class="inline-flex items-center gap-2 mb-4">
+              <div class="w-12 h-12 bg-stibios-accent/10 rounded-lg flex items-center justify-center text-stibios-accent border border-stibios-accent/20">
+                <Video size={28} />
+              </div>
+              <div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white">Identica</h2>
+                <p class="text-xs font-mono text-stibios-dim">Powered by Influ-ia</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 rounded text-xs font-mono bg-stibios-accent/10 text-stibios-accent border border-stibios-accent/20 uppercase tracking-widest">
+                Clonación IA
+              </span>
+              <span class="px-3 py-1 rounded text-xs font-mono bg-stibios-accent/10 text-stibios-accent border border-stibios-accent/20 uppercase tracking-widest">
+                Contenido
+              </span>
+            </div>
+            <div class="space-y-4 text-stibios-dim leading-relaxed">
+              <p>
+                Plataforma de clonación digital con Inteligencia Artificial. Automatiza la creación de vídeos para creadores de contenido y marcas, permitiendo escalar la producción audiovisual sin depender de horas de grabación.
+              </p>
+              <p class="text-sm">
+                <strong class="text-white">Tecnología:</strong> IA generativa, procesamiento de video, síntesis de voz
+              </p>
+              <p class="text-sm">
+                <strong class="text-white">Estado:</strong> En desarrollo
+              </p>
+            </div>
+          </div>
+          <div class="bg-stibios-bg border border-stibios-border/50 rounded-lg p-6 h-64 flex items-center justify-center">
+            <div class="text-center text-stibios-dim/50">
+              <Video size={48} class="mx-auto mb-2 opacity-30" />
+              <p class="text-sm">Visualización de Identica</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Trend Agent -->
+      <article class="bg-stibios-surface border border-stibios-border rounded-2xl p-8 md:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div class="md:order-2">
+            <div class="inline-flex items-center gap-2 mb-4">
+              <div class="w-12 h-12 bg-stibios-accent/10 rounded-lg flex items-center justify-center text-stibios-accent border border-stibios-accent/20">
+                <Bot size={28} />
+              </div>
+              <div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white">Trend Agent</h2>
+                <p class="text-xs font-mono text-stibios-dim">Inteligencia Predictiva</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 rounded text-xs font-mono bg-stibios-accent/10 text-stibios-accent border border-stibios-accent/20 uppercase tracking-widest">
+                Agente Autónomo
+              </span>
+              <span class="px-3 py-1 rounded text-xs font-mono bg-stibios-accent/10 text-stibios-accent border border-stibios-accent/20 uppercase tracking-widest">
+                Big Data
+              </span>
+            </div>
+            <div class="space-y-4 text-stibios-dim leading-relaxed">
+              <p>
+                Agente de IA operativo 24/7 que monitoriza redes sociales, blogs y bases de datos en tiempo real. Extrae tendencias emergentes, analiza el sentimiento del mercado y genera reportes automáticos para toma de decisiones estratégicas.
+              </p>
+              <p class="text-sm">
+                <strong class="text-white">Tecnología:</strong> NLP, análisis de sentimientos, procesamiento en tiempo real, predicción con ML
+              </p>
+              <p class="text-sm">
+                <strong class="text-white">Estado:</strong> En desarrollo
+              </p>
+            </div>
+          </div>
+          <div class="md:order-1 bg-stibios-bg border border-stibios-border/50 rounded-lg p-6 h-64 flex items-center justify-center">
+            <div class="text-center text-stibios-dim/50">
+              <Bot size={48} class="mx-auto mb-2 opacity-30" />
+              <p class="text-sm">Dashboard de Trend Agent</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Padelmix -->
+      <article class="bg-stibios-surface border border-stibios-border rounded-2xl p-8 md:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div>
+            <div class="inline-flex items-center gap-2 mb-4">
+              <div class="w-12 h-12 bg-stibios-accent/10 rounded-lg flex items-center justify-center text-stibios-accent border border-stibios-accent/20">
+                <Trophy size={28} />
+              </div>
+              <div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white">Padelmix</h2>
+                <p class="text-xs font-mono text-stibios-dim">App Deportiva / Comunidad</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 rounded text-xs font-mono bg-stibios-accent/10 text-stibios-accent border border-stibios-accent/20 uppercase tracking-widest">
+                App Deportiva
+              </span>
+              <span class="px-3 py-1 rounded text-xs font-mono bg-stibios-accent/10 text-stibios-accent border border-stibios-accent/20 uppercase tracking-widest">
+                Comunidad
+              </span>
+            </div>
+            <div class="space-y-4 text-stibios-dim leading-relaxed">
+              <p>
+                Solución tecnológica integral para la comunidad del pádel. Reservas de pistas, organización de torneos y red social para jugadores, todo en una sola plataforma.
+              </p>
+              <p class="text-sm">
+                <strong class="text-white">Tecnología:</strong> App móvil (React Native), sistema de matchmaking, integración de pagos, red social
+              </p>
+              <p class="text-sm">
+                <strong class="text-white">Estado:</strong> Beta
+              </p>
+            </div>
+          </div>
+          <div class="bg-stibios-bg border border-stibios-border/50 rounded-lg p-6 h-64 flex items-center justify-center">
+            <div class="text-center text-stibios-dim/50">
+              <Trophy size={48} class="mx-auto mb-2 opacity-30" />
+              <p class="text-sm">Preview de Padelmix</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Diferenciales -->
+  <section class="py-24 px-6 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-white mb-4">¿Por qué estos productos?</h2>
+      <p class="text-stibios-dim">Soluciones nacidas de necesidades reales en el mercado</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-stibios-surface border border-stibios-border rounded-xl p-6">
+        <h3 class="text-white font-bold mb-2">Innovación Real</h3>
+        <p class="text-stibios-dim text-sm">No son prototipos — son productos que resuelven problemas concretos con tecnología de vanguardia.</p>
+      </div>
+      <div class="bg-stibios-surface border border-stibios-border rounded-xl p-6">
+        <h3 class="text-white font-bold mb-2">Desarrollados In-House</h3>
+        <p class="text-stibios-dim text-sm">Construidos completamente por Stibios Labs con control total sobre arquitectura, seguridad y escalabilidad.</p>
+      </div>
+      <div class="bg-stibios-surface border border-stibios-border rounded-xl p-6">
+        <h3 class="text-white font-bold mb-2">Disponibles Pronto</h3>
+        <p class="text-stibios-dim text-sm">En desarrollo activo. Si te interesa participar en beta o colaborar, podemos hablar.</p>
+      </div>
+    </div>
+  </section>
+
+  <Contact />
+  <Footer />
+</Layout>
