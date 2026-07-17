@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: "Contraseñas: por qué todos lo hacemos mal y cómo arreglarlo de una vez"
 description: "El sistema tradicional de contraseñas está roto para el cerebro humano. Te explico cómo te hackean realmente y la única solución que funciona sin volverte loco."
 date: "2026-06-03"
-author: "Carolina"
+author: "Carolina Rodríguez Bárcena"
 tag: "Seguridad"
 image: "/img/contraseñas.webp"
 draft: false

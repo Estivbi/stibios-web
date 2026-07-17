@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: "Los tokens son los nuevos gigas: por qué la IA es cara hoy (y no lo será siempre)"
 description: "Si los límites de uso de las IAs te frustran, recuerda cuando pagabas a precio de oro por tener 1GB de internet en el móvil. Estamos exactamente en ese punto."
 date: "2026-07-14"
-author: "Carolina"
+author: "Carolina Rodríguez Bárcena"
 tag: "Tecnología y Negocio"
 image: "/img/ia-es-cara.webp"
 draft: false
