@@ -46,4 +46,4 @@ No es "¿cuánto cuesta?" sino "¿qué tiene que hacer mi web por mi negocio?". 
 
 ---
 
-¿Tienes un proyecto en mente y no sabes por dónde empezar? [Cuéntamelo](/#contacto) — sin compromiso te digo qué tiene sentido para tu caso.
+¿Tienes un proyecto en mente y no sabes por dónde empezar? [Cuéntamelo](/contacto) — sin compromiso te digo qué tiene sentido para tu caso.

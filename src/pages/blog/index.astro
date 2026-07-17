@@ -20,6 +20,8 @@ const posts = Object.values(postModules) as Post[];
 const sortedPosts = posts
   .filter(p => !p.frontmatter.draft)
   .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
+
+const tags = [...new Set(sortedPosts.map(p => p.frontmatter.tag).filter(Boolean))] as string[];
 ---
 
 <Layout title="Blog" description="Artículos sobre software, negocios digitales y desarrollo a medida por Stibios Labs.">
@@ -40,11 +42,19 @@ const sortedPosts = posts
         <div class="blog-index__header-line"></div>
       </header>
 
-      <div class="blog-index__grid">
+      <div class="blog-filter" role="group" aria-label="Filtrar por categoría">
+        <button type="button" class="blog-filter__btn is-active" data-tag="all">Todos</button>
+        {tags.map(tag => (
+          <button type="button" class="blog-filter__btn" data-tag={tag}>{tag}</button>
+        ))}
+      </div>
+
+      <div class="blog-index__grid" id="blog-grid">
         {sortedPosts.map((post, index) => (
           <a
             href={post.url}
             class="blog-card"
+            data-tag={post.frontmatter.tag || ''}
             style={`animation-delay: ${index * 100}ms`}
           >
             {post.frontmatter.image && (
@@ -95,6 +105,12 @@ const sortedPosts = posts
           <p class="blog-index__empty">Próximamente...</p>
         )}
       </div>
+
+      <p class="blog-index__empty blog-index__empty--filtered" id="blog-empty-filtered" hidden>
+        No hay artículos con esta etiqueta todavía.
+      </p>
+
+      <nav class="blog-pagination" id="blog-pagination" aria-label="Paginación del blog"></nav>
 
     </div>
   </section>
@@ -357,4 +373,150 @@ const sortedPosts = posts
     font-size: 0.875rem;
     color: var(--color-stibios-dim);
   }
+
+  /* ── Tag filter ── */
+  .blog-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .blog-filter__btn {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-stibios-dim);
+    background: var(--color-stibios-surface);
+    border: 1px solid var(--color-stibios-border);
+    padding: 0.4rem 0.9rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .blog-filter__btn:hover {
+    border-color: var(--color-stibios-accent);
+    color: var(--color-stibios-text);
+  }
+
+  .blog-filter__btn.is-active {
+    background: var(--color-stibios-accent);
+    border-color: var(--color-stibios-accent);
+    color: var(--color-stibios-bg);
+  }
+
+  /* ── Pagination ── */
+  .blog-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .blog-pagination__btn {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-stibios-dim);
+    background: var(--color-stibios-surface);
+    border: 1px solid var(--color-stibios-border);
+    min-width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .blog-pagination__btn:hover:not(:disabled) {
+    border-color: var(--color-stibios-accent);
+    color: var(--color-stibios-text);
+  }
+
+  .blog-pagination__btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .blog-pagination__btn.is-active {
+    background: var(--color-stibios-accent);
+    border-color: var(--color-stibios-accent);
+    color: var(--color-stibios-bg);
+  }
 </style>
+
+<script>
+  const POSTS_PER_PAGE = 6;
+  let currentTag = 'all';
+  let currentPage = 1;
+
+  const grid = document.getElementById('blog-grid');
+  const cards = grid ? Array.from(grid.querySelectorAll<HTMLElement>('.blog-card')) : [];
+  const tagButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('.blog-filter__btn'));
+  const paginationEl = document.getElementById('blog-pagination');
+  const emptyFilteredEl = document.getElementById('blog-empty-filtered');
+
+  function getFiltered(): HTMLElement[] {
+    return cards.filter(c => currentTag === 'all' || c.dataset.tag === currentTag);
+  }
+
+  function renderPagination(totalPages: number) {
+    if (!paginationEl) return;
+    paginationEl.innerHTML = '';
+    if (totalPages <= 1) return;
+
+    const makeBtn = (label: string, page: number, opts: { disabled?: boolean; active?: boolean } = {}) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'blog-pagination__btn' + (opts.active ? ' is-active' : '');
+      btn.textContent = label;
+      if (opts.disabled) btn.disabled = true;
+      btn.addEventListener('click', () => {
+        currentPage = page;
+        render();
+        grid?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      return btn;
+    };
+
+    paginationEl.appendChild(makeBtn('←', currentPage - 1, { disabled: currentPage === 1 }));
+    for (let p = 1; p <= totalPages; p++) {
+      paginationEl.appendChild(makeBtn(String(p), p, { active: p === currentPage }));
+    }
+    paginationEl.appendChild(makeBtn('→', currentPage + 1, { disabled: currentPage === totalPages }));
+  }
+
+  function render() {
+    const filtered = getFiltered();
+    const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE));
+    currentPage = Math.min(currentPage, totalPages);
+    const start = (currentPage - 1) * POSTS_PER_PAGE;
+    const end = start + POSTS_PER_PAGE;
+    const visible = new Set(filtered.slice(start, end));
+
+    cards.forEach(c => {
+      c.style.display = visible.has(c) ? '' : 'none';
+    });
+
+    if (emptyFilteredEl) {
+      emptyFilteredEl.hidden = filtered.length !== 0;
+    }
+
+    renderPagination(totalPages);
+  }
+
+  tagButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentTag = btn.dataset.tag || 'all';
+      currentPage = 1;
+      tagButtons.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      render();
+    });
+  });
+
+  render();
+</script>
