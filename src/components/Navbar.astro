@@ -1,12 +1,12 @@
 ---
-import { Home, Mail, Monitor, BookOpen, User, FolderOpen, Trophy } from 'lucide-react';
+import { Home, Mail, Monitor, BookOpen, User, FolderOpen, Trophy, Bot } from 'lucide-react';
 import Logo from './Logo.astro';
 
 const links = [
   { href: "/#inicio",      label: "Inicio",            icon: "home" },
   { href: "/#que-hacemos", label: "Servicios",        icon: "monitor" },
   { href: "/#casos-exito", label: "Casos de éxito",   icon: "trophy" },
-  { href: "/agentes-ia",   label: "Agentes y Soluciones", icon: "folder" },
+  { href: "/agentes-ia",   label: "Agentes y Soluciones", icon: "bot" },
   { href: "/blog",         label: "Blog",             icon: "book" },
   { href: "/proyectos",    label: "Proyectos",        icon: "folder" },
   { href: "/sobre-mi",     label: "Sobre mí",         icon: "user" },
@@ -40,6 +40,10 @@ const links = [
         <a href="/#casos-exito" class="nav-item group" aria-label="Casos de Éxito">
           <Trophy size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
           <span class="tooltip">/casos de éxito</span>
+        </a>
+        <a href="/agentes-ia" class="nav-item group" aria-label="Agentes y Soluciones">
+          <Bot size={20} className="text-stibios-dim group-hover:text-stibios-purple group-hover:drop-shadow-none transition-all nav-icon" />
+          <span class="tooltip">/agentes y soluciones</span>
         </a>
         <a href="/blog" class="nav-item group" aria-label="Blog">
           <BookOpen size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
