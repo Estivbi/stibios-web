@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import carolinaPhoto from '../assets/carolina.webp';
 import {
   Cpu,
   Code2,
@@ -79,17 +80,17 @@ const stack = [
   <!-- Contenido Principal -->
   <section class="py-20 px-6 max-w-5xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
-      <!-- Foto placeholder (reemplazar con imagen real) -->
+      <!-- Foto -->
       <div class="flex flex-col items-center gap-6">
-        <div id="photo-tilt" class="tilt-card rounded-2xl overflow-hidden bg-stibios-surface border border-stibios-border h-96 w-full max-w-sm flex items-center justify-center relative">
+        <div id="photo-tilt" class="tilt-card rounded-2xl overflow-hidden bg-stibios-surface border border-stibios-border h-96 w-full max-w-sm relative">
           <div class="tilt-card__glow"></div>
-          <div class="text-center text-stibios-dim/50 relative z-10">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto mb-2 opacity-30">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-            <p class="text-sm">Foto: carolina.webp</p>
-          </div>
+          <img
+            src={carolinaPhoto.src}
+            alt="Carolina Rodríguez Bárcena, fundadora de Stibios Labs"
+            class="w-full h-full object-cover relative z-10"
+            loading="eager"
+            decoding="async"
+          />
         </div>
 
         <!-- LinkedIn + Portfolio -->
