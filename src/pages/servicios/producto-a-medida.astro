@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
 import { Code2, Target, Zap, Wrench, CheckCircle } from 'lucide-react';
 
 const serviceSchema = {
@@ -16,14 +17,7 @@ const serviceSchema = {
     "url": "https://www.stibios.com"
   },
   "areaServed": "ES",
-  "serviceType": "Desarrollo de Software a Medida",
-  "offers": {
-    "@type": "AggregateOffer",
-    "priceCurrency": "EUR",
-    "lowPrice": "4000",
-    "highPrice": "25000",
-    "offerCount": "3"
-  }
+  "serviceType": "Desarrollo de Software a Medida"
 };
 
 const breadcrumbSchema = {
@@ -58,7 +52,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "¿Cuánto cuesta desarrollar un producto digital a medida?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Un MVP funcional parte desde 4.000€. Una plataforma con múltiples módulos y usuarios puede llegar a 15.000-25.000€. El precio depende de la complejidad, las integraciones necesarias y si el proyecto incluye diseño desde cero. Siempre hay un presupuesto cerrado antes de empezar." }
+      "acceptedAnswer": { "@type": "Answer", "text": "El precio depende de la complejidad, las integraciones necesarias y si el proyecto incluye diseño desde cero. Tras una primera conversación sobre tu proyecto te doy un presupuesto cerrado y a medida, sin sorpresas." }
     },
     {
       "@type": "Question",
@@ -76,7 +70,7 @@ const faqSchema = {
 
 <Layout
   title="Desarrollo de Producto Digital a Medida"
-  description="Construimos soluciones tecnológicas a medida: apps, plataformas SaaS, herramientas internas y productos digitales únicos. Código tuyo, arquitectura escalable. Desde 4.000€."
+  description="Construimos soluciones tecnológicas a medida: apps, plataformas SaaS, herramientas internas y productos digitales únicos. Código tuyo, arquitectura escalable. Presupuesto a medida."
 >
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -188,19 +182,18 @@ const faqSchema = {
   <section class="py-16 px-6 max-w-4xl mx-auto">
     <div class="text-center mb-12">
       <span class="text-xs font-mono font-bold tracking-widest text-stibios-purple uppercase">Inversión</span>
-      <h2 class="text-3xl font-bold text-white mt-2">Rangos orientativos</h2>
-      <p class="text-stibios-dim mt-2 text-sm">El precio final depende de la complejidad. Siempre presupuesto cerrado antes de empezar.</p>
+      <h2 class="text-3xl font-bold text-white mt-2">Presupuesto a medida</h2>
+      <p class="text-stibios-dim mt-2 text-sm">El precio depende de la complejidad del proyecto. Siempre presupuesto cerrado antes de empezar, tras conocer tu caso.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {[
-        { tier: "MVP", price: "desde 4.000€", desc: "Un producto funcional con las características esenciales para validar tu idea en el mercado real.", features: ["1 módulo principal", "Autenticación de usuarios", "Base de datos", "Deploy en producción", "30 días de soporte"] },
-        { tier: "Plataforma", price: "desde 8.000€", desc: "Varios módulos interconectados, roles de usuario y flujos de trabajo complejos.", features: ["Todo lo del MVP", "Múltiples módulos", "Panel de administración", "Integraciones externas", "API propia"], highlight: true },
-        { tier: "Producto SaaS", price: "desde 15.000€", desc: "Producto completo con multi-tenant, suscripciones y capacidad para escalar a miles de usuarios.", features: ["Todo lo anterior", "Multi-tenant", "Facturación y pagos", "Analytics integrados", "Infraestructura escalable"] },
+        { tier: "MVP", desc: "Un producto funcional con las características esenciales para validar tu idea en el mercado real.", features: ["1 módulo principal", "Autenticación de usuarios", "Base de datos", "Deploy en producción", "30 días de soporte"] },
+        { tier: "Plataforma", desc: "Varios módulos interconectados, roles de usuario y flujos de trabajo complejos.", features: ["Todo lo del MVP", "Múltiples módulos", "Panel de administración", "Integraciones externas", "API propia"], highlight: true },
+        { tier: "Producto SaaS", desc: "Producto completo con multi-tenant, suscripciones y capacidad para escalar a miles de usuarios.", features: ["Todo lo anterior", "Multi-tenant", "Facturación y pagos", "Analytics integrados", "Infraestructura escalable"] },
       ].map(plan => (
         <div class={`bg-stibios-surface border rounded-2xl p-6 flex flex-col gap-4 ${plan.highlight ? 'border-stibios-purple' : 'border-stibios-border'}`}>
           {plan.highlight && <span class="text-xs font-mono font-bold text-stibios-purple tracking-widest uppercase">Más solicitado</span>}
           <h3 class="text-white font-bold text-lg">{plan.tier}</h3>
-          <p class="text-2xl font-black text-stibios-purple">{plan.price}</p>
           <p class="text-stibios-dim text-sm leading-relaxed">{plan.desc}</p>
           <ul class="space-y-2 mt-2">
             {plan.features.map(f => (
@@ -210,6 +203,9 @@ const faqSchema = {
               </li>
             ))}
           </ul>
+          <a href="/#contacto" class="mt-2 text-center text-sm font-bold text-stibios-purple hover:text-white transition-colors">
+            Solicitar presupuesto →
+          </a>
         </div>
       ))}
     </div>
@@ -221,24 +217,14 @@ const faqSchema = {
       <span class="text-xs font-mono font-bold tracking-widest text-stibios-purple uppercase">FAQ</span>
       <h2 class="text-3xl font-bold text-white mt-2">Preguntas frecuentes</h2>
     </div>
-    <div class="space-y-4">
-      {[
-        { q: "¿Cómo sé si necesito un producto a medida o simplemente una web?", a: "Si necesitas presencia digital, una web profesional es suficiente. Si necesitas automatizar procesos, gestionar datos con lógica propia o construir una herramienta que tus equipos usen cada día, necesitas un producto a medida." },
-        { q: "¿Qué tecnologías usas?", a: "Mi estándar es React o Next.js en el frontend, Node.js con TypeScript en el backend, PostgreSQL para los datos y Vercel para el hosting. Para productos con IA integro modelos de OpenAI, Anthropic o Google según el caso." },
-        { q: "¿Puedo ampliar el producto después de la entrega?", a: "Sí, y es lo habitual. Construyo con arquitectura modular y código documentado pensando en el crecimiento desde el principio." },
-        { q: "¿Cuánto cuesta un producto a medida?", a: "Un MVP funcional parte desde 4.000€. Una plataforma completa puede llegar a 15.000-25.000€. Siempre hay un presupuesto cerrado antes de empezar." },
-        { q: "¿Qué pasa si no tengo claro qué quiero exactamente?", a: "Es lo más normal. Empezamos con una fase de discovery para entender el problema antes de escribir código. Defino el MVP mínimo que resuelve el problema real sin sobrediseñar." },
-        { q: "¿El código es mío?", a: "Sí. El repositorio es tuyo desde el primer día. Puedes dárselo a cualquier desarrollador o seguir con Stibios. Sin dependencias forzadas." },
-      ].map(item => (
-        <details class="bg-stibios-surface border border-stibios-border rounded-xl group">
-          <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-white text-sm list-none select-none">
-            {item.q}
-            <svg class="flex-shrink-0 ml-4 transition-transform group-open:rotate-180" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-          </summary>
-          <p class="px-5 pb-5 text-stibios-dim text-sm leading-relaxed">{item.a}</p>
-        </details>
-      ))}
-    </div>
+    <FaqAccordion items={[
+      { q: "¿Cómo sé si necesito un producto a medida o simplemente una web?", a: "Si necesitas presencia digital, una web profesional es suficiente. Si necesitas automatizar procesos, gestionar datos con lógica propia o construir una herramienta que tus equipos usen cada día, necesitas un producto a medida." },
+      { q: "¿Qué tecnologías usas?", a: "Mi estándar es React o Next.js en el frontend, Node.js con TypeScript en el backend, PostgreSQL para los datos y Vercel para el hosting. Para productos con IA integro modelos de OpenAI, Anthropic o Google según el caso." },
+      { q: "¿Puedo ampliar el producto después de la entrega?", a: "Sí, y es lo habitual. Construyo con arquitectura modular y código documentado pensando en el crecimiento desde el principio." },
+      { q: "¿Cuánto cuesta un producto a medida?", a: "El precio depende de la complejidad, el alcance y las integraciones necesarias. Tras conocer tu proyecto te doy un presupuesto cerrado y a medida, sin sorpresas." },
+      { q: "¿Qué pasa si no tengo claro qué quiero exactamente?", a: "Es lo más normal. Empezamos con una fase de discovery para entender el problema antes de escribir código. Defino el MVP mínimo que resuelve el problema real sin sobrediseñar." },
+      { q: "¿El código es mío?", a: "Sí. El repositorio es tuyo desde el primer día. Puedes dárselo a cualquier desarrollador o seguir con Stibios. Sin dependencias forzadas." },
+    ]} />
   </section>
 
   <Contact />
