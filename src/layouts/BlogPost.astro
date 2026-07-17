@@ -9,6 +9,7 @@ interface Props {
     title: string;
     description?: string;
     date: string;
+    lastModified?: string;
     tag?: string;
     image?: string;
     author?: string;
@@ -35,7 +36,7 @@ const articleSchema = {
   "headline": frontmatter.title,
   "description": frontmatter.description,
   "datePublished": frontmatter.date,
-  "dateModified": frontmatter.date,
+  "dateModified": frontmatter.lastModified || frontmatter.date,
   "url": canonicalURL,
   ...(frontmatter.image ? { "image": new URL(frontmatter.image, "https://www.stibios.com").href } : {}),
   "author": {
