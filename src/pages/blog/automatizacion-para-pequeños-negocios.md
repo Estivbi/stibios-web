@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: "Automatización para pequeños negocios: deja de hacer a mano lo que puede hacerse solo"
 description: "Hay una creencia muy extendida de que automatizar es cosa de grandes empresas. Descubre cuánto dinero estás perdiendo por hacer tareas repetitivas a mano."
 date: "2026-05-19"
-author: "Carolina Rodríguez Bárcena"
+author: "Carolina"
 tag: "Negocios"
 image: "/img/automatizaciones-pequeños-negocios.webp"
 draft: false

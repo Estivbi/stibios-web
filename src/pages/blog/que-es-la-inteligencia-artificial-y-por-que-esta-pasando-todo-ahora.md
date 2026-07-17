@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: "Qué es la inteligencia artificial y por qué está pasando todo ahora"
 description: "La IA lleva décadas existiendo. Por qué de repente está en todas partes, cómo funciona realmente (sin magia) y qué significa para tu día a día."
 date: "2026-05-12"
-author: "Carolina Rodríguez Bárcena"
+author: "Carolina"
 tag: "IA"
 image: "/img/que-es-la-ia.webp"
 draft: false

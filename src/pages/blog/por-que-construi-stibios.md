@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: "Por qué construí Stibios: software sin intermediarios para negocios reales"
 description: "La historia detrás de Stibios Labs, la brecha entre las grandes agencias y las necesidades reales, y el stack tecnológico que define el futuro de mis proyectos."
 date: "2026-05-04"
-author: "Carolina Rodríguez Bárcena"
+author: "Carolina"
 tag: "Stibios"
 image: "/img/porque-construi-stibios.webp"
 draft: false

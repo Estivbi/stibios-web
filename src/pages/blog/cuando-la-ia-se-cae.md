@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: "Cuando la IA se cae: qué pasa cuando de repente no sabes cómo trabajar"
 description: "Una caída en los servicios de IA descoloca la jornada de miles de profesionales. ¿Qué pasa cuando tu herramienta favorita falla y cómo evitar que te bloquee?"
 date: "2026-06-10"
-author: "Carolina Rodríguez Bárcena"
+author: "Carolina"
 tag: "IA"
 image: "/img/la-ia-se-ha-caido.webp"
 draft: false
