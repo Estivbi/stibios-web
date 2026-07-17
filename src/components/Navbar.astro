@@ -1,11 +1,11 @@
 ---
-import { Home, Mail, Monitor, BookOpen, User, FolderOpen } from 'lucide-react';
+import { Home, Mail, Monitor, BookOpen, User, FolderOpen, Trophy } from 'lucide-react';
 import Logo from './Logo.astro';
 
 const links = [
   { href: "/#inicio",      label: "Inicio",            icon: "home" },
   { href: "/#que-hacemos", label: "Servicios",        icon: "monitor" },
-  { href: "/#casos-exito", label: "Casos de éxito",   icon: "monitor" },
+  { href: "/#casos-exito", label: "Casos de éxito",   icon: "trophy" },
   { href: "/agentes-ia",   label: "Agentes y Soluciones", icon: "folder" },
   { href: "/blog",         label: "Blog",             icon: "book" },
   { href: "/proyectos",    label: "Proyectos",        icon: "folder" },
@@ -38,7 +38,7 @@ const links = [
           <span class="tooltip">/servicios</span>
         </a>
         <a href="/#casos-exito" class="nav-item group" aria-label="Casos de Éxito">
-          <Monitor size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
+          <Trophy size={20} className="text-stibios-dim group-hover:text-stibios-accent group-hover:drop-shadow-none transition-all nav-icon" />
           <span class="tooltip">/casos de éxito</span>
         </a>
         <a href="/blog" class="nav-item group" aria-label="Blog">
@@ -185,6 +185,16 @@ const links = [
     border-bottom: 1px solid var(--color-stibios-border);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* md:hidden (Tailwind) loses to the scoped display:flex above at md+
+     because Astro's scoping attribute raises its specificity. Force it
+     back off on desktop so the mobile bar/menu never overlaps the pill nav. */
+  @media (min-width: 768px) {
+    .mobile-bar,
+    .mobile-menu {
+      display: none !important;
+    }
   }
 
   .mobile-bar__logo {
