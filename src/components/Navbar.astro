@@ -187,6 +187,16 @@ const links = [
     -webkit-backdrop-filter: blur(20px);
   }
 
+  /* md:hidden (Tailwind) loses to the scoped display:flex above at md+
+     because Astro's scoping attribute raises its specificity. Force it
+     back off on desktop so the mobile bar/menu never overlaps the pill nav. */
+  @media (min-width: 768px) {
+    .mobile-bar,
+    .mobile-menu {
+      display: none !important;
+    }
+  }
+
   .mobile-bar__logo {
     font-family: var(--font-sans);
     font-size: 1.5rem;
