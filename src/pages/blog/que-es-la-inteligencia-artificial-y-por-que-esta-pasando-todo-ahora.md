@@ -57,4 +57,4 @@ La pregunta real es: **"¿Qué partes de mi trabajo son las que más valor aport
 
 Esa es una postura mucho más útil para cualquier profesional o pequeño empresario que el pánico o el entusiasmo ciego. 
 
-Si tienes un negocio y no sabes muy bien por dónde empezar a usar todo esto sin volverte loco, estás en el lugar adecuado. En [Stibios](/#contacto) construimos tecnología para que trabajes menos en lo aburrido y más en lo importante.
+Si tienes un negocio y no sabes muy bien por dónde empezar a usar todo esto sin volverte loco, estás en el lugar adecuado. En [Stibios](/contacto) construimos tecnología para que trabajes menos en lo aburrido y más en lo importante.

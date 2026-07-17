@@ -20,7 +20,7 @@ export default function TerminalHero() {
   return (
     <div className="flex flex-row justify-center gap-4 mt-2 mb-12">
       <a
-        href="/#contacto"
+        href="/contacto"
         onMouseMove={(e) => handleMouseMove(e, 0)}
         onMouseLeave={() => setHoveredButton(null)}
         className="group relative px-8 py-3.5 bg-white/[0.03] rounded-lg overflow-hidden transition-all duration-300 border border-white/10 hover:border-stibios-accent/50 flex items-center gap-3 hover:bg-stibios-accent/5 hover:shadow-[0_0_20px_rgba(0,209,255,0.1)]"

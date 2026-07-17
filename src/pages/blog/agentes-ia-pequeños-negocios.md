@@ -66,4 +66,4 @@ Los agentes de IA útiles para pequeños negocios no son ciencia ficción de 203
 
 Lo que falta no es tecnología. Falta saber qué problema concreto de tu negocio tiene sentido resolver con ella, y construirlo bien.
 
-Ese es exactamente el tipo de tecnología que estoy empezando a integrar en los proyectos de Stibios. Si tienes un proceso en tu negocio que te tiene harto de revisar manualmente todos los días, [hablemos](/#contacto).
+Ese es exactamente el tipo de tecnología que estoy empezando a integrar en los proyectos de Stibios. Si tienes un proceso en tu negocio que te tiene harto de revisar manualmente todos los días, [hablemos](/contacto).

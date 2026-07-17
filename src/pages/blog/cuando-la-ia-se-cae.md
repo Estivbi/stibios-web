@@ -37,4 +37,4 @@ Un corte de pocas horas no es el fin del mundo, pero sí es un recordatorio exce
 
 Un momento de parón técnico es la oportunidad perfecta para analizar el flujo de trabajo. La tecnología debe hacernos libres, no esclavos de un solo proveedor.
 
-En Stibios diseñamos e integramos soluciones de IA combinando diferentes modelos (como Gemini y Claude) precisamente por esto: para que las plataformas de nuestros clientes sean resilientes, optimicen costes y nunca dependan de que un solo gigante tecnológico tenga un buen día. Si quieres construir un sistema preparado para el mundo real, [hablemos](/#contacto).
+En Stibios diseñamos e integramos soluciones de IA combinando diferentes modelos (como Gemini y Claude) precisamente por esto: para que las plataformas de nuestros clientes sean resilientes, optimicen costes y nunca dependan de que un solo gigante tecnológico tenga un buen día. Si quieres construir un sistema preparado para el mundo real, [hablemos](/contacto).

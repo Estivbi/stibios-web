@@ -1,6 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import { Globe, Zap, Shield, Search, CheckCircle } from 'lucide-react';
@@ -98,7 +97,7 @@ const faqSchema = {
         No hacemos webs plantilleras. Construimos plataformas digitales de alto rendimiento enfocadas en resultados de negocio. Cargas ultrarrápidas, diseño impecable y listas para posicionar en Google.
       </p>
       <div class="pt-4">
-        <a href="#contacto" class="inline-flex items-center justify-center bg-stibios-text text-stibios-bg font-bold py-3 px-8 rounded hover:bg-white transition-all">
+        <a href="/contacto" class="inline-flex items-center justify-center bg-stibios-text text-stibios-bg font-bold py-3 px-8 rounded hover:bg-white transition-all">
           Solicitar presupuesto
         </a>
       </div>
@@ -194,7 +193,7 @@ const faqSchema = {
               </li>
             ))}
           </ul>
-          <a href="/#contacto" class="mt-2 text-center text-sm font-bold text-stibios-accent hover:text-white transition-colors">
+          <a href="/contacto" class="mt-2 text-center text-sm font-bold text-stibios-accent hover:text-white transition-colors">
             Solicitar presupuesto →
           </a>
         </div>
@@ -218,6 +217,5 @@ const faqSchema = {
     ]} />
   </section>
 
-  <Contact />
   <Footer />
 </Layout>
