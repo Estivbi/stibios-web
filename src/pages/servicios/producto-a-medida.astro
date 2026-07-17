@@ -1,6 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import { Code2, Target, Zap, Wrench, CheckCircle } from 'lucide-react';
@@ -98,7 +97,7 @@ const faqSchema = {
         Las plantillas y el software genérico tienen límites. Si tu negocio necesita una herramienta interna, una plataforma SaaS o un producto digital único, lo desarrollamos desde cero con el stack más adecuado para tu caso.
       </p>
       <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#contacto" class="w-full sm:w-auto inline-flex items-center justify-center bg-stibios-text text-stibios-bg font-bold py-3 px-8 rounded hover:bg-white transition-all">
+        <a href="/contacto" class="w-full sm:w-auto inline-flex items-center justify-center bg-stibios-text text-stibios-bg font-bold py-3 px-8 rounded hover:bg-white transition-all">
           Háblanos de tu proyecto
         </a>
       </div>
@@ -203,7 +202,7 @@ const faqSchema = {
               </li>
             ))}
           </ul>
-          <a href="/#contacto" class="mt-2 text-center text-sm font-bold text-stibios-purple hover:text-white transition-colors">
+          <a href="/contacto" class="mt-2 text-center text-sm font-bold text-stibios-purple hover:text-white transition-colors">
             Solicitar presupuesto →
           </a>
         </div>
@@ -227,6 +226,5 @@ const faqSchema = {
     ]} />
   </section>
 
-  <Contact />
   <Footer />
 </Layout>

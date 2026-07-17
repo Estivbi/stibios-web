@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
-import Contact from '../../components/Contact.astro';
 import { Globe, Code2, Shield, ArrowRight } from 'lucide-react';
 
 const services = [
@@ -172,7 +171,7 @@ const schema = {
         Trabajo con <span class="text-white font-semibold">peluquerías, clínicas, consultoras, creadores y pymes</span> de toda España.
       </p>
       <a
-        href="/#contacto"
+        href="/contacto"
         class="inline-flex items-center gap-3 bg-stibios-accent text-stibios-bg font-bold py-3 px-8 rounded-full hover:bg-white transition-all duration-200 text-sm"
       >
         Cuéntame tu proyecto
@@ -181,6 +180,5 @@ const schema = {
     </div>
   </section>
 
-  <Contact />
   <Footer />
 </Layout>
