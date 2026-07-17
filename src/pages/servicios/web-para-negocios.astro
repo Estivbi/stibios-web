@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
 import { Globe, Zap, Shield, Search, CheckCircle } from 'lucide-react';
 
 const serviceSchema = {
@@ -16,14 +17,7 @@ const serviceSchema = {
     "url": "https://www.stibios.com"
   },
   "areaServed": "ES",
-  "serviceType": "Desarrollo Web",
-  "offers": {
-    "@type": "AggregateOffer",
-    "priceCurrency": "EUR",
-    "lowPrice": "800",
-    "highPrice": "5000",
-    "offerCount": "3"
-  }
+  "serviceType": "Desarrollo Web"
 };
 
 const breadcrumbSchema = {
@@ -68,7 +62,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "¿Cuánto cuesta una web profesional?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Una web informativa parte desde 800€. Una web con reservas o funcionalidades avanzadas parte desde 2.000€. El precio final depende de la complejidad, el número de páginas y si necesitas integraciones especiales. Siempre entrego un presupuesto cerrado antes de empezar, sin sorpresas." }
+      "acceptedAnswer": { "@type": "Answer", "text": "El precio depende de la complejidad, el número de páginas y si necesitas integraciones especiales. Tras conocer tu proyecto te entrego un presupuesto cerrado y a medida, sin sorpresas." }
     }
   ]
 };
@@ -76,7 +70,7 @@ const faqSchema = {
 
 <Layout
   title="Desarrollo Web para Negocios y Pymes"
-  description="Creamos páginas web profesionales de alto rendimiento para negocios. Diseño moderno, SEO técnico integrado y velocidad extrema para atraer más clientes. Desde 800€."
+  description="Creamos páginas web profesionales de alto rendimiento para negocios. Diseño moderno, SEO técnico integrado y velocidad extrema para atraer más clientes. Presupuesto a medida."
 >
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -166,27 +160,24 @@ const faqSchema = {
   <section class="py-16 px-6 max-w-4xl mx-auto">
     <div class="text-center mb-12">
       <span class="text-xs font-mono font-bold tracking-widest text-stibios-accent uppercase">Inversión</span>
-      <h2 class="text-3xl font-bold text-white mt-2">Precios orientativos</h2>
-      <p class="text-stibios-dim mt-2 text-sm">Presupuesto cerrado siempre antes de empezar. Sin sorpresas al final.</p>
+      <h2 class="text-3xl font-bold text-white mt-2">Presupuesto a medida</h2>
+      <p class="text-stibios-dim mt-2 text-sm">Presupuesto cerrado siempre antes de empezar, tras conocer tu proyecto. Sin sorpresas al final.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {[
         {
           tier: "Web Informativa",
-          price: "desde 800€",
           desc: "Para negocios que necesitan presencia digital profesional y captar clientes.",
           features: ["Hasta 6 páginas", "Diseño a medida", "SEO técnico básico", "Formulario de contacto", "Optimización móvil"]
         },
         {
           tier: "Web Funcional",
-          price: "desde 2.000€",
           desc: "Para negocios que necesitan reservas, pagos o funcionalidades avanzadas.",
           features: ["Todo lo anterior", "Sistema de reservas", "Integración de pagos", "Panel de administración", "CMS para contenido"],
           highlight: true
         },
         {
           tier: "Plataforma Web",
-          price: "desde 4.000€",
           desc: "Para negocios con flujos complejos, área privada o múltiples integraciones.",
           features: ["Todo lo anterior", "Área privada de cliente", "Integraciones API", "Dashboard personalizado", "Arquitectura escalable"]
         },
@@ -194,7 +185,6 @@ const faqSchema = {
         <div class={`bg-stibios-surface border rounded-2xl p-6 flex flex-col gap-4 ${plan.highlight ? 'border-stibios-accent' : 'border-stibios-border'}`}>
           {plan.highlight && <span class="text-xs font-mono font-bold text-stibios-accent tracking-widest uppercase">Más popular</span>}
           <h3 class="text-white font-bold text-lg">{plan.tier}</h3>
-          <p class="text-2xl font-black text-stibios-accent">{plan.price}</p>
           <p class="text-stibios-dim text-sm leading-relaxed">{plan.desc}</p>
           <ul class="space-y-2 mt-2">
             {plan.features.map(f => (
@@ -204,6 +194,9 @@ const faqSchema = {
               </li>
             ))}
           </ul>
+          <a href="/#contacto" class="mt-2 text-center text-sm font-bold text-stibios-accent hover:text-white transition-colors">
+            Solicitar presupuesto →
+          </a>
         </div>
       ))}
     </div>
@@ -215,24 +208,14 @@ const faqSchema = {
       <span class="text-xs font-mono font-bold tracking-widest text-stibios-accent uppercase">FAQ</span>
       <h2 class="text-3xl font-bold text-white mt-2">Preguntas frecuentes</h2>
     </div>
-    <div class="space-y-4">
-      {[
-        { q: "¿Cuánto tarda en hacerse una web profesional?", a: "Una web informativa estándar tarda entre 2 y 4 semanas desde que cerramos los requisitos. Con reservas o funcionalidades avanzadas, entre 4 y 8 semanas. La velocidad también depende de qué tan rápido me entregas el contenido." },
-        { q: "¿Necesito saber de tecnología para trabajar conmigo?", a: "No. Me explicas qué quieres conseguir con tu web y yo me encargo del resto. Las decisiones técnicas corren de mi cuenta." },
-        { q: "¿Qué diferencia hay entre Wix y Stibios?", a: "Con Wix obtienes una plantilla compartida por miles de negocios, velocidad mediocre y SEO limitado. Con Stibios obtienes código limpio construido para tu negocio concreto, optimizado para Google y que carga en milisegundos." },
-        { q: "¿Incluye mantenimiento después de la entrega?", a: "Incluye 30 días de soporte post-entrega sin coste. A partir de ahí, ofrezco planes de mantenimiento mensual que cubren actualizaciones, cambios y monitorización." },
-        { q: "¿Puedo gestionar el contenido yo mismo?", a: "Sí. Si necesitas actualizar contenido frecuentemente integro un CMS headless (Sanity) con panel visual. Si los cambios son esporádicos, simplemente me los pides." },
-        { q: "¿Cuánto cuesta una web profesional?", a: "Una web informativa parte desde 800€. Con reservas o funcionalidades avanzadas, desde 2.000€. Siempre entrego presupuesto cerrado antes de empezar." },
-      ].map(item => (
-        <details class="bg-stibios-surface border border-stibios-border rounded-xl group">
-          <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-white text-sm list-none select-none">
-            {item.q}
-            <svg class="flex-shrink-0 ml-4 transition-transform group-open:rotate-180" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-          </summary>
-          <p class="px-5 pb-5 text-stibios-dim text-sm leading-relaxed">{item.a}</p>
-        </details>
-      ))}
-    </div>
+    <FaqAccordion items={[
+      { q: "¿Cuánto tarda en hacerse una web profesional?", a: "Una web informativa estándar tarda entre 2 y 4 semanas desde que cerramos los requisitos. Con reservas o funcionalidades avanzadas, entre 4 y 8 semanas. La velocidad también depende de qué tan rápido me entregas el contenido." },
+      { q: "¿Necesito saber de tecnología para trabajar conmigo?", a: "No. Me explicas qué quieres conseguir con tu web y yo me encargo del resto. Las decisiones técnicas corren de mi cuenta." },
+      { q: "¿Qué diferencia hay entre Wix y Stibios?", a: "Con Wix obtienes una plantilla compartida por miles de negocios, velocidad mediocre y SEO limitado. Con Stibios obtienes código limpio construido para tu negocio concreto, optimizado para Google y que carga en milisegundos." },
+      { q: "¿Incluye mantenimiento después de la entrega?", a: "Incluye 30 días de soporte post-entrega sin coste. A partir de ahí, ofrezco planes de mantenimiento mensual que cubren actualizaciones, cambios y monitorización." },
+      { q: "¿Puedo gestionar el contenido yo mismo?", a: "Sí. Si necesitas actualizar contenido frecuentemente integro un CMS headless (Sanity) con panel visual. Si los cambios son esporádicos, simplemente me los pides." },
+      { q: "¿Cuánto cuesta una web profesional?", a: "El precio depende de la complejidad, el número de páginas y si necesitas integraciones especiales. Tras conocer tu proyecto te entrego un presupuesto cerrado y a medida, sin sorpresas." },
+    ]} />
   </section>
 
   <Contact />
