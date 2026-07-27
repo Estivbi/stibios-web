@@ -3,6 +3,7 @@ import Layout from './Layout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ReadingProgressBar from '../components/ReadingProgressBar';
 import ShareButtons from '../components/ShareButtons';
+import { slugify } from '../lib/slug';
 
 interface Props {
   frontmatter: {
@@ -76,9 +77,9 @@ const breadcrumbSchema = {
       <header class="blog-post__header">
         <div class="blog-post__meta">
           {frontmatter.tag && (
-            <span class="blog-post__tag">
+            <a href={`/blog/tag/${slugify(frontmatter.tag)}`} class="blog-post__tag">
               {frontmatter.tag}
-            </span>
+            </a>
           )}
           <time class="blog-post__date">{formattedDate}</time>
           <span class="blog-post__separator">·</span>
@@ -175,6 +176,13 @@ const breadcrumbSchema = {
     padding: 0.2rem 0.625rem;
     border-radius: 9999px;
     background: rgba(0, 209, 255, 0.06);
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .blog-post__tag:hover {
+    background: rgba(0, 209, 255, 0.15);
+    border-color: rgba(0, 209, 255, 0.5);
   }
 
   .blog-post__date,

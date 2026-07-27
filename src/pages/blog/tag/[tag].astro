@@ -1,0 +1,223 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BlogPostCard from '../../../components/BlogPostCard.astro';
+import { slugify } from '../../../lib/slug';
+
+interface PostFrontmatter {
+  title: string;
+  description?: string;
+  date: string;
+  tag?: string;
+  image?: string;
+  draft: boolean;
+}
+
+interface Post {
+  frontmatter: PostFrontmatter;
+  url?: string;
+}
+
+export async function getStaticPaths() {
+  const postModules = import.meta.glob('../*.md', { eager: true });
+  const posts = Object.values(postModules) as Post[];
+  const publishedPosts = posts.filter(p => !p.frontmatter.draft);
+
+  const tagNames = [...new Set(publishedPosts.map(p => p.frontmatter.tag).filter(Boolean))] as string[];
+
+  return tagNames.map(tagName => {
+    const postsForTag = publishedPosts
+      .filter(p => p.frontmatter.tag === tagName)
+      .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
+
+    return {
+      params: { tag: slugify(tagName) },
+      props: { tagName, posts: postsForTag },
+    };
+  });
+}
+
+const { tagName, posts } = Astro.props as { tagName: string; posts: Post[] };
+const tagSlug = slugify(tagName);
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.stibios.com" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.stibios.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": tagName, "item": `https://www.stibios.com/blog/tag/${tagSlug}` }
+  ]
+};
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": `Artículos sobre ${tagName} — Stibios Labs`,
+  "url": `https://www.stibios.com/blog/tag/${tagSlug}`,
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Blog de Stibios Labs",
+    "url": "https://www.stibios.com/blog"
+  }
+};
+---
+
+<Layout
+  title={`${tagName} — Blog`}
+  description={`Artículos de Stibios Labs sobre ${tagName}: software, negocios digitales y desarrollo a medida.`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+
+  <section class="blog-index">
+    <div class="blog-index__container">
+
+      <nav class="blog-index__breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span class="is-current">{tagName}</span>
+      </nav>
+
+      <header class="blog-index__header">
+        <div class="blog-index__header-label">
+          <span class="blog-index__header-dot"></span>
+          <span>Blog · {tagName}</span>
+        </div>
+        <h1 class="blog-index__title">
+          Artículos sobre {tagName}
+        </h1>
+        <p class="blog-index__subtitle">
+          {posts.length} {posts.length === 1 ? 'artículo' : 'artículos'} etiquetados como "{tagName}".
+          <a href="/blog" class="blog-index__back-link">Ver todos los artículos →</a>
+        </p>
+        <div class="blog-index__header-line"></div>
+      </header>
+
+      <div class="blog-index__grid">
+        {posts.map((post, index) => (
+          <BlogPostCard post={post} index={index} />
+        ))}
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog-index {
+    position: relative;
+    padding: 7rem 1.5rem 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .blog-index {
+      padding: 9rem 2rem 5rem;
+    }
+  }
+
+  .blog-index__container {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  .blog-index__breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-stibios-dim);
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-index__breadcrumb a {
+    color: var(--color-stibios-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .blog-index__breadcrumb a:hover {
+    color: var(--color-stibios-accent);
+  }
+
+  .blog-index__breadcrumb .is-current {
+    color: var(--color-stibios-text);
+  }
+
+  .blog-index__header {
+    margin-bottom: 3rem;
+  }
+
+  .blog-index__header-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-stibios-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-index__header-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-stibios-accent);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 209, 255, 0.4); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0, 209, 255, 0); }
+  }
+
+  .blog-index__title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--color-stibios-text);
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .blog-index__title {
+      font-size: 2.75rem;
+    }
+  }
+
+  .blog-index__subtitle {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--color-stibios-dim);
+    line-height: 1.5;
+  }
+
+  .blog-index__back-link {
+    color: var(--color-stibios-accent);
+    text-decoration: none;
+    margin-left: 0.5rem;
+  }
+
+  .blog-index__back-link:hover {
+    text-decoration: underline;
+  }
+
+  .blog-index__header-line {
+    margin-top: 1.5rem;
+    height: 1px;
+    background: linear-gradient(to right, var(--color-stibios-accent), var(--color-stibios-purple), transparent);
+    opacity: 0.4;
+  }
+
+  .blog-index__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>
