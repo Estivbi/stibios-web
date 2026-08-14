@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import { Search, PenTool, Newspaper, Github, LayoutDashboard, ArrowRight, CheckCircle } from 'lucide-react';
+
+const agentSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Stibios Agents",
+  "applicationCategory": "BusinessApplication",
+  "description": "Agentes de IA autónomos que buscan leads, escriben tu blog, vigilan tu sector y avisan de lo importante — todo en un dashboard.",
+  "url": "https://www.stibios.com/stibios-agents",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Stibios Labs",
+    "url": "https://www.stibios.com"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.stibios.com" },
+    { "@type": "ListItem", "position": 2, "name": "Stibios Agents", "item": "https://www.stibios.com/stibios-agents" }
+  ]
+};
+
+const agents = [
+  {
+    icon: Search,
+    name: "Lead Generation",
+    desc: "Busca negocios en Google Maps, los puntúa con IA, extrae emails de su web y te deja el correo escrito, listo para enviar.",
+    result: "Ahorras horas de prospección manual",
+  },
+  {
+    icon: PenTool,
+    name: "Blog automático",
+    desc: "Busca noticias de tu sector cada semana y escribe posts completos, listos para que los repases y publiques.",
+    result: "Publicas contenido sin escribir una línea",
+  },
+  {
+    icon: Newspaper,
+    name: "News Intelligence",
+    desc: "Vigila tus fuentes clave y te manda un resumen diario por Telegram con lo que de verdad importa.",
+    result: "Estás al día sin abrir 20 pestañas",
+  },
+  {
+    icon: Github,
+    name: "Dev Briefing",
+    desc: "Resume los cambios de tus repos de GitHub cada día y te avisa de lo que merece tu atención.",
+    result: "Para equipos tech que no quieren perderse nada",
+  },
+  {
+    icon: LayoutDashboard,
+    name: "Dashboard",
+    desc: "Leads, posts generados, noticias, eventos y tendencias, todo en un panel privado.",
+    result: "Todo en un sitio, sin Excel",
+  },
+];
+
+const steps = [
+  { num: "01", title: "Configuramos", desc: "Te pregunto por tu negocio, tu sector y qué te quita más tiempo. Conecto los agentes que tienen sentido para ti — nada más." },
+  { num: "02", title: "Los agentes trabajan", desc: "Buscan leads, escriben posts, leen noticias y revisan tus repos las 24 horas. Tú no tienes que acordarte de nada." },
+  { num: "03", title: "Tú revisas y publicas", desc: "Cada resultado llega a tu dashboard o a tu Telegram. Le echas un ojo, apruebas lo que te sirve, y ya." },
+];
+---
+
+<Layout
+  title="Stibios Agents — Agentes de IA que trabajan por ti"
+  description="Stibios Agents busca clientes, escribe tu blog y vigila tu sector mientras tú llevas tu negocio. Agentes de IA autónomos con un dashboard donde ves todo."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(agentSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 px-6 max-w-5xl mx-auto relative">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-96 bg-stibios-purple/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
+    <div class="relative z-10 space-y-8 text-center max-w-3xl mx-auto">
+      <nav class="text-xs font-mono text-stibios-dim flex items-center justify-center gap-2" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-stibios-accent transition-colors">Inicio</a>
+        <span>/</span>
+        <span class="text-stibios-text">Stibios Agents</span>
+      </nav>
+      <div class="inline-flex items-center gap-2 text-stibios-purple text-xs font-mono border border-stibios-purple/20 px-3 py-1 rounded-full bg-stibios-purple/5">
+        <div class="w-2 h-2 rounded-full bg-stibios-purple animate-pulse"></div>
+        STIBIOS AGENTS
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white">
+        Agentes de IA que trabajan <span class="text-stibios-purple">mientras tú duermes.</span>
+      </h1>
+      <p class="text-stibios-dim text-lg leading-relaxed max-w-2xl mx-auto">
+        Stibios Agents busca clientes, escribe tu blog y vigila tu sector 24 horas al día. Tú solo revisas y decides.
+      </p>
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/contacto" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-stibios-text text-stibios-bg font-bold py-3 px-8 rounded hover:bg-white transition-all">
+          Habla con Carol
+          <ArrowRight size={18} />
+        </a>
+        <a href="#dashboard" class="w-full sm:w-auto inline-flex items-center justify-center bg-stibios-surface border border-stibios-border text-stibios-text font-bold py-3 px-8 rounded hover:border-stibios-purple/50 transition-all">
+          Ver el dashboard
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- El problema -->
+  <section class="py-16 px-6 max-w-3xl mx-auto">
+    <div class="bg-stibios-surface border border-stibios-border rounded-2xl p-8 md:p-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-stibios-purple uppercase">El problema</span>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mt-3 mb-6">Estás pagando tu sueldo por hacer de robot</h2>
+      <div class="space-y-4 text-stibios-dim leading-relaxed">
+        <p>
+          Buscar negocios uno a uno en Google Maps para mandarles un email. Escribir un post porque hace un mes que no publicas nada. Leer veinte fuentes distintas para no perderte una noticia de tu sector. Nada de eso hace crecer tu negocio — solo te quita el tiempo que necesitas para lo que sí lo hace.
+        </p>
+        <p>
+          Son tareas repetitivas, mecánicas y aburridas. Exactamente el tipo de trabajo que una IA hace mejor que tú, sin cansarse, sin fines de semana y sin pedirte un sueldo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qué hace Stibios Agents -->
+  <section class="py-16 px-6 max-w-5xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-stibios-purple uppercase">Qué hace</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Cinco agentes, un dashboard</h2>
+      <p class="text-stibios-dim mt-2 text-sm max-w-xl mx-auto">
+        No es un chatbot que responde preguntas. Son agentes que hacen el trabajo y te lo dejan listo.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {agents.map(agent => {
+        const Icon = agent.icon;
+        return (
+          <div class="bg-stibios-surface border border-stibios-border rounded-2xl p-6 flex flex-col gap-4 hover:border-stibios-purple/50 transition-colors">
+            <div class="w-12 h-12 bg-stibios-purple/10 rounded-lg flex items-center justify-center text-stibios-purple border border-stibios-purple/20">
+              <Icon size={24} />
+            </div>
+            <div>
+              <h3 class="text-white font-bold text-lg mb-1">{agent.name}</h3>
+              <p class="text-stibios-dim text-sm leading-relaxed">{agent.desc}</p>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-mono text-stibios-purple pt-2 border-t border-stibios-border">
+              <CheckCircle size={14} className="flex-shrink-0" />
+              {agent.result}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- El dashboard -->
+  <section id="dashboard" class="py-16 px-6 max-w-5xl mx-auto scroll-mt-24">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-stibios-purple uppercase">El dashboard</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Todo en un sitio, en tiempo real</h2>
+      <p class="text-stibios-dim mt-2 text-sm max-w-xl mx-auto">
+        Leads nuevos, posts generados, noticias del día y tendencias de tu sector. Sin Excel, sin pestañas sueltas.
+      </p>
+    </div>
+    <div class="bg-stibios-surface border border-stibios-border rounded-2xl p-4 md:p-6">
+      <!-- PENDIENTE: capturas reales del dashboard de stibios-agents.vercel.app -->
+      <div class="bg-stibios-bg border border-stibios-border/50 rounded-lg h-80 md:h-[28rem] flex items-center justify-center">
+        <div class="text-center text-stibios-dim/50">
+          <LayoutDashboard size={48} class="mx-auto mb-3 opacity-30" />
+          <p class="text-sm">Captura del dashboard — pendiente de añadir</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo funciona -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono font-bold tracking-widest text-stibios-purple uppercase">Cómo funciona</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Tres pasos, sin complicarlo</h2>
+    </div>
+    <div class="space-y-6">
+      {steps.map(step => (
+        <div class="flex gap-6 items-start bg-stibios-surface border border-stibios-border rounded-2xl p-6">
+          <span class="text-stibios-purple font-mono font-bold text-2xl flex-shrink-0">{step.num}</span>
+          <div>
+            <h3 class="text-white font-bold text-lg mb-1">{step.title}</h3>
+            <p class="text-stibios-dim text-sm leading-relaxed">{step.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-6 max-w-3xl mx-auto text-center">
+    <div class="bg-stibios-surface border border-stibios-border rounded-2xl p-8 md:p-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Cuéntame qué te quita el tiempo y vemos qué agente lo resuelve.
+      </h2>
+      <p class="text-stibios-dim mb-8 max-w-xl mx-auto">
+        Hablas conmigo directamente, no con un formulario que nadie lee. Te digo con honestidad si Stibios Agents encaja con tu negocio o no.
+      </p>
+      <a href="/contacto" class="inline-flex items-center gap-2 bg-stibios-text text-stibios-bg font-bold py-3 px-8 rounded hover:bg-white transition-all">
+        Habla con Carol
+        <ArrowRight size={18} />
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
