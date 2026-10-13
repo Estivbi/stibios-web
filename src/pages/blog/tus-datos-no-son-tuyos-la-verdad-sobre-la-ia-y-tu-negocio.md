@@ -1,5 +1,3 @@
-Claro, aquí tienes el post para el blog de Stibios.
-
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Tus datos no son tuyos: la verdad sobre la IA y tu negocio"
