@@ -1,5 +1,3 @@
-Claro, aquí tienes el post para el blog de Stibios.
-
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Cuánto cuesta una web para tu negocio — sin letra pequeña"
