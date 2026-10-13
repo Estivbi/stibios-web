@@ -1,5 +1,3 @@
-Claro, aquí tienes el post para el blog de Stibios, siguiendo todas tus indicaciones.
-
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Tu negocio local NO necesita una tienda online (y cuándo sí)"
