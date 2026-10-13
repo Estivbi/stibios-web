@@ -1,5 +1,3 @@
-Claro, aquí tienes el post para el blog de Stibios.
-
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Mi método de trabajo: IA, cero reuniones inútiles y por qué no tengo equipo de ventas"
