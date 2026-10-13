@@ -1,5 +1,3 @@
-Claro, aquí tienes el post para el blog de Stibios.
-
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Lo que tu agencia web no te dice sobre la IA que usa para tu proyecto"
