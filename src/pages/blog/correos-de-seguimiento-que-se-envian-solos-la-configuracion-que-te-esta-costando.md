@@ -1,4 +1,3 @@
-```markdown
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Correos de seguimiento que se envían solos: la configuración que te está costando dinero no tener"
@@ -54,4 +53,4 @@ No tienes que automatizarlo todo. Empieza por lo que te da más dinero.
 3.  **El recordatorio de ciclo de vida.** Si vendes productos que se gastan (cremas, café, lentillas) o servicios periódicos (cortes de pelo, revisiones), calcula el ciclo medio y programa un recordatorio justo antes de que se le acabe o le toque volver. Le solucionas un problema antes de que se dé cuenta de que lo tiene.
 
 Esto no es física cuántica, pero sé que tu tiempo es para tu negocio, no para pelearte con una herramienta de email marketing. Si quieres que te ayude a montar un sistema como este, sin que tengas que tocar un solo botón, [podemos hablarlo y te preparo un plan](https://www.stibios.com/contacto).
-```
+
