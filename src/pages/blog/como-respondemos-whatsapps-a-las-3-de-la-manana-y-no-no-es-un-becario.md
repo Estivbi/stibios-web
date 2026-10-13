@@ -1,5 +1,3 @@
-Claro, aquí tienes el post para el blog de Stibios.
-
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Cómo respondemos WhatsApps a las 3 de la mañana (y no, no es un becario)"
