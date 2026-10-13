@@ -1,5 +1,3 @@
-Claro, aquí tienes el post para el blog de Stibios.
-
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Tu negocio está a un clic de desaparecer. Hablemos de copias de seguridad."
