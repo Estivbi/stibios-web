@@ -4,7 +4,7 @@ title: "Phishing: la estafa de 3€ que puede costarte 30.000€"
 description: "Soy Carol, de Stibios. Te explico sin rodeos cómo los dueños de negocios como tú pueden identificar un email de phishing y evitar que les roben sus datos o su dinero."
 date: "2026-08-20"
 tag: "IA"
-draft: true
+draft: false
 ---
 
 Recibes un email de Correos. Un paquete retenido. Solo tienes que pagar 1,79 € de aduanas. Haces clic, metes la tarjeta de la empresa y listo. O eso crees. Acabas de entregarle las llaves de tu negocio a un desconocido. Este timo, conocido como phishing, no es un problema de grandes corporaciones. Es un ataque directo a tu peluquería, a tu clínica, a tu tienda. Y el eslabón más débil no es tu antivirus, eres tú.
