@@ -1,4 +1,3 @@
-```markdown
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Tu negocio pierde dinero cada vez que confirmas una cita a mano"
@@ -53,4 +52,4 @@ No, no es caro si lo comparas con el valor de tu tiempo. Muchas de estas herrami
 El problema no es la tecnología, es dar el primer paso. Es aceptar que tu tiempo vale más que el coste de una suscripción mensual.
 
 Yo me dedico a esto. A analizar negocios como el tuyo y a montar estos sistemas para que tú solo te preocupes de ver cómo funciona. Si quieres que analicemos juntos qué tareas repetitivas están frenando tu negocio, [hablemos y te preparo un plan a medida](https://www.stibios.com/contacto).
-```
+
