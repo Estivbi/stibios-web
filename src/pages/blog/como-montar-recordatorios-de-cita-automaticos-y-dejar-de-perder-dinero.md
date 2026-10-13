@@ -1,5 +1,3 @@
-Claro, aquí tienes el post para el blog de Stibios.
-
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Cómo montar recordatorios de cita automáticos (y dejar de perder dinero)"
