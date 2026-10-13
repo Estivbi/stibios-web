@@ -1,5 +1,3 @@
-Claro, aquí tienes el post para el blog de Stibios.
-
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Reservas online para tu clínica: 4 mentiras que te crees y 1 verdad que te salvará dinero"
