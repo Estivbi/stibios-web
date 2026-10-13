@@ -1,4 +1,3 @@
-```markdown
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Clientes que no volvería a aceptar — y lo que aprendí de ellos"
@@ -47,4 +46,4 @@ Quieren implementar tecnología, pero desconfían del proceso, de los datos y de
 Esto no va de ser un proveedor difícil, sino de construir relaciones que funcionen. Un buen proyecto de tecnología, y más uno que involucra IA, se basa en la confianza y en objetivos compartidos. Es la única forma de que tu negocio crezca de verdad, y de que yo no pierda el sueño.
 
 Si quieres que analicemos si la IA puede ayudar de verdad en tu negocio (y no venderte humo), [puedes agendar una llamada conmigo](https://www.stibios.com/contacto).
-```
+
