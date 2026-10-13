@@ -1,5 +1,3 @@
-Claro, aquí tienes el post para el blog de Stibios.
-
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Facturas automáticas: cómo dejar de perder horas en administrativo"
