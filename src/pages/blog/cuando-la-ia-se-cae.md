@@ -35,6 +35,6 @@ Si la IA principal desapareciera del mapa, ¿sabrías reemplazarla? Tener claro 
 ### 3. Mantener el ritmo sin pánico
 Un corte de pocas horas no es el fin del mundo, pero sí es un recordatorio excelente de que **ningún servicio online es infalible**, por muy gigante que sea la empresa que esté detrás.
 
-Un momento de parón técnico es la oportunidad perfecta para analizar el flujo de trabajo. La tecnología debe hacernos libres, no esclavos de un solo proveedor.
+Un momento de parón técnico es la oportunidad perfecta para analizar el flujo de trabajo. La tecnología debe hacernos libres, no esclavos de un solo proveedor. Si tu negocio depende de una web o una plataforma que no puede permitirse caídas, esto es justo lo que cubre el [mantenimiento y soporte técnico](/servicios/mantenimiento-soporte): monitorización, seguridad y un plan cuando algo falla.
 
-En Stibios diseñamos e integramos soluciones de IA combinando diferentes modelos (como Gemini y Claude) precisamente por esto: para que las plataformas de nuestros clientes sean resilientes, optimicen costes y nunca dependan de que un solo gigante tecnológico tenga un buen día. Si quieres construir un sistema preparado para el mundo real, [hablemos](/contacto).
+En Stibios diseñamos e integramos soluciones de IA combinando diferentes modelos (como Gemini y Claude) precisamente por esto: para que las plataformas de nuestros clientes sean resilientes, optimicen costes y nunca dependan de que un solo gigante tecnológico tenga un buen día. Si quieres construir un sistema preparado para el mundo real, [hablemos de tu proyecto](/contacto).
