@@ -69,13 +69,13 @@ const ownProducts = [
     <div class="flex flex-col items-center text-center mb-12">
       <div class="flex items-center gap-3 mb-4">
         <Server size={32} class="text-stibios-accent" />
-        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter">
+        <h2 class="text-3xl md:text-5xl font-bold text-stibios-text tracking-tighter">
           Proyectos de Clientes
         </h2>
       </div>
       <p class="text-stibios-dim text-lg max-w-2xl leading-relaxed">
         Peluquerías, abogados, asesoras, creadores —
-        <span class="text-white font-bold italic">negocios reales con resultados reales.</span>
+        <span class="text-stibios-text font-bold italic">negocios reales con resultados reales.</span>
       </p>
     </div>
 
@@ -102,7 +102,7 @@ const ownProducts = [
             href={p.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="min-w-[85vw] md:min-w-[380px] snap-start group relative bg-stibios-surface border border-stibios-border p-6 rounded-2xl transition-all duration-500 hover:border-stibios-accent/50 hover:shadow-[0_8px_16px_rgba(0,0,0,0.1)] flex flex-col shrink-0"
+            class="min-w-[85vw] md:min-w-[380px] snap-start group relative bg-stibios-surface border border-stibios-border p-6 rounded-2xl transition-all duration-500 hover:border-stibios-accent flex flex-col shrink-0"
           >
             <div class="w-full h-48 rounded-xl mb-6 overflow-hidden relative border border-white/5 bg-black/30">
               <img
@@ -119,10 +119,10 @@ const ownProducts = [
             </div>
             <div class="flex-grow">
               <div class="flex justify-between items-start mb-3">
-                <div class="w-1.5 h-1.5 bg-stibios-accent rounded-lg animate-pulse shadow-[0_0_8px_rgba(0,209,255,0.8)]"></div>
+                <div class="w-1.5 h-1.5 bg-stibios-accent rounded-lg animate-pulse"></div>
                 <ExternalLink size={18} class="text-stibios-dim group-hover:text-stibios-accent transition-colors" />
               </div>
-              <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-tight group-hover:text-stibios-accent transition-colors">
+              <h3 class="text-xl font-bold text-stibios-text mb-2 uppercase tracking-tight group-hover:text-stibios-accent transition-colors">
                 {p.name}
               </h3>
               <p class="text-stibios-dim text-sm leading-relaxed mb-4">{p.desc}</p>
@@ -185,13 +185,13 @@ const ownProducts = [
     <div class="flex flex-col items-center text-center mb-12">
       <div class="flex items-center gap-3 mb-4">
         <Sparkles size={28} class="text-stibios-purple" />
-        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter">
+        <h2 class="text-3xl md:text-5xl font-bold text-stibios-text tracking-tighter">
           Productos Propios
         </h2>
       </div>
       <p class="text-stibios-dim text-lg max-w-2xl leading-relaxed">
         No solo construyo para clientes. También apuesto por mis propias ideas —
-        <span class="text-white font-bold italic">eso valida el criterio técnico.</span>
+        <span class="text-stibios-text font-bold italic">eso valida el criterio técnico.</span>
       </p>
     </div>
 
@@ -203,7 +203,7 @@ const ownProducts = [
           href={p.url}
           target={p.url ? "_blank" : undefined}
           rel={p.url ? "noopener noreferrer" : undefined}
-          class="flex-1 max-w-xl mx-auto w-full group relative bg-stibios-surface border border-stibios-purple/30 p-6 rounded-2xl transition-all duration-500 hover:border-stibios-purple hover:shadow-[0_0_50px_rgba(173,0,255,0.15)] flex flex-col"
+          class="flex-1 max-w-xl mx-auto w-full group relative bg-stibios-surface border border-stibios-purple/30 p-6 rounded-2xl transition-all duration-500 hover:border-stibios-purple flex flex-col"
         >
           <div class="absolute top-4 right-4">
             <span class="px-2 py-0.5 rounded-lg text-[10px] font-mono bg-stibios-purple/20 text-stibios-purple border border-stibios-purple/30 uppercase tracking-widest">
@@ -224,10 +224,10 @@ const ownProducts = [
             </div>
           </div>
           <div class="flex justify-between items-start mb-3">
-            <div class="w-1.5 h-1.5 bg-stibios-purple rounded-lg animate-pulse shadow-[0_0_8px_rgba(173,0,255,0.8)]"></div>
+            <div class="w-1.5 h-1.5 bg-stibios-purple rounded-lg animate-pulse"></div>
             <ExternalLink size={18} class="text-stibios-dim group-hover:text-stibios-purple transition-colors" />
           </div>
-          <h3 class="text-2xl font-bold text-white mb-2 uppercase tracking-tight group-hover:text-stibios-purple transition-colors">
+          <h3 class="text-2xl font-bold text-stibios-text mb-2 uppercase tracking-tight group-hover:text-stibios-purple transition-colors">
             {p.name}
           </h3>
           <p class="text-stibios-dim text-sm leading-relaxed flex-1">{p.desc}</p>

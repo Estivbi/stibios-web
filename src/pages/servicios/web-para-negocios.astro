@@ -90,14 +90,14 @@ const faqSchema = {
         <div class="w-2 h-2 rounded-full bg-stibios-accent animate-pulse"></div>
         DESARROLLO WEB PROFESIONAL
       </div>
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white">
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-stibios-text">
         Webs que proyectan <span class="text-stibios-accent">credibilidad</span> y captan clientes.
       </h1>
       <p class="text-stibios-dim text-lg leading-relaxed">
         No hacemos webs plantilleras. Construimos plataformas digitales de alto rendimiento enfocadas en resultados de negocio. Cargas ultrarrápidas, diseño impecable y listas para posicionar en Google.
       </p>
       <div class="pt-4">
-        <a href="/contacto" class="inline-flex items-center justify-center bg-stibios-text text-stibios-bg font-bold py-3 px-8 rounded hover:bg-white transition-all">
+        <a href="/contacto" class="inline-flex items-center justify-center bg-stibios-accent text-white font-bold py-3 px-8 rounded-lg hover:bg-stibios-accent-hover transition-colors">
           Solicitar presupuesto
         </a>
       </div>
@@ -109,22 +109,22 @@ const faqSchema = {
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Zap class="text-stibios-accent" size={32} />
-        <h3 class="text-xl font-bold text-white">Velocidad Extrema</h3>
+        <h3 class="text-xl font-bold text-stibios-text">Velocidad Extrema</h3>
         <p class="text-stibios-dim text-sm leading-relaxed">Desarrollo moderno sin WordPress pesados que garantiza cargas en milisegundos. Un segundo de mejora en tiempo de carga se traduce en un 7% más de conversiones.</p>
       </div>
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Search class="text-stibios-accent" size={32} />
-        <h3 class="text-xl font-bold text-white">SEO Técnico Integrado</h3>
+        <h3 class="text-xl font-bold text-stibios-text">SEO Técnico Integrado</h3>
         <p class="text-stibios-dim text-sm leading-relaxed">Estructura de datos, meta etiquetas, canonical URLs y rendimiento optimizados desde la primera línea de código. Tu web llega a Google preparada para posicionar.</p>
       </div>
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Globe class="text-stibios-accent" size={32} />
-        <h3 class="text-xl font-bold text-white">Diseño de Alto Impacto</h3>
+        <h3 class="text-xl font-bold text-stibios-text">Diseño de Alto Impacto</h3>
         <p class="text-stibios-dim text-sm leading-relaxed">Estética moderna y arquitectura visual diseñada para guiar al usuario hacia la conversión. Cada elemento tiene un propósito: que el visitante tome acción.</p>
       </div>
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Shield class="text-stibios-accent" size={32} />
-        <h3 class="text-xl font-bold text-white">Seguridad y Escalabilidad</h3>
+        <h3 class="text-xl font-bold text-stibios-text">Seguridad y Escalabilidad</h3>
         <p class="text-stibios-dim text-sm leading-relaxed">Infraestructura robusta sobre Vercel o servidores dedicados. Tu web aguanta picos de tráfico sin caerse y se mantiene segura sin que tengas que preocuparte.</p>
       </div>
     </div>
@@ -134,7 +134,7 @@ const faqSchema = {
   <section class="py-16 px-6 max-w-4xl mx-auto">
     <div class="text-center mb-12">
       <span class="text-xs font-mono font-bold tracking-widest text-stibios-accent uppercase">Cómo trabajamos</span>
-      <h2 class="text-3xl font-bold text-white mt-2">El proceso, paso a paso</h2>
+      <h2 class="text-3xl font-bold text-stibios-text mt-2">El proceso, paso a paso</h2>
       <p class="text-stibios-dim mt-2 text-sm">Sin sorpresas. Sabes en todo momento en qué punto estamos.</p>
     </div>
     <div class="space-y-6">
@@ -147,7 +147,7 @@ const faqSchema = {
         <div class="flex gap-6 items-start bg-stibios-surface border border-stibios-border rounded-2xl p-6">
           <span class="text-stibios-accent font-mono font-bold text-2xl flex-shrink-0">{step.num}</span>
           <div>
-            <h3 class="text-white font-bold text-lg mb-1">{step.title}</h3>
+            <h3 class="text-stibios-text font-bold text-lg mb-1">{step.title}</h3>
             <p class="text-stibios-dim text-sm leading-relaxed">{step.desc}</p>
           </div>
         </div>
@@ -159,7 +159,7 @@ const faqSchema = {
   <section class="py-16 px-6 max-w-4xl mx-auto">
     <div class="text-center mb-12">
       <span class="text-xs font-mono font-bold tracking-widest text-stibios-accent uppercase">Inversión</span>
-      <h2 class="text-3xl font-bold text-white mt-2">Presupuesto a medida</h2>
+      <h2 class="text-3xl font-bold text-stibios-text mt-2">Presupuesto a medida</h2>
       <p class="text-stibios-dim mt-2 text-sm">Presupuesto cerrado siempre antes de empezar, tras conocer tu proyecto. Sin sorpresas al final.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -183,7 +183,7 @@ const faqSchema = {
       ].map(plan => (
         <div class={`bg-stibios-surface border rounded-2xl p-6 flex flex-col gap-4 ${plan.highlight ? 'border-stibios-accent' : 'border-stibios-border'}`}>
           {plan.highlight && <span class="text-xs font-mono font-bold text-stibios-accent tracking-widest uppercase">Más popular</span>}
-          <h3 class="text-white font-bold text-lg">{plan.tier}</h3>
+          <h3 class="text-stibios-text font-bold text-lg">{plan.tier}</h3>
           <p class="text-stibios-dim text-sm leading-relaxed">{plan.desc}</p>
           <ul class="space-y-2 mt-2">
             {plan.features.map(f => (
@@ -193,7 +193,7 @@ const faqSchema = {
               </li>
             ))}
           </ul>
-          <a href="/contacto" class="mt-2 text-center text-sm font-bold text-stibios-accent hover:text-white transition-colors">
+          <a href="/contacto" class="mt-2 text-center text-sm font-bold text-stibios-accent hover:text-stibios-text transition-colors">
             Solicitar presupuesto →
           </a>
         </div>
@@ -205,7 +205,7 @@ const faqSchema = {
   <section class="py-16 px-6 max-w-3xl mx-auto">
     <div class="text-center mb-12">
       <span class="text-xs font-mono font-bold tracking-widest text-stibios-accent uppercase">FAQ</span>
-      <h2 class="text-3xl font-bold text-white mt-2">Preguntas frecuentes</h2>
+      <h2 class="text-3xl font-bold text-stibios-text mt-2">Preguntas frecuentes</h2>
     </div>
     <FaqAccordion items={[
       { q: "¿Cuánto tarda en hacerse una web profesional?", a: "Una web informativa estándar tarda entre 2 y 4 semanas desde que cerramos los requisitos. Con reservas o funcionalidades avanzadas, entre 4 y 8 semanas. La velocidad también depende de qué tan rápido me entregas el contenido." },

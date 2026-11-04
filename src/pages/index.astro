@@ -2,29 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 import TerminalHero from '../components/TerminalHero';
 import Footer from '../components/Footer.astro';
-import StarsBackground from '../components/StarsBackground.astro';
 import CustomDevelopment from '../components/CustomDevelopment.astro';
 import ExploreMore from '../components/ExploreMore.astro';
 import QueHacemos from '../components/QueHacemos.astro';
-import heroBackgroundImage from '../assets/img2.jpg';
 ---
 
-<Layout 
-    title="Desarrollo de Software de Alto Rendimiento" 
-    description="STIBIOS LABS - Especialistas en desarrollo web profesional, automatización B2B y productos digitales escalables con tecnología de vanguardia."
+<Layout
+    title="Desarrollo Web y Automatización con IA para Negocios"
+    description="Creo webs y automatizo tareas con IA para peluquerías, clínicas y negocios pequeños en España. Sin agencias ni plantillas — hablas directamente conmigo."
 >
-    
-    <StarsBackground />
 
     <section
 		id="inicio"
-		class="hero-section min-h-[80vh] flex flex-col justify-center relative"
+		class="hero-section min-h-[80vh] flex flex-col justify-center relative overflow-hidden"
 		aria-label="Hero"
 	>
-		{/* Dark overlay so text stays readable */}
-		<div class="absolute inset-0 bg-stibios-bg/75 z-0"></div>
-		{/* Gradient fade at the bottom to blend into the next section */}
-		<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-stibios-bg to-transparent z-0"></div>
+		<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-3xl h-96 bg-stibios-accent/10 blur-3xl rounded-full pointer-events-none z-0"></div>
+		<div class="absolute -top-20 right-0 w-80 h-80 bg-stibios-purple/10 blur-3xl rounded-full pointer-events-none z-0"></div>
 
 		{/* Static SSR content — visible immediately to crawlers */}
 		<div class="relative z-10 w-full max-w-5xl mx-auto px-4 text-center flex flex-col items-center pt-48">
@@ -35,7 +29,7 @@ import heroBackgroundImage from '../assets/img2.jpg';
 			</div>
 
 			<h1 class="text-5xl md:text-8xl font-bold mb-6 tracking-tighter leading-[1.1] md:leading-[1.1]">
-				<span class="block text-white">Tu negocio merece</span>
+				<span class="block text-stibios-text">Tu negocio merece</span>
 				<span class="block text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent via-stibios-purple to-stibios-accent bg-[length:200%_auto] animate-shimmer pb-2">
 					software de verdad
 				</span>
@@ -47,9 +41,9 @@ import heroBackgroundImage from '../assets/img2.jpg';
 			</p>
 
 			{/* Quick stats */}
-			<div class="flex flex-wrap justify-center gap-8 mb-12 font-mono text-xs text-stibios-dim/70">
+			<div class="flex flex-wrap justify-center gap-8 mb-12 font-mono text-xs text-stibios-dim">
 				<div class="flex flex-col items-center gap-1">
-					<span class="text-white text-2xl font-bold">+20</span>
+					<span class="text-stibios-text text-2xl font-bold">+20</span>
 					<span>proyectos entregados</span>
 				</div>
 				<div class="w-px h-10 bg-stibios-border self-center hidden sm:block"></div>
@@ -64,13 +58,6 @@ import heroBackgroundImage from '../assets/img2.jpg';
 		</div>
 	</section>
 
-	<style define:vars={{ heroBg: `url('${heroBackgroundImage.src}')` }}>
-		.hero-section {
-			background-image: var(--heroBg);
-			background-size: cover;
-			background-position: center top;
-		}
-	</style>
 	<QueHacemos />
     <CustomDevelopment />
     <ExploreMore />
