@@ -6,7 +6,7 @@ import { Send, Terminal } from 'lucide-react';
   
   <div class="bg-stibios-surface border border-stibios-border rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
     
-    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.025)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
 
     <div class="relative z-10 flex flex-col md:flex-row gap-12">
       
@@ -16,7 +16,7 @@ import { Send, Terminal } from 'lucide-react';
           ABIERTO PARA NUEVOS PROYECTOS
         </div>
         
-        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tighter text-center sm:text-left">
+        <h2 class="text-3xl md:text-5xl font-bold text-stibios-text mb-6 tracking-tighter text-center sm:text-left">
           Construyamos algo <br />
           <span class="text-stibios-dim italic">excepcional.</span>
         </h2>
@@ -77,7 +77,7 @@ import { Send, Terminal } from 'lucide-react';
 
           <div id="result" class="hidden font-mono text-xs p-3 border rounded mb-2"></div>
 
-          <button id="submit-btn" type="submit" class="w-full bg-stibios-text text-stibios-bg font-bold py-3 rounded-lg hover:bg-white transition-all flex items-center justify-center gap-2 group">
+          <button id="submit-btn" type="submit" class="w-full bg-stibios-accent text-white font-bold py-3 rounded-lg hover:bg-stibios-accent-hover transition-colors flex items-center justify-center gap-2 group">
             <span id="btn-text">ENVIAR</span>
             <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform opacity-60" />
           </button>

@@ -67,7 +67,7 @@ const stack = [
         <div class="w-2 h-2 rounded-full bg-stibios-accent animate-pulse"></div>
         CAROLINA
       </div>
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white reveal" style="--d:160ms">
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-stibios-text reveal" style="--d:160ms">
         Desarrolladora Full Stack
       </h1>
       <p class="text-stibios-dim text-lg leading-relaxed max-w-2xl mx-auto reveal" style="--d:240ms">
@@ -111,7 +111,7 @@ const stack = [
         </div>
 
         <!-- CTA principal -->
-        <a href="/contacto" class="w-full max-w-sm text-center bg-stibios-text text-stibios-bg font-bold py-3 px-6 rounded-lg hover:bg-white transition-all">
+        <a href="/contacto" class="w-full max-w-sm text-center bg-stibios-accent text-white font-bold py-3 px-6 rounded-lg hover:bg-stibios-accent-hover transition-colors">
           Trabajemos juntos
         </a>
       </div>
@@ -119,9 +119,9 @@ const stack = [
       <!-- Bio -->
       <div class="space-y-6">
         <div>
-          <h2 class="text-3xl font-bold text-white mb-4">Quien soy</h2>
+          <h2 class="text-3xl font-bold text-stibios-text mb-4">Quien soy</h2>
           <p class="text-stibios-dim leading-relaxed mb-4">
-            Soy <span class="text-white font-bold">Carolina</span>, fundadora de Stibios Labs — un estudio de software unipersonal especializado en productos digitales para negocios pequeños y creadores.
+            Soy <span class="text-stibios-text font-bold">Carolina</span>, fundadora de Stibios Labs — un estudio de software unipersonal especializado en productos digitales para negocios pequeños y creadores.
           </p>
           <p class="text-stibios-dim leading-relaxed mb-4">
             Construyo software para mis clientes (la peluquería, el abogado, la revista) y para mí misma (productos propios). Sin intermediarios, sin plantillas — código y estrategia a medida.
@@ -135,7 +135,7 @@ const stack = [
 
     <!-- Stack -->
     <div>
-      <h2 class="text-2xl font-bold text-white mb-8">Stack Tecnológico</h2>
+      <h2 class="text-2xl font-bold text-stibios-text mb-8">Stack Tecnológico</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         {stack.map((tech, i) => {
           const IconComponent = tech.icon;
@@ -176,7 +176,7 @@ const stack = [
     .tilt-card__glow {
       position: absolute;
       inset: -20%;
-      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(8, 145, 178, 0.18), transparent 55%);
+      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(14, 116, 144, 0.14), transparent 55%);
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
@@ -197,7 +197,7 @@ const stack = [
       transform: translateY(0);
     }
     .stack-card:hover {
-      box-shadow: 0 8px 24px rgba(8, 145, 178, 0.12);
+      box-shadow: 0 8px 24px rgba(14, 116, 144, 0.1);
     }
     .stack-card__icon {
       transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);

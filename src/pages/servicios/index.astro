@@ -98,7 +98,7 @@ const schema = {
         <div class="w-1.5 h-1.5 rounded-full bg-stibios-accent animate-pulse"></div>
         STIBIOS LABS · SERVICIOS
       </div>
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 leading-tight">
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-stibios-text mb-6 leading-tight">
         Software a medida para<br class="hidden md:block" />
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-stibios-accent via-stibios-purple to-stibios-accent bg-[length:200%_auto] animate-shimmer">
           negocios reales
@@ -118,7 +118,7 @@ const schema = {
         const c = colorMap[service.color];
         const Icon = service.icon;
         return (
-          <article class={`group relative bg-stibios-surface border rounded-2xl p-8 flex flex-col gap-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] ${c.border}`}>
+          <article class={`group relative bg-stibios-surface border rounded-2xl p-8 flex flex-col gap-5 transition-all duration-300 hover:-translate-y-1 ${c.border}`}>
             <!-- Glow background -->
             <div class={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${c.glow} blur-xl`}></div>
 
@@ -132,7 +132,7 @@ const schema = {
               <!-- Icon + Title -->
               <div class="flex flex-col gap-3">
                 <Icon size={36} className={c.feature} />
-                <h2 class="text-xl font-bold text-white leading-snug">{service.title}</h2>
+                <h2 class="text-xl font-bold text-stibios-text leading-snug">{service.title}</h2>
               </div>
 
               <!-- Description -->
@@ -152,7 +152,7 @@ const schema = {
             <!-- CTA -->
             <a
               href={service.href}
-              class={`relative z-10 mt-4 flex items-center justify-between px-5 py-3 rounded-xl border text-sm font-bold transition-all duration-200 ${c.border} bg-white/[0.02] hover:bg-white/[0.05] text-white`}
+              class={`relative z-10 mt-4 flex items-center justify-between px-5 py-3 rounded-lg border text-sm font-bold transition-all duration-200 ${c.border} bg-stibios-surface hover:bg-stibios-surface-raised text-stibios-text`}
             >
               <span>Ver servicio</span>
               <ArrowRight size={16} className={`${c.feature} group-hover:translate-x-1 transition-transform`} />
@@ -168,11 +168,11 @@ const schema = {
     <div class="max-w-3xl mx-auto border border-stibios-border rounded-2xl p-8 bg-stibios-surface/50 text-center">
       <p class="text-stibios-dim text-base leading-relaxed mb-6">
         ¿No sabes qué servicio necesitas? Cuéntame tu proyecto y te oriento sin compromiso.
-        Trabajo con <span class="text-white font-semibold">peluquerías, clínicas, consultoras, creadores y pymes</span> de toda España.
+        Trabajo con <span class="text-stibios-text font-semibold">peluquerías, clínicas, consultoras, creadores y pymes</span> de toda España.
       </p>
       <a
         href="/contacto"
-        class="inline-flex items-center gap-3 bg-stibios-accent text-stibios-bg font-bold py-3 px-8 rounded-full hover:bg-white transition-all duration-200 text-sm"
+        class="inline-flex items-center gap-3 bg-stibios-accent text-white font-bold py-3 px-8 rounded-full hover:bg-stibios-accent-hover transition-colors duration-200 text-sm"
       >
         Cuéntame tu proyecto
         <ArrowRight size={16} />

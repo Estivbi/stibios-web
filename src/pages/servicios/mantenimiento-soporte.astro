@@ -85,14 +85,14 @@ const faqSchema = {
         <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
         MANTENIMIENTO WEB
       </div>
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white">
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-stibios-text">
         Tu web siempre operativa. <span class="text-emerald-400">Sin que tengas que pensar en ello.</span>
       </h1>
       <p class="text-stibios-dim text-lg leading-relaxed">
         Una web sin mantenimiento es una bomba de relojería. Las vulnerabilidades de seguridad, las librerías desactualizadas y los errores silenciosos afectan a tu negocio aunque no los veas. Nosotros nos encargamos de todo eso.
       </p>
       <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/contacto" class="w-full sm:w-auto inline-flex items-center justify-center bg-stibios-text text-stibios-bg font-bold py-3 px-8 rounded hover:bg-white transition-all">
+        <a href="/contacto" class="w-full sm:w-auto inline-flex items-center justify-center bg-stibios-accent text-white font-bold py-3 px-8 rounded-lg hover:bg-stibios-accent-hover transition-colors">
           Solicitar mantenimiento
         </a>
       </div>
@@ -103,7 +103,7 @@ const faqSchema = {
   <section class="py-16 px-6 max-w-4xl mx-auto">
     <div class="text-center mb-12">
       <span class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">El problema real</span>
-      <h2 class="text-3xl font-bold text-white mt-2">Lo que pasa cuando no hay mantenimiento</h2>
+      <h2 class="text-3xl font-bold text-stibios-text mt-2">Lo que pasa cuando no hay mantenimiento</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {[
@@ -127,22 +127,22 @@ const faqSchema = {
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Shield class="text-emerald-400" size={32} />
-        <h3 class="text-xl font-bold text-white">Seguridad Proactiva</h3>
+        <h3 class="text-xl font-bold text-stibios-text">Seguridad Proactiva</h3>
         <p class="text-stibios-dim text-sm leading-relaxed">Auditorías regulares, actualizaciones de dependencias y parches de seguridad antes de que se conviertan en un problema. Tu web está protegida sin que tengas que hacer nada.</p>
       </div>
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Activity class="text-emerald-400" size={32} />
-        <h3 class="text-xl font-bold text-white">Monitorización 24/7</h3>
+        <h3 class="text-xl font-bold text-stibios-text">Monitorización 24/7</h3>
         <p class="text-stibios-dim text-sm leading-relaxed">Sistemas de alerta automática que nos notifican cualquier caída en tiempo real. Intervenimos antes de que tu cliente lo note, minimizando el impacto en tu negocio.</p>
       </div>
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <Cog class="text-emerald-400" size={32} />
-        <h3 class="text-xl font-bold text-white">Actualizaciones Sin Riesgo</h3>
+        <h3 class="text-xl font-bold text-stibios-text">Actualizaciones Sin Riesgo</h3>
         <p class="text-stibios-dim text-sm leading-relaxed">Probamos cada actualización en un entorno de staging antes de aplicarla en producción. Nada se rompe sin que tengamos una solución preparada.</p>
       </div>
       <div class="bg-stibios-surface border border-stibios-border p-8 rounded-2xl flex flex-col gap-4">
         <ServerCrash class="text-emerald-400" size={32} />
-        <h3 class="text-xl font-bold text-white">Backups Diarios</h3>
+        <h3 class="text-xl font-bold text-stibios-text">Backups Diarios</h3>
         <p class="text-stibios-dim text-sm leading-relaxed">Copias de seguridad automáticas en servidores externos. Si ocurre un desastre — servidor comprometido, error de deploy, ataque — restauramos tu negocio en minutos.</p>
       </div>
     </div>
@@ -152,7 +152,7 @@ const faqSchema = {
   <section class="py-16 px-6 max-w-4xl mx-auto">
     <div class="text-center mb-12">
       <span class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">Planes</span>
-      <h2 class="text-3xl font-bold text-white mt-2">Elige tu nivel de tranquilidad</h2>
+      <h2 class="text-3xl font-bold text-stibios-text mt-2">Elige tu nivel de tranquilidad</h2>
       <p class="text-stibios-dim mt-2 text-sm">Sin permanencia. Cancela o cambia de plan cuando quieras con 15 días de aviso. Precio a medida según el tamaño y necesidades de tu web.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -176,7 +176,7 @@ const faqSchema = {
       ].map(plan => (
         <div class={`bg-stibios-surface border rounded-2xl p-6 flex flex-col gap-4 ${plan.highlight ? 'border-emerald-500' : 'border-stibios-border'}`}>
           {plan.highlight && <span class="text-xs font-mono font-bold text-emerald-400 tracking-widest uppercase">Más popular</span>}
-          <h3 class="text-white font-bold text-lg">{plan.tier}</h3>
+          <h3 class="text-stibios-text font-bold text-lg">{plan.tier}</h3>
           <p class="text-stibios-dim text-sm leading-relaxed">{plan.desc}</p>
           <ul class="space-y-2 mt-2">
             {plan.features.map(f => (
@@ -186,7 +186,7 @@ const faqSchema = {
               </li>
             ))}
           </ul>
-          <a href="/contacto" class="mt-2 text-center text-sm font-bold text-emerald-400 hover:text-white transition-colors">
+          <a href="/contacto" class="mt-2 text-center text-sm font-bold text-emerald-400 hover:text-stibios-text transition-colors">
             Solicitar presupuesto →
           </a>
         </div>
@@ -198,7 +198,7 @@ const faqSchema = {
   <section class="py-16 px-6 max-w-3xl mx-auto">
     <div class="text-center mb-12">
       <span class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">FAQ</span>
-      <h2 class="text-3xl font-bold text-white mt-2">Preguntas frecuentes</h2>
+      <h2 class="text-3xl font-bold text-stibios-text mt-2">Preguntas frecuentes</h2>
     </div>
     <FaqAccordion items={[
       { q: "¿Qué incluye el plan básico?", a: "Actualizaciones de seguridad mensuales, monitorización de disponibilidad, backup semanal y hasta 1 hora mensual de cambios menores. Más horas o funcionalidades nuevas se presupuestan aparte." },

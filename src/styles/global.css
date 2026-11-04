@@ -15,17 +15,23 @@
   --font-sans: "Inter", "Geist", "San Francisco", "Helvetica Neue", sans-serif;
   --font-mono: "JetBrains Mono", "JetBrains Mono Fallback", monospace;
   
-  /* Colores Base (Azul y Morado profesionales) */
-  --color-stibios-bg: #1D1F27;
-  --color-stibios-surface: #2C2F3F;
-  --color-stibios-border: #3A3D52;
-  --color-stibios-text: #F8FAFC;
-  --color-stibios-dim: #A8B5C5;
+  /* Colores Base — tema claro (ver DESIGN.md) */
+  --color-stibios-bg: #FFFFFF;
+  --color-stibios-surface: #F8FAFC;
+  --color-stibios-surface-raised: #F1F5F9;
+  --color-stibios-border: #E2E8F0;
+  --color-stibios-border-strong: #CBD5E1;
+  --color-stibios-text: #0F172A;
+  --color-stibios-dim: #475569;
+  --color-stibios-dim-2: #94A3B8;
 
-  /* Accent Colors (tono profesional, menos neon) */
-  --color-stibios-accent: #0891B2;  /* Cyan profesional (vs #00D1FF neon) */
-  --color-stibios-purple: #7C3AED;  /* Purple corporativo (vs #AD00FF neon) */
-  --color-stibios-glow: #0891B2;    /* Azul profesional */
+  /* Acento — único por pantalla, el morado es de apoyo (ver DESIGN.md) */
+  --color-stibios-accent: #0E7490;
+  --color-stibios-accent-hover: #0891B2;
+  --color-stibios-purple: #7C3AED;
+  --color-stibios-glow: #0E7490;
+  --color-stibios-success: #059669;
+  --color-stibios-warning: #D97706;
 
   /* Animaciones Sutiles */
   --animate-cursor-blink: blink 1s step-end infinite;
