@@ -29,7 +29,7 @@ Una web puede costar desde 300€ en plataformas como Wix hasta 20.000€ en una
 
 **El contenido.** Muchos presupuestos no incluyen escribir los textos ni hacer las fotos. Si llegas con todo el contenido listo, el proceso es más rápido y más barato.
 
-**El mantenimiento posterior.** Una web no es un producto que se entrega y se olvida. Las actualizaciones de seguridad, los cambios de contenido y las mejoras continuas tienen un coste. Pregunta siempre qué pasa después de la entrega.
+**El mantenimiento posterior.** Una web no es un producto que se entrega y se olvida. Las actualizaciones de seguridad, los cambios de contenido y las mejoras continuas tienen un coste. Pregunta siempre qué pasa después de la entrega — te cuento [qué debería incluir un mantenimiento serio](/blog/mantenimiento-web-que-incluye-y-cuanto-deberias-pagar) en otro post.
 
 ## Rangos orientativos en 2026
 
@@ -42,7 +42,7 @@ Estos son rangos para trabajo a medida. Con plantillas, los precios bajan. Con a
 
 ## La pregunta que deberías hacerte
 
-No es "¿cuánto cuesta?" sino "¿qué tiene que hacer mi web por mi negocio?". Si la respuesta es "que me encuentren y me llamen", no necesitas nada complejo. Si la respuesta es "que los clientes reserven, paguen y reciban confirmación automática", ya es otra conversación.
+No es "¿cuánto cuesta?" sino "¿qué tiene que hacer mi web por mi negocio?". Si la respuesta es "que me encuentren y me llamen", no necesitas nada complejo — mira [qué necesita de verdad una web de negocio de cita previa](/blog/web-para-peluquerias-y-clinicas-que-necesitas-de-verdad). Si la respuesta es "que los clientes reserven, paguen y reciban confirmación automática", ya es otra conversación, más cercana a un [producto a medida](/servicios/producto-a-medida) que a una web estándar.
 
 ---
 
