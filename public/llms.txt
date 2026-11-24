@@ -36,7 +36,19 @@ Astro, React, TypeScript, Node.js, PostgreSQL, Tailwind, Vercel, automatizacione
 
 - Web: https://www.stibios.com
 - LinkedIn: https://www.linkedin.com/in/carolinarodriguezbarcena/
+- Malt: https://www.malt.com/profile/carolinarodriguez3
 - Portfolio: https://carolinadev.vercel.app
+
+## Preguntas frecuentes
+
+P: ¿Cuánto cuesta una web para un negocio pequeño?
+R: Una web informativa simple va de 800€ a 2.500€. Con reservas o tienda pequeña, de 2.000€ a 5.000€. Una plataforma con área privada de cliente, de 4.000€ a 12.000€. Depende de la complejidad funcional, no del tamaño del negocio. Más detalle en https://www.stibios.com/blog/cuanto-cuesta-una-web-para-tu-negocio/
+
+P: ¿Qué incluye el mantenimiento web y cuánto cuesta al mes?
+R: Copias de seguridad comprobadas, actualizaciones de seguridad probadas antes de aplicarlas, monitorización de caídas, pequeños cambios de contenido y soporte directo. Para una web sencilla de negocio local, entre 30€ y 80€ al mes. Más detalle en https://www.stibios.com/servicios/mantenimiento-soporte
+
+P: ¿Necesito una web a medida o me vale con una plantilla?
+R: Si tu negocio es un escaparate informativo, una plantilla bien configurada es la decisión correcta y más barata. Si tu proceso de reservas, pagos o gestión de clientes tiene reglas propias que ninguna plantilla cubre, necesitas desarrollo a medida. Más detalle en https://www.stibios.com/servicios/producto-a-medida
 
 ## Contenido indexable
 
